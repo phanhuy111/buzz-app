@@ -4,8 +4,8 @@ require 'spaceship'
 Spaceship::ConnectAPI::App.const_set('ESSENTIAL_INCLUDES', 'appStoreVersions')
 
 #   ENV['ITMSTRANSPORTER_FORCE_ITMS_PACKAGE_UPLOAD'] = 'true'
-ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'S290LWtub3JpZTpnaHBfVndueWNvR2NzV2hhcUV1MXZDRmRyZzZEYUNRSFZYMzI5VnQ5'
-ENV['MATCH_PASSWORD'] = 'Costakyu32001'
+ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ZHVjLXJlYWR5ZGVkaXM6Z2hwX3FERDJuZ1V1c3VycFM5cFlLN1RwM1dzQXFuYzhrdjEzMVo4WQ=='
+ENV['MATCH_PASSWORD'] = 'Readydedis@123'
 
 android_testers = 'duc@readydedis.com'
 app_id_dev= 'com.store.buzz.app.dev'
@@ -19,9 +19,9 @@ ios_issuer_id = 'bd37b787-a5ff-47e0-a77a-f8d1545554bb'
 ios_key_id = 'NHQ769D786'
 ios_key_path = './fastlane/AuthKey_NHQ769D786.p8'
 
-firebase_app_distribution_android_dev='1:294446556555:android:18cafdd71c971ddfa83b8e'
+firebase_app_distribution_android_dev='1:902814614173:android:2b86984981024e8d034a74'
 firebase_app_distribution_android_production='1:971919237075:android:8887d33499685d6e8cd926'
-firebase_token = '1//0ejFT7x5FqDaNCgYIARAAGA4SNwF-L9IroPQhxT47R74q3VKWvrfWIu42ORJSv6UbqvTLCiTKxs-CxQiJ5Gj49oM9fNevhhl2sSc'
+firebase_token = '1//0eWi1Wx6XVa-MCgYIARAAGA4SNwF-L9IrHwwzc3snI-ZfsTJrWRI8xX51jUW0_PGjjW9llaLCDTPITXksnQ2ZUlLVRsUEt-8KofI'
 
 platform :ios do
   api_key = app_store_connect_api_key(

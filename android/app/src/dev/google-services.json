@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "902814614173",
+    "project_id": "buzz-dev-e5f44",
+    "storage_bucket": "buzz-dev-e5f44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902814614173:android:2b86984981024e8d034a74",
+        "android_client_info": {
+          "package_name": "com.store.buzz.app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902814614173-cl349tf0gs0i1b41nnkf0f7dgidk09hb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdofW-qwNEfC1HxACjMdjlFpY2e9R6zbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902814614173-cl349tf0gs0i1b41nnkf0f7dgidk09hb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "902814614173-d3q85bn64iuhjmodbsl6kre1n3f153g9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.store.buzz.app.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
