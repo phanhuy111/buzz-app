@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["es6"],
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"]
+    },
+    "allowJs": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "./src/",
+    ".eslintrc.js",
+    "metro.config.js",
+    "index.js",
+    "./src/**/**.**",
+    "babel.config.js",
+    "app.transformer.js",
+    "./src/custom.d.ts"
+  ],
+  "exclude": ["node_modules", "jest.config.js"]
+}

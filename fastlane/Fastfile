@@ -1,0 +1,138 @@
+fastlane_version '2.53.1'
+
+require 'spaceship'
+Spaceship::ConnectAPI::App.const_set('ESSENTIAL_INCLUDES', 'appStoreVersions')
+
+#   ENV['ITMSTRANSPORTER_FORCE_ITMS_PACKAGE_UPLOAD'] = 'true'
+ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'S290LWtub3JpZTpnaHBfVndueWNvR2NzV2hhcUV1MXZDRmRyZzZEYUNRSFZYMzI5VnQ5'
+ENV['MATCH_PASSWORD'] = 'Costakyu32001'
+
+android_testers = 'duc@readydedis.com'
+app_id_dev= 'com.store.buzz.app.dev'
+app_name_dev= 'Buzz Dev'
+app_id_production = 'com.store.buzz.app'
+app_name_production = 'Buzz'
+xcodeproj_path =  './ios/buzz.xcodeproj'
+info_plist_path = './buzz/Info.plist'
+ipa_path = './ios/build/buzz.ipa'
+ios_issuer_id = 'bd37b787-a5ff-47e0-a77a-f8d1545554bb'
+ios_key_id = 'NHQ769D786'
+ios_key_path = './fastlane/AuthKey_NHQ769D786.p8'
+
+firebase_app_distribution_android_dev='1:294446556555:android:18cafdd71c971ddfa83b8e'
+firebase_app_distribution_android_production='1:971919237075:android:8887d33499685d6e8cd926'
+firebase_token = '1//0ejFT7x5FqDaNCgYIARAAGA4SNwF-L9IroPQhxT47R74q3VKWvrfWIu42ORJSv6UbqvTLCiTKxs-CxQiJ5Gj49oM9fNevhhl2sSc'
+
+platform :ios do
+  api_key = app_store_connect_api_key(
+    key_id: ios_key_id,
+    issuer_id: ios_issuer_id,
+    key_filepath: ios_key_path,
+    duration: 300,
+    in_house: false
+  )
+
+  desc 'Change Info Plist Dev'
+  lane :set_dev_info do
+    update_app_identifier(
+        xcodeproj: xcodeproj_path,
+        plist_path: info_plist_path,
+        app_identifier: app_id_dev
+    )
+    update_info_plist(
+      plist_path: info_plist_path,
+      xcodeproj: xcodeproj_path,
+      display_name: app_name_dev,
+    )
+  end
+
+  desc 'Change Info Plist Production'
+  lane :set_production_info do
+    update_app_identifier(
+        xcodeproj: xcodeproj_path,
+        plist_path: info_plist_path,
+        app_identifier: app_id_production
+    )
+    update_info_plist(
+      plist_path: info_plist_path,
+      xcodeproj: xcodeproj_path,
+      display_name: app_name_production,
+    )
+  end
+
+  desc 'Sync Signing Profile'
+  lane :setup do
+    match(
+     app_identifier: [app_id_dev,app_id_production],
+     type:"appstore",
+     keychain_password:"828813"
+     )
+  end
+
+  desc 'Ship to Testflight.'
+  lane :deploy_dev do
+    match(type: "appstore", app_identifier: app_id_dev)
+    changelog = changelog_from_git_commits(
+        merge_commit_filtering: "exclude_merges",
+        commits_count: 1
+    )
+    upload_to_testflight(
+        groups: ["Internal Users","External Users"],
+        ipa:ipa_path,
+        api_key: api_key,
+        skip_waiting_for_build_processing:true,
+        changelog:changelog
+    )
+  end
+
+  lane :deploy_production do
+    match(type: "appstore", app_identifier: app_id_production)
+    changelog = changelog_from_git_commits(
+        merge_commit_filtering: "exclude_merges",
+        commits_count: 1
+    )
+    upload_to_testflight(
+        groups: ["Internal Users","External Users"],
+        ipa:ipa_path,
+        api_key: api_key,
+        skip_waiting_for_build_processing:true,
+        changelog:changelog
+    )
+  end
+
+end
+
+platform :android do
+
+  changelog = changelog_from_git_commits(
+    merge_commit_filtering: "exclude_merges",
+    commits_count: 1
+  )
+
+  # Android Dev
+  lane :distribute_firebase_dev do
+    firebase_app_distribution(
+      android_artifact_path: "./android/app/build/outputs/apk/dev/release/app-dev-release.apk",
+      android_artifact_type: "APK",
+      app: firebase_app_distribution_android_dev,
+      testers_file: "./fastlane/testers.txt",
+      testers: android_testers,
+      release_notes: changelog,
+      firebase_cli_token:firebase_token
+    )
+  end
+
+  # Android Production
+  lane :distribute_firebase_production do
+    firebase_app_distribution(
+      android_artifact_path: "./android/app/build/outputs/bundle/productionRelease/app-production-release.aab",
+      android_artifact_type: "AAB",
+      app: firebase_app_distribution_android_production,
+      testers_file: "./fastlane/testers.txt",
+      testers: android_testers,
+      release_notes: changelog,
+      firebase_cli_token:firebase_token
+    )
+  end
+end
+

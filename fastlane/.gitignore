@@ -1,0 +1,8 @@
+playstore-key.json
+metadata
+versionNameAppfile
+versionCodeAppfile
+
+./fastlane/report.xml
+./fastlane/Preview.html
+./fastlane/screenshots
