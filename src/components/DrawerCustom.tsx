@@ -14,6 +14,7 @@ import { colors } from "themes";
 import { avatar } from "assets/images";
 import Close from "assets/icons/close.svg";
 import { moderateScale, scale, verticalScale } from "utils";
+import { Button } from "./Button";
 
 export const DrawerCustom = (props: DrawerContentComponentProps) => {
   const { formatMessage } = useIntl();
@@ -84,9 +85,10 @@ export const DrawerCustom = (props: DrawerContentComponentProps) => {
             ItemSeparatorComponent={ItemSeparatorComponent}
           />
           <View style={styles.footer}>
-            <TouchableHighlight style={styles.button} onPress={onClose}>
-              <Text style={styles.buttonText}>Log out</Text>
-            </TouchableHighlight>
+            <Button
+              title={formatMessage({ defaultMessage: "LOG OUT" })}
+              onPress={onClose}
+            />
           </View>
         </View>
       </SafeAreaView>
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: moderateScale(24),
     paddingBottom: verticalScale(20),
+    fontWeight: "500",
   },
   item: {
     paddingHorizontal: verticalScale(20),
@@ -144,19 +147,5 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingHorizontal: verticalScale(20),
-  },
-  button: {
-    padding: 14,
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.gray[1],
-    borderRadius: 10,
-  },
-  buttonText: {
-    fontFamily: "Rajdhani",
-    fontSize: moderateScale(24),
-    fontWeight: "700",
-    color: colors.white[0],
   },
 });
