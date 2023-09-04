@@ -27,9 +27,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   buttonText: {
-    fontFamily: "Rajdhani",
+    fontFamily: "Industry-Bold",
     fontSize: moderateScale(16),
-    fontWeight: "700",
     color: colors.white[0],
   },
 });
