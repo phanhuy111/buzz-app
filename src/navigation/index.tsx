@@ -9,8 +9,15 @@ import {
   SETTING,
   TAX_DOCUMENTS,
 } from "constants/routeNames";
-import { Home } from "screens";
-import { StatusBar, View } from "react-native";
+import {
+  Home,
+  Notifications,
+  PastJobs,
+  PaymentOptions,
+  Setting,
+  TaxDocuments,
+} from "screens";
+import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { DrawerCustom } from "components";
 import { scale } from "utils";
@@ -36,11 +43,11 @@ function ApplicationStack() {
           }}
         >
           <Drawer.Screen name={HOME} component={Home} />
-          <Drawer.Screen name={SETTING} component={Home} />
-          <Drawer.Screen name={PAST_JOB} component={Home} />
-          <Drawer.Screen name={PAYMENT_OPTIONS} component={Home} />
-          <Drawer.Screen name={NOTIFICATIONS} component={Home} />
-          <Drawer.Screen name={TAX_DOCUMENTS} component={Home} />
+          <Drawer.Screen name={SETTING} component={Setting} />
+          <Drawer.Screen name={PAST_JOB} component={PastJobs} />
+          <Drawer.Screen name={PAYMENT_OPTIONS} component={PaymentOptions} />
+          <Drawer.Screen name={NOTIFICATIONS} component={Notifications} />
+          <Drawer.Screen name={TAX_DOCUMENTS} component={TaxDocuments} />
         </Drawer.Navigator>
       </GestureHandlerRootView>
     </NavigationContainer>
