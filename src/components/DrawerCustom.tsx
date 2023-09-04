@@ -15,25 +15,42 @@ import { avatar } from "assets/images";
 import Close from "assets/icons/close.svg";
 import { moderateScale, scale, verticalScale } from "utils";
 import { Button } from "./Button";
+import {
+  HOME,
+  NOTIFICATIONS,
+  PAST_JOB,
+  PAYMENT_OPTIONS,
+  SETTING,
+  TAX_DOCUMENTS,
+} from "constants/index";
 
 export const DrawerCustom = (props: DrawerContentComponentProps) => {
   const { formatMessage } = useIntl();
 
   const data = [
     {
+      title: formatMessage({ defaultMessage: "HOME" }),
+      route: HOME,
+    },
+    {
       title: formatMessage({ defaultMessage: "SETTING" }),
+      route: SETTING,
     },
     {
       title: formatMessage({ defaultMessage: "PAST JOBS" }),
+      route: PAST_JOB,
     },
     {
       title: formatMessage({ defaultMessage: "PAYMENT OPTIONS" }),
+      route: PAYMENT_OPTIONS,
     },
     {
       title: formatMessage({ defaultMessage: "NOTIFICATIONS" }),
+      route: NOTIFICATIONS,
     },
     {
       title: formatMessage({ defaultMessage: "TAX DOCUMENTS" }),
+      route: TAX_DOCUMENTS,
     },
   ];
 
@@ -43,6 +60,7 @@ export const DrawerCustom = (props: DrawerContentComponentProps) => {
 
   const renderItem = useCallback(({ item, index }: any) => {
     const onPress = () => {
+      props.navigation.navigate(item.route);
       onClose();
     };
 
@@ -137,7 +155,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    marginHorizontal:verticalScale(20),
+    marginHorizontal: verticalScale(20),
     paddingVertical: verticalScale(10),
     justifyContent: "space-between",
     borderBottomWidth: 1,
@@ -146,7 +164,7 @@ const styles = StyleSheet.create({
   headerInner: {
     flexDirection: "row",
     alignItems: "center",
-    gap:verticalScale(10),
+    gap: verticalScale(10),
   },
   footer: {
     paddingHorizontal: verticalScale(20),
