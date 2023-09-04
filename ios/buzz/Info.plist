@@ -57,7 +57,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like to use your camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) would like access to your photo gallery</string>
 	<key>UIAppFonts</key>
@@ -82,6 +82,12 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Industry-Medium.ttf</string>
+		<string>Industry-Black.ttf</string>
+		<string>Industry-Bold.ttf</string>
+		<string>Industry-Book.ttf</string>
+		<string>Industry-Demi.ttf</string>
+		<string>Industry-Light.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

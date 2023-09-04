@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
   inner: {
     flex: 1,
-    gap: 10,
+    gap: verticalScale(20),
   },
   label: {
     fontFamily: "Rajdhani",
@@ -132,18 +132,21 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(24),
     fontWeight: "700",
     color: colors.white[0],
+    textTransform: "uppercase",
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    marginHorizontal:verticalScale(20),
+    paddingVertical: verticalScale(10),
     justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: colors.white[0],
   },
   headerInner: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 10,
+    gap:verticalScale(10),
   },
   footer: {
     paddingHorizontal: verticalScale(20),

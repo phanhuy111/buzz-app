@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* buzzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* buzzTests.m */; };
 		045E5BCA2A9E45B400A22FA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045E5BC92A9E45B400A22FA2 /* GoogleService-Info.plist */; };
+		04BAF6512AA5B0430035E299 /* Industry-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF6462AA5B0420035E299 /* Industry-Bold.ttf */; };
+		04BAF6532AA5B0430035E299 /* Industry-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF6482AA5B0430035E299 /* Industry-Book.ttf */; };
+		04BAF6542AA5B0430035E299 /* Industry-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF6492AA5B0430035E299 /* Industry-Black.ttf */; };
+		04BAF6552AA5B0430035E299 /* Industry-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF64A2AA5B0430035E299 /* Industry-Light.ttf */; };
+		04BAF6582AA5B0430035E299 /* Industry-Demi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF64D2AA5B0430035E299 /* Industry-Demi.ttf */; };
+		04BAF65B2AA5B0430035E299 /* Industry-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BAF6502AA5B0430035E299 /* Industry-Medium.ttf */; };
 		04CE1D652AA3357700020467 /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D602AA3357700020467 /* Rajdhani-Medium.ttf */; };
 		04CE1D662AA3357700020467 /* Rajdhani-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D612AA3357700020467 /* Rajdhani-Light.ttf */; };
 		04CE1D672AA3357700020467 /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D622AA3357700020467 /* Rajdhani-Regular.ttf */; };
@@ -20,6 +26,11 @@
 		30E995F53E2743A66E457356 /* Pods_buzz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE7F416FC62E9752F8960FC /* Pods_buzz.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9A51B937FF57AA8148E9A026 /* Pods_buzz_buzzTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02D7737F15F78E6C043FBCF /* Pods_buzz_buzzTests.framework */; };
+		C4B2A44519BF4989BB6DA06B /* Industry-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E781838AE13049C7953035E7 /* Industry-Black.ttf */; };
+		A39F7149B5BF4A858F7AB09C /* Industry-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAF7454165A04F1B920E12CD /* Industry-Bold.ttf */; };
+		E75615E2FE8642F59F8F2F9A /* Industry-Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EBB3B9E6605498FBF575BD3 /* Industry-Book.ttf */; };
+		898EEEE1FE8D4867959898D5 /* Industry-Demi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3BF3BAA6841EBA07E6D22 /* Industry-Demi.ttf */; };
+		7B087F94A849433695507437 /* Industry-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A35F653206BE42E69C1EB060 /* Industry-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +50,12 @@
 		045E5BC92A9E45B400A22FA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "buzz/firebase/dev/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		048C8E132A9DFB4F00E88B70 /* buzzRelease.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = buzzRelease.entitlements; path = buzz/buzzRelease.entitlements; sourceTree = "<group>"; };
 		048C8E142A9DFB6300E88B70 /* buzzDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = buzzDebug.entitlements; path = buzz/buzzDebug.entitlements; sourceTree = "<group>"; };
+		04BAF6462AA5B0420035E299 /* Industry-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Bold.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Bold.ttf"; sourceTree = "<group>"; };
+		04BAF6482AA5B0430035E299 /* Industry-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Book.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Book.ttf"; sourceTree = "<group>"; };
+		04BAF6492AA5B0430035E299 /* Industry-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Black.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Black.ttf"; sourceTree = "<group>"; };
+		04BAF64A2AA5B0430035E299 /* Industry-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Light.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Light.ttf"; sourceTree = "<group>"; };
+		04BAF64D2AA5B0430035E299 /* Industry-Demi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Demi.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Demi.ttf"; sourceTree = "<group>"; };
+		04BAF6502AA5B0430035E299 /* Industry-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Industry-Medium.ttf"; path = "../../../../Downloads/Industry (4)/Industry-Medium.ttf"; sourceTree = "<group>"; };
 		04CE1D602AA3357700020467 /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rajdhani-Medium.ttf"; path = "../src/assets/fonts/Rajdhani-Medium.ttf"; sourceTree = "<group>"; };
 		04CE1D612AA3357700020467 /* Rajdhani-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rajdhani-Light.ttf"; path = "../src/assets/fonts/Rajdhani-Light.ttf"; sourceTree = "<group>"; };
 		04CE1D622AA3357700020467 /* Rajdhani-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rajdhani-Regular.ttf"; path = "../src/assets/fonts/Rajdhani-Regular.ttf"; sourceTree = "<group>"; };
@@ -59,6 +76,11 @@
 		B33B3FB4370DC750E2C0D848 /* Pods-buzz-buzzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buzz-buzzTests.debug.xcconfig"; path = "Target Support Files/Pods-buzz-buzzTests/Pods-buzz-buzzTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C02D7737F15F78E6C043FBCF /* Pods_buzz_buzzTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_buzz_buzzTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E781838AE13049C7953035E7 /* Industry-Black.ttf */ = {isa = PBXFileReference; name = "Industry-Black.ttf"; path = "../src/assets/fonts/Industry-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BAF7454165A04F1B920E12CD /* Industry-Bold.ttf */ = {isa = PBXFileReference; name = "Industry-Bold.ttf"; path = "../src/assets/fonts/Industry-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9EBB3B9E6605498FBF575BD3 /* Industry-Book.ttf */ = {isa = PBXFileReference; name = "Industry-Book.ttf"; path = "../src/assets/fonts/Industry-Book.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0BA3BF3BAA6841EBA07E6D22 /* Industry-Demi.ttf */ = {isa = PBXFileReference; name = "Industry-Demi.ttf"; path = "../src/assets/fonts/Industry-Demi.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A35F653206BE42E69C1EB060 /* Industry-Light.ttf */ = {isa = PBXFileReference; name = "Industry-Light.ttf"; path = "../src/assets/fonts/Industry-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,11 +193,22 @@
 		F0FBAAEED928488D93B0CAD2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				04BAF6492AA5B0430035E299 /* Industry-Black.ttf */,
+				04BAF6462AA5B0420035E299 /* Industry-Bold.ttf */,
+				04BAF6482AA5B0430035E299 /* Industry-Book.ttf */,
+				04BAF64D2AA5B0430035E299 /* Industry-Demi.ttf */,
+				04BAF64A2AA5B0430035E299 /* Industry-Light.ttf */,
+				04BAF6502AA5B0430035E299 /* Industry-Medium.ttf */,
 				04CE1D632AA3357700020467 /* Rajdhani-Bold.ttf */,
 				04CE1D612AA3357700020467 /* Rajdhani-Light.ttf */,
 				04CE1D602AA3357700020467 /* Rajdhani-Medium.ttf */,
 				04CE1D622AA3357700020467 /* Rajdhani-Regular.ttf */,
 				04CE1D642AA3357700020467 /* Rajdhani-SemiBold.ttf */,
+				E781838AE13049C7953035E7 /* Industry-Black.ttf */,
+				BAF7454165A04F1B920E12CD /* Industry-Bold.ttf */,
+				9EBB3B9E6605498FBF575BD3 /* Industry-Book.ttf */,
+				0BA3BF3BAA6841EBA07E6D22 /* Industry-Demi.ttf */,
+				A35F653206BE42E69C1EB060 /* Industry-Light.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -277,13 +310,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				04BAF6542AA5B0430035E299 /* Industry-Black.ttf in Resources */,
+				04BAF6582AA5B0430035E299 /* Industry-Demi.ttf in Resources */,
 				04CE1D662AA3357700020467 /* Rajdhani-Light.ttf in Resources */,
 				04CE1D672AA3357700020467 /* Rajdhani-Regular.ttf in Resources */,
+				04BAF65B2AA5B0430035E299 /* Industry-Medium.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				04CE1D682AA3357700020467 /* Rajdhani-Bold.ttf in Resources */,
 				04CE1D652AA3357700020467 /* Rajdhani-Medium.ttf in Resources */,
+				04BAF6512AA5B0430035E299 /* Industry-Bold.ttf in Resources */,
 				04CE1D692AA3357700020467 /* Rajdhani-SemiBold.ttf in Resources */,
 				045E5BCA2A9E45B400A22FA2 /* GoogleService-Info.plist in Resources */,
+				04BAF6532AA5B0430035E299 /* Industry-Book.ttf in Resources */,
+				04BAF6552AA5B0430035E299 /* Industry-Light.ttf in Resources */,
+				C4B2A44519BF4989BB6DA06B /* Industry-Black.ttf in Resources */,
+				A39F7149B5BF4A858F7AB09C /* Industry-Bold.ttf in Resources */,
+				E75615E2FE8642F59F8F2F9A /* Industry-Book.ttf in Resources */,
+				898EEEE1FE8D4867959898D5 /* Industry-Demi.ttf in Resources */,
+				7B087F94A849433695507437 /* Industry-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
