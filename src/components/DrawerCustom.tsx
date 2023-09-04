@@ -168,5 +168,6 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingHorizontal: verticalScale(20),
+    paddingBottom: verticalScale(10),
   },
 });

@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "902814614173-cl349tf0gs0i1b41nnkf0f7dgidk09hb.apps.googleusercontent.com",
+          "client_id": "902814614173-52t8safb7n0ji3i0jkf8hba1mrqptqpc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.store.buzz.app.dev",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "902814614173-vunj5ve3sh39oq84ga4occ9phtl3ka9l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
