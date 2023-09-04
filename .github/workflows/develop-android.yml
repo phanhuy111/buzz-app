@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Inject Keystore
-        run: echo "$KEY_STORE" | base64 --decode > "$(pwd)/android/app/wego.keystore"
+        run: echo "$KEY_STORE" | base64 --decode > "$(pwd)/android/app/buzz.keystore"
         shell: bash
         env:
           KEY_STORE: ${{secrets.KEY_STORE}}
