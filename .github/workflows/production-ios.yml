@@ -1,0 +1,38 @@
+name: iOs - Production - Build and Deploy
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  build-ios:
+    name: Build iOs in Production Environment
+    runs-on: react-native
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Auto Version for iOs
+        run: sh ./scripts/auto-version-ios.sh
+      - name: Print Production Env
+        run: echo "$ENV_PRODUCTION" > .env.production
+        shell: bash
+        env:
+          ENV_PRODUCTION: ${{secrets.ENV_PRODUCTION}}
+      - name: Bundle Install
+        run: bundle install
+      - name: Yarn
+        run: yarn install
+      - name: Pod
+        run: cd ios && pod install && cd ..
+      - name: Unlock CI
+        run: yarn unlock-ci
+      - name: Set Production Info
+        run: bundle exec fastlane ios set_production_info
+      - name: Setup iOs cert
+        run: bundle exec fastlane ios setup
+      - name: Build iOs Production
+        run: yarn build:ios:production
+      - name: Export Ipa
+        run: yarn export:ios
+      - name: Deploy to Testflight
+        run: bundle exec fastlane ios deploy_production
