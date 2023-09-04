@@ -1,0 +1,38 @@
+name: iOs - Dev - Build and Deploy
+
+on:
+  push:
+    branches: ['develop']
+
+jobs:
+  build-ios:
+    name: Build iOs in Dev Environment
+    runs-on: react-native
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Auto Version for iOs
+        run: sh ./scripts/auto-version-ios.sh
+      - name: Print Dev Env
+        run: echo "$ENV_DEV" > .env.development
+        shell: bash
+        env:
+          ENV_DEV: ${{secrets.ENV_DEV}}
+      - name: Bundle Install
+        run: bundle install
+      - name: Yarn
+        run: yarn install
+      - name: Pod
+        run: cd ios && pod install --repo-update && cd ..
+      - name: Unlock CI
+        run: yarn unlock-ci
+      - name: Set Dev Info
+        run: bundle exec fastlane ios set_dev_info
+      - name: Setup iOs cert
+        run: bundle exec fastlane ios setup
+      - name: Build iOs Dev
+        run:  yarn build:ios:dev
+      - name: Export Ipa
+        run: yarn export:ios
+      - name: Deploy to Testflight
+        run: bundle exec fastlane ios deploy_dev

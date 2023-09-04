@@ -1,0 +1,30 @@
+name: Android - Dev - Build and Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['develop']
+
+jobs:
+  build-android:
+    name: Build Android in Dev Environment
+    runs-on: react-native
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Inject Keystore
+        run: echo "$KEY_STORE" | base64 --decode > "$(pwd)/android/app/wego.keystore"
+        shell: bash
+        env:
+          KEY_STORE: ${{secrets.KEY_STORE}}
+      - name: Print Dev Env
+        run: echo "$ENV_DEV" > .env.development
+        shell: bash
+        env:
+          ENV_DEV: ${{secrets.ENV_DEV}}
+      - name: Yarn Install
+        run: yarn install
+      - name: Bundle Install
+        run: bundle install
+      - name: Build Android Dev
+        run: yarn build:android:dev && bundle exec fastlane android distribute_firebase_dev
