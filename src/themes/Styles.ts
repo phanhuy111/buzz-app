@@ -60,6 +60,13 @@ export const fontConfig = {
     letterSpacing: 0,
     lineHeight: 32,
   },
+  textHypeSmall: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(22),
+    fontWeight: '500',
+    letterSpacing: 0,
+    lineHeight: 32,
+  },
   labelMedium: {
     fontFamily: "Rajdhani",
     fontSize: moderateScale(12),
@@ -110,14 +117,8 @@ export const fontConfig = {
     lineHeight: 20,
     textTransform: 'uppercase',
   },
-  textHypeSmall: {
-    fontFamily: 'Rajdhani',
-    fontSize: moderateScale(22),
-    fontWeight: '500',
-    letterSpacing: 0,
-    lineHeight: 32,
-  },
 } as Record<string, StyleProp<any>>
+
 
 export const colors: Record<string, { [key: number]: string }> = {
   white: {
@@ -133,3 +134,4 @@ export const colors: Record<string, { [key: number]: string }> = {
     1: "rgba(78, 78, 78, 1)",
   },
 };
+    

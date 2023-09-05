@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import 'react-native-gesture-handler';
 import analytics from '@react-native-firebase/analytics';
 import ApplicationStack from 'navigation';
 import { Provider } from 'react-redux';
