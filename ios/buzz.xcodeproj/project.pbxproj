@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* buzzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* buzzTests.m */; };
-		045E5BCA2A9E45B400A22FA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 045E5BC92A9E45B400A22FA2 /* GoogleService-Info.plist */; };
 		04CE1D652AA3357700020467 /* Rajdhani-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D602AA3357700020467 /* Rajdhani-Medium.ttf */; };
 		04CE1D662AA3357700020467 /* Rajdhani-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D612AA3357700020467 /* Rajdhani-Light.ttf */; };
 		04CE1D672AA3357700020467 /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04CE1D622AA3357700020467 /* Rajdhani-Regular.ttf */; };
@@ -20,6 +19,7 @@
 		30E995F53E2743A66E457356 /* Pods_buzz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AE7F416FC62E9752F8960FC /* Pods_buzz.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9A51B937FF57AA8148E9A026 /* Pods_buzz_buzzTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02D7737F15F78E6C043FBCF /* Pods_buzz_buzzTests.framework */; };
+		FA64D5FA2AA385D600BFF466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA64D5F92AA385D600BFF466 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		00E356EE1AD99517003FC87E /* buzzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = buzzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* buzzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = buzzTests.m; sourceTree = "<group>"; };
-		045E5BC92A9E45B400A22FA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "buzz/firebase/dev/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		048C8E132A9DFB4F00E88B70 /* buzzRelease.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = buzzRelease.entitlements; path = buzz/buzzRelease.entitlements; sourceTree = "<group>"; };
 		048C8E142A9DFB6300E88B70 /* buzzDebug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = buzzDebug.entitlements; path = buzz/buzzDebug.entitlements; sourceTree = "<group>"; };
 		04CE1D602AA3357700020467 /* Rajdhani-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rajdhani-Medium.ttf"; path = "../src/assets/fonts/Rajdhani-Medium.ttf"; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		B33B3FB4370DC750E2C0D848 /* Pods-buzz-buzzTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buzz-buzzTests.debug.xcconfig"; path = "Target Support Files/Pods-buzz-buzzTests/Pods-buzz-buzzTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C02D7737F15F78E6C043FBCF /* Pods_buzz_buzzTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_buzz_buzzTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FA64D5F92AA385D600BFF466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "buzz/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		13B07FAE1A68108700A75B9A /* buzz */ = {
 			isa = PBXGroup;
 			children = (
-				045E5BC92A9E45B400A22FA2 /* GoogleService-Info.plist */,
+				FA64D5F92AA385D600BFF466 /* GoogleService-Info.plist */,
 				048C8E142A9DFB6300E88B70 /* buzzDebug.entitlements */,
 				048C8E132A9DFB4F00E88B70 /* buzzRelease.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -277,13 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				FA64D5FA2AA385D600BFF466 /* GoogleService-Info.plist in Resources */,
 				04CE1D662AA3357700020467 /* Rajdhani-Light.ttf in Resources */,
 				04CE1D672AA3357700020467 /* Rajdhani-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				04CE1D682AA3357700020467 /* Rajdhani-Bold.ttf in Resources */,
 				04CE1D652AA3357700020467 /* Rajdhani-Medium.ttf in Resources */,
 				04CE1D692AA3357700020467 /* Rajdhani-SemiBold.ttf in Resources */,
-				045E5BCA2A9E45B400A22FA2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,4 @@
-import { Platform, TextStyle } from 'react-native';
+import { Platform, StyleProp, TextStyle } from 'react-native';
 import { moderateScale } from 'utils';
 
 export const DEFAULT_THEME = {
@@ -29,12 +29,13 @@ export const fontConfig = {
     ios: 'Rajdhani',
     default: 'Rajdhani',
   }),
-  headlineSmall: {
+  headlineLarge: {
     fontFamily: 'Rajdhani',
-    fontSize: moderateScale(24),
-    fontWeight: '400',
+    fontSize: moderateScale(32),
+    fontWeight: '700',
+    lineHeight: 48,
+    color: '#27272A',
     letterSpacing: 0,
-    lineHeight: 32,
   },
   headlineMedium: {
     fontFamily: 'Rajdhani',
@@ -43,13 +44,19 @@ export const fontConfig = {
     letterSpacing: 0,
     lineHeight: 32,
   },
-  headlineLarge: {
+  headlineSmall: {
     fontFamily: 'Rajdhani',
-    fontSize: moderateScale(32),
-    fontWeight: '700',
-    lineHeight: 48,
-    color: '#27272A',
+    fontSize: moderateScale(24),
+    fontWeight: '400',
     letterSpacing: 0,
+    lineHeight: 32,
+  },
+  textSmall: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(22),
+    fontWeight: '400',
+    letterSpacing: 0,
+    lineHeight: 32,
   },
   labelMedium: {
     fontFamily: 'Rajdhani',
@@ -64,6 +71,13 @@ export const fontConfig = {
     lineHeight: 21,
     color: '#27272A',
   },
+  titleLarge: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(20),
+    fontWeight: '700',
+    letterSpacing: 0,
+    lineHeight: 28,
+  },
   bodyLarge: {
     fontFamily: 'Rajdhani',
     fontSize: moderateScale(16),
@@ -71,11 +85,42 @@ export const fontConfig = {
     color: '#27272A',
     letterSpacing: 0,
   },
-  titleLarge: {
+  titleItems: {
     fontFamily: 'Rajdhani',
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(18),
     fontWeight: '700',
     letterSpacing: 0,
-    lineHeight: 28,
+    lineHeight: 20,
+  },
+  textItems: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(10),
+    fontWeight: '400',
+    letterSpacing: 0.5,
+    lineHeight: 20,
+    textTransform: 'uppercase',
+  },
+  textBoldItems: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(14),
+    fontWeight: '700',
+    letterSpacing: 0.5,
+    lineHeight: 20,
+    textTransform: 'uppercase',
+  },
+  textHypeSmall: {
+    fontFamily: 'Rajdhani',
+    fontSize: moderateScale(22),
+    fontWeight: '500',
+    letterSpacing: 0,
+    lineHeight: 32,
+  },
+} as Record<string, StyleProp<any>>
+
+
+export const colors: Record<string, { [key: number]: string }> = {
+  white: {
+    0: "rgba(255, 255, 255, 1)",
+    1: 'rgba(255, 255, 255, 0.60)'
   },
 };
