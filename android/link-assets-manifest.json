@@ -1,49 +1,49 @@
 {
-  "migIndex": 1,
-  "data": [
-    {
-      "path": "src/assets/fonts/Industry-Black.ttf",
-      "sha1": "eca43df6e133f142d3ddc4b9a502022165a83d5b"
-    },
-    {
-      "path": "src/assets/fonts/Industry-Bold.ttf",
-      "sha1": "cbf089d96617b7d5fb48b3d4b97178039ad33fa8"
-    },
-    {
-      "path": "src/assets/fonts/Industry-Book.ttf",
-      "sha1": "258ceab8207fb179f31ca297dc80657cb820439b"
-    },
-    {
-      "path": "src/assets/fonts/Industry-Demi.ttf",
-      "sha1": "5f23ca74452687510aed5ceec0d6828a0f3aebe5"
-    },
-    {
-      "path": "src/assets/fonts/Industry-Light.ttf",
-      "sha1": "04114d11d9ed79a2e04eb01b541e38efa26a764a"
-    },
-    {
-      "path": "src/assets/fonts/Industry-Medium.ttf",
-      "sha1": "bc82041e1a5c39cc78fcfd6d0361e2c7b041581b"
-    },
-    {
-      "path": "src/assets/fonts/Rajdhani-Bold.ttf",
-      "sha1": "d9c403532e310d0a470f959e65ed283a4f21d7a7"
-    },
-    {
-      "path": "src/assets/fonts/Rajdhani-Light.ttf",
-      "sha1": "8f180ecd327429e2e6996e3c6431e1c290437599"
-    },
-    {
-      "path": "src/assets/fonts/Rajdhani-Medium.ttf",
-      "sha1": "21724de5a45db366c69e88083bdd33a7ec3c05e6"
-    },
-    {
-      "path": "src/assets/fonts/Rajdhani-Regular.ttf",
-      "sha1": "73f086047e7ff11a3087cd481f133f9080a9d954"
-    },
-    {
-      "path": "src/assets/fonts/Rajdhani-SemiBold.ttf",
-      "sha1": "0fcd923c13976ebcc87b40237e3c5a053a347629"
-    }
-  ]
+    "migIndex": 1,
+    "data": [
+        {
+            "path": "src/assets/fonts/Industry-Black.ttf",
+            "sha1": "eca43df6e133f142d3ddc4b9a502022165a83d5b"
+        },
+        {
+            "path": "src/assets/fonts/Industry-Bold.ttf",
+            "sha1": "cbf089d96617b7d5fb48b3d4b97178039ad33fa8"
+        },
+        {
+            "path": "src/assets/fonts/Industry-Book.ttf",
+            "sha1": "258ceab8207fb179f31ca297dc80657cb820439b"
+        },
+        {
+            "path": "src/assets/fonts/Industry-Demi.ttf",
+            "sha1": "5f23ca74452687510aed5ceec0d6828a0f3aebe5"
+        },
+        {
+            "path": "src/assets/fonts/Industry-Light.ttf",
+            "sha1": "04114d11d9ed79a2e04eb01b541e38efa26a764a"
+        },
+        {
+            "path": "src/assets/fonts/Industry-Medium.ttf",
+            "sha1": "bc82041e1a5c39cc78fcfd6d0361e2c7b041581b"
+        },
+        {
+            "path": "src/assets/fonts/Rajdhani-Bold.ttf",
+            "sha1": "d9c403532e310d0a470f959e65ed283a4f21d7a7"
+        },
+        {
+            "path": "src/assets/fonts/Rajdhani-Light.ttf",
+            "sha1": "8f180ecd327429e2e6996e3c6431e1c290437599"
+        },
+        {
+            "path": "src/assets/fonts/Rajdhani-Medium.ttf",
+            "sha1": "21724de5a45db366c69e88083bdd33a7ec3c05e6"
+        },
+        {
+            "path": "src/assets/fonts/Rajdhani-Regular.ttf",
+            "sha1": "73f086047e7ff11a3087cd481f133f9080a9d954"
+        },
+        {
+            "path": "src/assets/fonts/Rajdhani-SemiBold.ttf",
+            "sha1": "0fcd923c13976ebcc87b40237e3c5a053a347629"
+        }
+    ]
 }

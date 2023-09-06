@@ -117,6 +117,13 @@ export const fontConfig = {
         lineHeight: 20,
         textTransform: 'uppercase',
     },
+    industryBold: {
+        fontFamily: 'Industry-Bold',
+        fontSize: moderateScale(18),
+        fontWeight: '700',
+        letterSpacing: 0.5,
+        lineHeight: 21.6,
+    },
 } as Record<string, StyleProp<any>>;
 
 export const colors: Record<string, { [key: number]: string }> = {
@@ -131,5 +138,19 @@ export const colors: Record<string, { [key: number]: string }> = {
     gray: {
         0: 'rgba(0, 0, 0, 0.3)',
         1: 'rgba(78, 78, 78, 1)',
+    },
+    blue: {
+        0: 'rgba(9, 135, 226, 1)',
+    },
+};
+
+export const buttonTypes = {
+    accent: {
+        color: colors.white[0],
+        backgroundColor: colors.blue[0],
+    },
+    dark: {
+        color: colors.white[0],
+        backgroundColor: colors.gray[1],
     },
 };
