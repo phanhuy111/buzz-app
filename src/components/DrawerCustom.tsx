@@ -13,7 +13,7 @@ import {
 import { colors } from "themes";
 import { avatar } from "assets/images";
 import Close from "assets/icons/close.svg";
-import { moderateScale, scale, verticalScale } from "utils";
+import { moderateScale, horizontalScale, verticalScale } from "utils";
 import { Button } from "./Button";
 import {
   HOME,
@@ -73,7 +73,7 @@ export const DrawerCustom = (props: DrawerContentComponentProps) => {
   }, []);
 
   const ItemSeparatorComponent = () => {
-    return <View style={{ height: scale(16) }} />;
+    return <View style={{ height: horizontalScale(16) }} />;
   };
 
   return (
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
     borderColor: "rgba(255, 255, 255, 0.2)",
   },
   avatar: {
-    width: scale(40),
-    height: scale(40),
+    width: horizontalScale(40),
+    height: horizontalScale(40),
     borderRadius: 100,
   },
   name: {

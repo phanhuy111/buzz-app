@@ -1,7 +1,7 @@
 import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
-import { scale, verticalScale } from "utils";
+import { horizontalScale, verticalScale } from "utils";
 import BuzzLogo from "assets/icons/buzz-logo.svg";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import FastImage from "react-native-fast-image";
@@ -47,15 +47,15 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(10),
   },
   left: {
-    width: scale(30),
-    height: scale(30),
+    width: horizontalScale(30),
+    height: horizontalScale(30),
     justifyContent: "center",
     alignItems: "center",
   },
   right: {},
   avatar: {
-    width: scale(30),
-    height: scale(30),
+    width: horizontalScale(30),
+    height: horizontalScale(30),
     borderRadius: 100,
   },
 });

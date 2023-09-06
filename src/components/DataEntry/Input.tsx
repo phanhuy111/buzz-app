@@ -12,7 +12,7 @@ import {
   ViewStyle,
 } from "react-native";
 import { INPUT_THEME, colors } from "themes";
-import { moderateScale, scale, verticalScale } from "utils";
+import { moderateScale, horizontalScale, verticalScale } from "utils";
 
 interface InputProps extends TextInputProps {
   leftInputComponent?: ReactNode;
@@ -55,7 +55,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: scale(50),
+    height: horizontalScale(50),
     borderRadius: 24,
     backgroundColor: colors.white[0],
     flexDirection: "row",

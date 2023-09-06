@@ -20,7 +20,7 @@ import {
 import { StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { DrawerCustom } from "components";
-import { scale } from "utils";
+import { horizontalScale } from "utils";
 
 const Drawer = createDrawerNavigator();
 
@@ -38,7 +38,7 @@ function ApplicationStack() {
             drawerPosition: "right",
             headerShown: false,
             drawerStyle: {
-              width: scale(310),
+              width: horizontalScale(310),
             },
           }}
         >
