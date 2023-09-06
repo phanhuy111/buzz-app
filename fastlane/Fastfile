@@ -7,7 +7,7 @@ Spaceship::ConnectAPI::App.const_set('ESSENTIAL_INCLUDES', 'appStoreVersions')
 ENV['MATCH_GIT_BASIC_AUTHORIZATION'] = 'ZHVjLXJlYWR5ZGVkaXM6Z2hwX3FERDJuZ1V1c3VycFM5cFlLN1RwM1dzQXFuYzhrdjEzMVo4WQ=='
 ENV['MATCH_PASSWORD'] = 'Readydedis@123'
 
-android_testers = 'duc@readydedis.com'
+android_testers = 'duc@readydedis.com,anireddy.kukunoori@gmail.com,nightshroud.petrov7@gmail.com,bharat.bala@readydedis.com'
 app_id_dev= 'com.store.buzz.app.dev'
 app_name_dev= 'Buzz Dev'
 app_id_production = 'com.store.buzz.app'
