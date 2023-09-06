@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
 import { buttonTypes, colors } from 'themes';
 import { moderateScale, verticalScale } from 'utils';
@@ -7,12 +7,17 @@ interface IButton {
     onPress: () => void;
     title: string;
     type?: 'accent' | 'dark';
+    style?: StyleProp<ViewStyle>;
 }
 
-export const Button = ({ onPress, title, type = 'accent', ...props }: IButton) => {
+export const Button = ({ onPress, title, type = 'accent', style, ...props }: IButton) => {
     return (
         <TouchableHighlight
-            style={[styles.button, { backgroundColor: buttonTypes?.[type]?.backgroundColor }]}
+            style={[
+                styles.button,
+                { backgroundColor: buttonTypes?.[type]?.backgroundColor },
+                style,
+            ]}
             onPress={onPress}
             {...props}
         >

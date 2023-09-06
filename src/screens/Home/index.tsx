@@ -49,11 +49,13 @@ const Home = () => {
                         </View>
                     </View>
                 </KeyboardAwareScrollView>
-                <Button
-                    title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
-                    onPress={() => {}}
-                    type="accent"
-                />
+                <View style={styles.button}>
+                    <Button
+                        title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
+                        onPress={() => {}}
+                        type="accent"
+                    />
+                </View>
             </>
         </LayoutDefault>
     );
@@ -81,5 +83,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignContent: 'center',
+    },
+    button: {
+        paddingBottom: verticalScale(10),
     },
 });
