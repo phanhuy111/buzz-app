@@ -1,12 +1,13 @@
 import { Text } from 'components/Text';
-import { View as ViewDefault, ImageBackground } from 'react-native';
+import { View as ViewDefault, ImageBackground, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { IProduct } from 'types';
-import { styles } from './RankItem.styled';
+import { IPilots } from 'types';
 import { buzzItemBg, logoBg, rankLine } from 'assets/images';
+import { horizontalScale, verticalScale } from 'utils';
+import { colors } from 'themes';
 
 interface PropsRankItem {
-    data?: IProduct;
+    data?: IPilots;
 }
 
 export const RankItem = ({ data }: PropsRankItem) => {
@@ -22,7 +23,11 @@ export const RankItem = ({ data }: PropsRankItem) => {
                             .map(value => {
                                 return (
                                     <FastImage
-                                        style={{ width: 50, height: 10, borderRadius: 35 }}
+                                        style={{
+                                            width: verticalScale(50),
+                                            height: verticalScale(10),
+                                            borderRadius: 35,
+                                        }}
                                         source={rankLine}
                                         resizeMode={FastImage.resizeMode.contain}
                                     />
@@ -49,3 +54,47 @@ export const RankItem = ({ data }: PropsRankItem) => {
         </ViewDefault>
     );
 };
+
+export const styles = StyleSheet.create({
+    wrapper: {
+        display: 'flex',
+    },
+    imageLogoBg: {
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: '#0987E2',
+    },
+    container: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: verticalScale(10),
+        gap: horizontalScale(10),
+    },
+    imageLogo: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 1,
+        width: horizontalScale(70),
+        height: horizontalScale(70),
+    },
+    containerText: {
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column',
+    },
+    containerPrice: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    text: {
+        color: colors['white']['1'],
+    },
+    textTitle: {
+        color: colors['white']['0'],
+    },
+}) as any;

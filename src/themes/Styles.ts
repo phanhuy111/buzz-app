@@ -36,7 +36,6 @@ export const fontConfig = {
         fontSize: moderateScale(32),
         fontWeight: '700',
         lineHeight: 48,
-        color: '#27272A',
         letterSpacing: 0,
     },
     headlineMedium: {
@@ -67,32 +66,12 @@ export const fontConfig = {
         letterSpacing: 0,
         lineHeight: 32,
     },
-    labelMedium: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(12),
-        fontWeight: '500',
-        letterSpacing: 0,
-    },
-    labelLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(14),
-        fontWeight: '500',
-        lineHeight: 21,
-        color: '#27272A',
-    },
     titleLarge: {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(20),
         fontWeight: '700',
         letterSpacing: 0,
         lineHeight: 28,
-    },
-    bodyLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(16),
-        fontWeight: '700',
-        color: '#27272A',
-        letterSpacing: 0,
     },
     titleItems: {
         fontFamily: 'Rajdhani',
@@ -101,13 +80,19 @@ export const fontConfig = {
         letterSpacing: 0,
         lineHeight: 20,
     },
-    textItems: {
+    titleLItems: {
         fontFamily: 'Rajdhani',
-        fontSize: moderateScale(10),
-        fontWeight: '400',
-        letterSpacing: 0.5,
+        fontSize: moderateScale(18),
+        fontWeight: '500',
+        letterSpacing: 0,
         lineHeight: 20,
-        textTransform: 'uppercase',
+    },
+    bodyLarge: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(16),
+        fontWeight: '700',
+        color: '#27272A',
+        letterSpacing: 0,
     },
     textBoldItems: {
         fontFamily: 'Rajdhani',
@@ -123,6 +108,38 @@ export const fontConfig = {
         fontWeight: '700',
         letterSpacing: 0.5,
         lineHeight: 21.6,
+    },
+    labelMedium: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(12),
+        fontWeight: '500',
+        letterSpacing: 0,
+    },
+    labelMMedium: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(12),
+        fontWeight: '700',
+        letterSpacing: 0,
+    },
+    labelLMedium: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(11),
+        fontWeight: '400',
+        letterSpacing: 0,
+    },
+    labelLarge: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(14),
+        fontWeight: '500',
+        lineHeight: 21,
+    },
+    textItems: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(10),
+        fontWeight: '400',
+        letterSpacing: 0.5,
+        lineHeight: 20,
+        textTransform: 'uppercase',
     },
 } as Record<string, StyleProp<any>>;
 

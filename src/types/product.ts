@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IPilots {
     title: string;
     subTitle: string;
     description: string;
