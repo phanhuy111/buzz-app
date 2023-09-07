@@ -1,5 +1,5 @@
 import { Platform, StyleProp, TextStyle } from 'react-native';
-import { moderateScale } from 'utils';
+import { moderateScale, verticalScale } from 'utils';
 
 export const INPUT_THEME = {
     textInput: {
@@ -22,7 +22,7 @@ export const BOX_SHADOW = {
 };
 
 export const paddingHorizontalGlobal = {
-    paddingHorizontal: moderateScale(20),
+    paddingHorizontal: verticalScale(20),
 };
 
 export const fontConfig = {
@@ -140,6 +140,12 @@ export const fontConfig = {
         letterSpacing: 0.5,
         lineHeight: 20,
         textTransform: 'uppercase',
+    },
+    robotoMono: {
+        fontFamily: 'RobotoMono-Medium',
+        fontSize: moderateScale(10),
+        fontWeight: '400',
+        lineHeight: 12,
     },
 } as Record<string, StyleProp<any>>;
 

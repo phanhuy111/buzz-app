@@ -88,6 +88,13 @@
 		<string>Industry-Book.ttf</string>
 		<string>Industry-Demi.ttf</string>
 		<string>Industry-Light.ttf</string>
+		<string>RobotoMono-Bold.ttf</string>
+		<string>RobotoMono-ExtraLight.ttf</string>
+		<string>RobotoMono-Light.ttf</string>
+		<string>RobotoMono-Medium.ttf</string>
+		<string>RobotoMono-Regular.ttf</string>
+		<string>RobotoMono-SemiBold.ttf</string>
+		<string>RobotoMono-Thin.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

@@ -5,3 +5,4 @@ export const buzzLogo1 = require('./buzz-logo.png');
 export const buzzItemBg = require('./buzz-image-bg.png');
 export const rankLine = require('./rectangle-line.png');
 export const logoBg = require('./buzz-badge-bg.png');
+export const drone1 = require('./drone-1.png');

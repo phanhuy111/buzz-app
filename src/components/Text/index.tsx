@@ -3,7 +3,6 @@ import { fontConfig } from 'themes';
 
 interface Props extends TextProps {
     type: string;
-    style?: StyleProp<ViewStyle>;
 }
 
 export const Text = ({ type, ...props }: Props) => {

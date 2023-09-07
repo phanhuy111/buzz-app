@@ -1,6 +1,7 @@
-import { StyleProp, StyleSheet, Text, ViewStyle } from 'react-native';
+import { Text } from 'components';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
-import { buttonTypes, colors } from 'themes';
+import { buttonTypes } from 'themes';
 import { moderateScale, verticalScale } from 'utils';
 
 interface IButton {
@@ -8,6 +9,7 @@ interface IButton {
     title: string;
     type?: 'accent' | 'dark';
     style?: StyleProp<ViewStyle>;
+    font?: string;
 }
 
 export const Button = ({ onPress, title, type = 'accent', style, ...props }: IButton) => {
@@ -21,7 +23,12 @@ export const Button = ({ onPress, title, type = 'accent', style, ...props }: IBu
             onPress={onPress}
             {...props}
         >
-            <Text style={[styles.buttonText, { color: buttonTypes?.[type]?.color }]}>{title}</Text>
+            <Text
+                style={[styles.buttonText, { color: buttonTypes?.[type]?.color }]}
+                type={props.font || ''}
+            >
+                {title}
+            </Text>
         </TouchableHighlight>
     );
 };

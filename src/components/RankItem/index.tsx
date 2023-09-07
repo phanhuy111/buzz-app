@@ -1,10 +1,12 @@
 import { Text } from 'components/Text';
-import { View as ViewDefault, ImageBackground, StyleSheet } from 'react-native';
+import { View, ImageBackground, StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { IPilots } from 'types';
 import { buzzItemBg, logoBg, rankLine } from 'assets/images';
 import { horizontalScale, verticalScale } from 'utils';
 import { colors } from 'themes';
+import { Button } from 'components/Button';
+import { useIntl } from 'react-intl';
 
 interface PropsRankItem {
     data?: IPilots;
@@ -12,46 +14,58 @@ interface PropsRankItem {
 
 export const RankItem = ({ data }: PropsRankItem) => {
     const rank = 3;
+    const { formatMessage } = useIntl();
 
     return (
-        <ViewDefault style={styles.wrapper}>
+        <View style={styles.wrapper}>
             <ImageBackground imageStyle={styles.imageLogoBg} source={buzzItemBg} resizeMode="cover">
-                <ViewDefault style={styles.container}>
+                <View style={styles.container}>
                     <ImageBackground style={styles.imageLogo} source={logoBg}>
                         {Array(rank)
                             .fill('')
                             .map(value => {
                                 return (
                                     <FastImage
-                                        style={{
-                                            width: verticalScale(50),
-                                            height: verticalScale(10),
-                                            borderRadius: 35,
-                                        }}
+                                        style={styles.rankImg}
                                         source={rankLine}
                                         resizeMode={FastImage.resizeMode.contain}
                                     />
                                 );
                             })}
                     </ImageBackground>
-
-                    <ViewDefault style={styles.containerText}>
-                        <Text style={styles.textTitle} type="titleItems">
+                    <View style={styles.containerText}>
+                        <Text style={styles.textTitle} type="industryBold">
                             {data?.title}
                         </Text>
-                        <Text style={styles.text} type="textItems">
+                        <Text style={styles.text} type="robotoMono">
                             {data?.description}
                         </Text>
-                    </ViewDefault>
-
-                    <ViewDefault style={styles.containerPrice}>
-                        <Text style={styles.textTitle} type="textHypeSmall">
-                            {'$' + data?.price}
-                        </Text>
-                    </ViewDefault>
-                </ViewDefault>
+                    </View>
+                    {data?.isDetail ? (
+                        <View style={styles.containerDetail}>
+                            <Button
+                                type="dark"
+                                title={formatMessage({ defaultMessage: 'INFO' })}
+                                onPress={() => {}}
+                                font="robotoMono"
+                            />
+                            <Button
+                                type="dark"
+                                title={formatMessage({ defaultMessage: 'CANCEL' })}
+                                onPress={() => {}}
+                                font="robotoMono"
+                            />
+                        </View>
+                    ) : (
+                        <View style={styles.containerPrice}>
+                            <Text style={styles.textTitle} type="textHypeSmall">
+                                {'$' + data?.price}
+                            </Text>
+                        </View>
+                    )}
+                </View>
             </ImageBackground>
-        </ViewDefault>
+        </View>
     );
 };
 
@@ -72,13 +86,11 @@ export const styles = StyleSheet.create({
         gap: horizontalScale(10),
     },
     imageLogo: {
-        display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 1,
-        width: horizontalScale(70),
-        height: horizontalScale(70),
+        width: verticalScale(70),
+        height: verticalScale(70),
     },
     containerText: {
         display: 'flex',
@@ -97,4 +109,12 @@ export const styles = StyleSheet.create({
     textTitle: {
         color: colors['white']['0'],
     },
-}) as any;
+    containerDetail: {
+        gap: 5,
+    },
+    rankImg: {
+        width: verticalScale(50),
+        height: verticalScale(10),
+        borderRadius: 35,
+    },
+});

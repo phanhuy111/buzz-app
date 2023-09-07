@@ -4,3 +4,4 @@ export { default as PastJobs } from "./PastJobs";
 export { default as PaymentOptions } from "./PaymentOptions";
 export { default as Setting } from "./Setting";
 export { default as TaxDocuments } from "./TaxDocuments";
+export { default as Search } from "./Search";
