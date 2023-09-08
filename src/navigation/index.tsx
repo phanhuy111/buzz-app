@@ -3,6 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
+    DATE_PICKER,
     HOME,
     LOCATIONS,
     NOTIFICATIONS,
@@ -13,6 +14,7 @@ import {
     TAX_DOCUMENTS,
 } from 'constants/routeNames';
 import {
+    DatePicker,
     Home,
     Locations,
     Notifications,
@@ -42,6 +44,7 @@ export const HomeStack = () => {
                 component={Search}
             />
             <Stack.Screen name={LOCATIONS} component={Locations} />
+            <Stack.Screen name={DATE_PICKER} component={DatePicker} />
         </Stack.Navigator>
     );
 };

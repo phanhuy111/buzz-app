@@ -12,7 +12,7 @@ import { Button } from 'components/Button';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { LOCATIONS } from 'constants/index';
+import { DATE_PICKER, LOCATIONS } from 'constants/index';
 
 const dataSample = {
     subTitle: 'Sargeant (PIlot)',
@@ -45,13 +45,20 @@ const Search = () => {
                                     />
                                 </View>
                             </TouchableOpacity>
-
-                            <Input
-                                leftInputComponent={<Calendar width={25} />}
-                                placeholder={formatMessage({
-                                    defaultMessage: 'SELECT DATE',
-                                })}
-                            />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.navigate(DATE_PICKER);
+                                }}
+                            >
+                                <View pointerEvents="none">
+                                    <Input
+                                        leftInputComponent={<Calendar width={25} />}
+                                        placeholder={formatMessage({
+                                            defaultMessage: 'SELECT DATE',
+                                        })}
+                                    />
+                                </View>
+                            </TouchableOpacity>
                         </View>
                         <Text type="industryBold" style={styles.title}>
                             {formatMessage({
