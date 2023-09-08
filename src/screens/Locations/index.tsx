@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 import { StyleSheet, View } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { Callout, Marker } from 'react-native-maps';
 import { verticalScale } from 'utils';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -11,11 +11,21 @@ import { colors, paddingHorizontalGlobal } from 'themes';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LocationItem } from 'components/LocationItem';
 import { Button } from 'components/Button';
+import { Text } from 'components';
+import { markerMap } from 'assets/images';
+import { useRef } from 'react';
 
 const Locations = () => {
+    const markerRef = useRef<any>(null);
     const { formatMessage } = useIntl();
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
     const { top, bottom } = useSafeAreaInsets();
+
+    const onRegionChangeComplete = () => {
+        if (markerRef && markerRef.current && markerRef.current.showCallout) {
+            markerRef.current.showCallout();
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -29,7 +39,27 @@ const Locations = () => {
                 }}
                 customMapStyle={customMapStyle}
                 userInterfaceStyle="dark"
-            ></MapView>
+            >
+                <Marker
+                    coordinate={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                    }}
+                    image={markerMap}
+                    key={'active'}
+                >
+                    <View style={styles.callout}>
+                        <View style={styles.marker}>
+                            <Text style={styles.markerTitle} type="industryBold">
+                                BINGHAMTON UNIVERSITY
+                            </Text>
+                            <Text style={styles.markerTitle} type="robotoMono">
+                                35 Pilots Available
+                            </Text>
+                        </View>
+                    </View>
+                </Marker>
+            </MapView>
             <HeaderNavigator
                 isGoBack
                 customStyle={[
@@ -91,5 +121,23 @@ const styles = StyleSheet.create({
     button: {
         paddingBottom: verticalScale(10),
         ...paddingHorizontalGlobal,
+    },
+    marker: {
+        backgroundColor: colors.black?.[0],
+        padding: 10,
+        borderRadius: 5,
+        alignItems: 'center',
+        gap: 2,
+    },
+    markerTitle: {
+        color: colors.white[0],
+    },
+    markerDesc: {
+        color: colors.gray[1],
+    },
+    callout: {
+        position: 'absolute',
+        left: -125,
+        top: -50
     },
 });
