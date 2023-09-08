@@ -157,6 +157,7 @@ export const colors: Record<string, { [key: number]: string }> = {
     black: {
         0: 'rgba(0, 0, 0, 1)',
         1: 'rgba(34, 34, 34, 1)',
+        2: 'rgba(45, 45, 45, 1)',
     },
     gray: {
         0: 'rgba(0, 0, 0, 0.3)',

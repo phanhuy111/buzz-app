@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
     HOME,
+    LOCATIONS,
     NOTIFICATIONS,
     PAST_JOB,
     PAYMENT_OPTIONS,
@@ -13,6 +14,7 @@ import {
 } from 'constants/routeNames';
 import {
     Home,
+    Locations,
     Notifications,
     PastJobs,
     PaymentOptions,
@@ -39,6 +41,7 @@ export const HomeStack = () => {
                 name={SEARCH}
                 component={Search}
             />
+            <Stack.Screen name={LOCATIONS} component={Locations} />
         </Stack.Navigator>
     );
 };

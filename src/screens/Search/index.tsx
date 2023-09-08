@@ -9,6 +9,10 @@ import { Specialty } from 'components/Specialty';
 import { LayoutDefault, Text } from 'components';
 import { colors } from 'themes';
 import { Button } from 'components/Button';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { LOCATIONS } from 'constants/index';
 
 const dataSample = {
     subTitle: 'Sargeant (PIlot)',
@@ -19,6 +23,7 @@ const dataSample = {
 
 const Search = () => {
     const { formatMessage } = useIntl();
+    const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
     return (
         <LayoutDefault isGoBack>
@@ -26,12 +31,21 @@ const Search = () => {
                 <KeyboardAwareScrollView style={styles.container}>
                     <View style={styles.inner}>
                         <View style={styles.inputs}>
-                            <Input
-                                leftInputComponent={<Pin width={25} />}
-                                placeholder={formatMessage({
-                                    defaultMessage: 'CHOOSE LOCATION',
-                                })}
-                            />
+                            <TouchableOpacity
+                                onPress={() => {
+                                    navigation.navigate(LOCATIONS);
+                                }}
+                            >
+                                <View pointerEvents="none">
+                                    <Input
+                                        leftInputComponent={<Pin width={25} />}
+                                        placeholder={formatMessage({
+                                            defaultMessage: 'CHOOSE LOCATION',
+                                        })}
+                                    />
+                                </View>
+                            </TouchableOpacity>
+
                             <Input
                                 leftInputComponent={<Calendar width={25} />}
                                 placeholder={formatMessage({
