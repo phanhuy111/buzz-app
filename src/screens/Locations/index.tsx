@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     },
     callout: {
         position: 'absolute',
-        left: -125,
+        left: -135,
         top: -50
     },
 });
