@@ -1,10 +1,12 @@
 import { Text } from 'components/Text';
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, forwardRef } from 'react';
 import { StyleSheet, View, TextStyle } from 'react-native';
 import { CalendarList, DateData } from 'react-native-calendars';
 import { colors } from 'themes';
 
-const RANGE = 24;
+const RANGE_PAST = 12;
+const RANGE_FUTURE = 24;
+const minDate = '2022-06-05';
 const initialDate = '2022-07-05';
 const nextWeekDate = '2022-07-14';
 const nextMonthDate = '2022-08-05';
@@ -21,18 +23,18 @@ const CalendarListScreen = (props: Props) => {
         return {
             [nextWeekDate]: {
                 selected: selected === nextWeekDate,
-                selectedTextColor: '#5E60CE',
+                selectedTextColor: colors['purple'][0],
                 marked: true,
             },
             [nextMonthDate]: {
                 selected: selected === nextMonthDate,
-                selectedTextColor: '#5E60CE',
+                selectedTextColor: colors['purple'][0],
                 marked: true,
             },
             [selected]: {
                 selected: true,
                 disableTouchEvent: true,
-                selectedColor: '#5E617A',
+                selectedColor: colors['purple'][0],
                 selectedTextColor: 'white',
                 borderRadius: 15,
             },
@@ -49,17 +51,22 @@ const CalendarListScreen = (props: Props) => {
             <CalendarList
                 testID={'calendarList'}
                 current={initialDate}
-                pastScrollRange={RANGE}
-                futureScrollRange={RANGE}
+                minDate={minDate}
+                pastScrollRange={RANGE_PAST}
+                futureScrollRange={RANGE_FUTURE}
                 onDayPress={onDayPress}
+                onDayLongPress={DateData => {
+                    console.log(DateData);
+                }}
                 markedDates={marked}
                 renderHeader={!horizontalView ? renderCustomHeader : undefined}
                 calendarHeight={!horizontalView ? 360 : undefined}
-                theme={!horizontalView ? theme : undefined}
+                theme={!horizontalView ? (theme as any) : undefined}
                 horizontal={horizontalView}
                 pagingEnabled={horizontalView}
                 staticHeader={horizontalView}
                 hideDayNames={true}
+                allowSelectionOutOfRange={true}
             />
         </>
     );
@@ -71,7 +78,7 @@ const theme = {
             header: {
                 dayHeader: {
                     fontWeight: '700',
-                    color: '#48BFE3',
+                    color: colors['blue'][1],
                 },
             },
         },
@@ -79,32 +86,33 @@ const theme = {
     'stylesheet.day.basic': {
         today: {
             fontFamily: 'Rajdhani',
-            borderColor: '#48BFE3',
+            borderColor: colors['blue'][1],
             borderWidth: 0.8,
+            borderRadius: 10,
         },
         todayText: {
             fontFamily: 'Rajdhani',
-            color: '#FFFFFF',
+            color: colors['white'][0],
             fontWeight: '900',
         },
     },
     'stylesheet.dot': {
         fontFamily: 'Rajdhani',
-        borderColor: '#48BFE3',
+        borderColor: colors['blue'][1],
         borderWidth: 0.8,
     },
     textDayStyle: {
         fontSize: 18,
         fontFamily: 'Rajdhani',
-        color: '#FFFFFF',
+        color: colors['white'][0],
         fontWeight: '600',
     },
     dotStyle: {
-        backgroundColor: '#5E617A',
+        backgroundColor: colors['gray'][2],
     },
-    textInactiveColor: '#111111',
-    textDisabledColor: '#111111',
-    calendarBackground: '#111111',
+    textInactiveColor: colors['gray'][1],
+    textDisabledColor: colors['gray'][1],
+    calendarBackground: colors['black'][2],
     marking: {},
 };
 
@@ -130,7 +138,7 @@ function renderCustomHeader(date: any) {
     );
 }
 
-export default CalendarListScreen;
+export default forwardRef(CalendarListScreen);
 
 const styles = StyleSheet.create({
     header: {

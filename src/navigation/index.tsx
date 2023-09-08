@@ -6,12 +6,14 @@ import {
     DATE_PICKER,
     HOME,
     LOCATIONS,
+    JOB_DETAIL,
     NOTIFICATIONS,
     PAST_JOB,
     PAYMENT_OPTIONS,
     SEARCH,
     SETTING,
     TAX_DOCUMENTS,
+    PILOT_PROFILE,
 } from 'constants/routeNames';
 import {
     DatePicker,
@@ -23,6 +25,8 @@ import {
     Search,
     Setting,
     TaxDocuments,
+    JobDetail,
+    PilotProfile,
 } from 'screens';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -74,6 +78,8 @@ function ApplicationStack() {
                         <Drawer.Screen name={PAYMENT_OPTIONS} component={PaymentOptions} />
                         <Drawer.Screen name={NOTIFICATIONS} component={Notifications} />
                         <Drawer.Screen name={TAX_DOCUMENTS} component={TaxDocuments} />
+                        <Drawer.Screen name={JOB_DETAIL} component={JobDetail} />
+                        <Drawer.Screen name={PILOT_PROFILE} component={PilotProfile} />
                     </Drawer.Navigator>
                 </GestureHandlerRootView>
             </NavigationContainer>

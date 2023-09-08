@@ -7,3 +7,5 @@ export { default as TaxDocuments } from "./TaxDocuments";
 export { default as Search } from "./Search";
 export { default as Locations } from "./Locations";
 export { default as DatePicker } from "./DatePicker";
+export { default as JobDetail } from "./JobDetail";
+export { default as PilotProfile } from "./PilotProfile";

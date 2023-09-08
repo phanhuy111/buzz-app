@@ -1,0 +1,1 @@
+export const dayShortName = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];

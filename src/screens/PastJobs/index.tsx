@@ -7,9 +7,9 @@ import { HeaderNavigator } from 'components/Header';
 import { Text } from 'components';
 import Arrow from 'assets/icons/arrow.svg';
 import { colors } from 'themes';
-import { horizontalScale, verticalScale } from 'utils';
+import { dayShortName, horizontalScale, verticalScale } from 'utils';
 
-const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+import { Button } from 'components/Button';
 
 const PastJobs = () => {
     return (
@@ -41,7 +41,7 @@ const PastJobs = () => {
                         </View>
 
                         <View style={[styles.statusRow, styles.row]}>
-                            {days.map((value, index) => {
+                            {dayShortName.map((value, index) => {
                                 return (
                                     <View style={styles.status} key={index}>
                                         <Text style={[styles.text]} type="labelMMedium">
@@ -52,10 +52,12 @@ const PastJobs = () => {
                             })}
                         </View>
                     </View>
-
                     <CalendarListScreen />
                 </View>
             </SafeAreaView>
+            <View style={styles.footer}>
+                <Button style={styles.button} onPress={() => {}} title="Save Date & Time" />
+            </View>
         </View>
     );
 };
@@ -99,6 +101,19 @@ const styles = StyleSheet.create({
     status: {
         paddingHorizontal: 10,
         paddingVertical: 0,
+    },
+    footer: {
+        flex: 1,
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: colors['black'][0],
+        position: 'absolute',
+        bottom: 0,
+        padding: horizontalScale(20),
+    },
+    button: {
+        width: '100%',
     },
 }) as Record<string, StyleProp<any>>;
 
