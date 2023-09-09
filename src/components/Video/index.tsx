@@ -1,9 +1,11 @@
-import React from 'react';
-import Video from 'react-native-video';
-import { TouchableWithoutFeedback, View, StyleSheet, Image } from 'react-native';
-import { playIcon } from 'assets/images';
-import FastImage from 'react-native-fast-image';
-import { horizontalScale } from 'utils';
+import React from "react";
+import { Image, StyleSheet, TouchableWithoutFeedback, View } from "react-native";
+import FastImage from "react-native-fast-image";
+import Video from "react-native-video";
+
+import { playIcon } from "assets/images";
+
+import { horizontalScale } from "utils";
 
 interface PropsType {
     source: string;
@@ -26,7 +28,7 @@ export const InstagramVideo = (props: PropsType) => {
                         borderRadius: 5,
                     }}
                     paused={isPaused}
-                    resizeMode={'contain'}
+                    resizeMode={"contain"}
                     repeat
                 />
 
@@ -49,8 +51,8 @@ export const InstagramVideo = (props: PropsType) => {
 const styles = StyleSheet.create({
     playContainer: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: "transparent",
+        justifyContent: "center",
+        alignItems: "center",
     },
 });

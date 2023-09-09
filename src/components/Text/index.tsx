@@ -1,5 +1,6 @@
-import { Text as TextDefault, TextProps, StyleProp, ViewStyle } from 'react-native';
-import { fontConfig } from 'themes';
+import { StyleProp, Text as TextDefault, TextProps, ViewStyle } from "react-native";
+
+import { fontConfig } from "themes";
 
 interface Props extends TextProps {
     type: string;

@@ -3,22 +3,22 @@
     "tabWidth": 4,
     "useTabs": false,
     "semi": true,
-    "singleQuote": true,
+    "singleQuote": false,
     "trailingComma": "all",
     "arrowParens": "avoid",
     "importOrder": [
-        "^react-native",
         "^react",
+        "^react-native",
 
         "^themes",
         "^assets",
         "^components",
-    
         "^utils",
-        "^constants",
 
+        "^constants",
         "^types",
         "^[./]"
     ],
-    "importOrderSeparation": true
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }

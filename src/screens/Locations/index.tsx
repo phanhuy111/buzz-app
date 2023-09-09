@@ -1,19 +1,25 @@
-import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
-import MapView, { Callout, Marker } from 'react-native-maps';
-import { verticalScale } from 'utils';
-import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { HeaderNavigator } from 'components/Header';
-import { customMapStyle } from './Locations.map';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors, paddingHorizontalGlobal } from 'themes';
-import { ScrollView } from 'react-native-gesture-handler';
-import { LocationItem } from 'components/LocationItem';
-import { Button } from 'components/Button';
-import { Text } from 'components';
-import { markerMap } from 'assets/images';
-import { useRef } from 'react';
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+import { useRef } from "react";
+import { useIntl } from "react-intl";
+import { StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import MapView, { Callout, Marker } from "react-native-maps";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { colors, paddingHorizontalGlobal } from "themes";
+
+import { markerMap } from "assets/images";
+
+import { Text } from "components";
+import { Button } from "components/Button";
+import { HeaderNavigator } from "components/Header";
+import { LocationItem } from "components/LocationItem";
+
+import { verticalScale } from "utils";
+
+import { customMapStyle } from "./Locations.map";
 
 const Locations = () => {
     const markerRef = useRef<any>(null);
@@ -46,7 +52,7 @@ const Locations = () => {
                         longitude: -122.4324,
                     }}
                     image={markerMap}
-                    key={'active'}
+                    key={"active"}
                 >
                     <View style={styles.callout}>
                         <View style={styles.marker}>
@@ -74,10 +80,10 @@ const Locations = () => {
                     {[...Array(3)].map(() => (
                         <LocationItem
                             data={{
-                                title: 'BUZZ AIRMAN',
-                                subTitle: 'Cinematography',
-                                description: 'BASIC EXPERIENCE',
-                                image: '',
+                                title: "BUZZ AIRMAN",
+                                subTitle: "Cinematography",
+                                description: "BASIC EXPERIENCE",
+                                image: "",
                                 price: 500,
                             }}
                         />
@@ -86,7 +92,7 @@ const Locations = () => {
             </ScrollView>
             <View style={[styles.button, { bottom }]}>
                 <Button
-                    title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
+                    title={formatMessage({ defaultMessage: "FIND DRONE PILOT" })}
                     onPress={() => {}}
                     type="accent"
                 />
@@ -100,20 +106,20 @@ export default Locations;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position: 'relative',
+        position: "relative",
         backgroundColor: colors.black[0],
     },
     inner: {
-        height: '100%',
+        height: "100%",
         padding: 20,
     },
     map: {
         height: 390,
     },
     header: {
-        width: '100%',
+        width: "100%",
         paddingHorizontal: verticalScale(20),
-        position: 'absolute',
+        position: "absolute",
     },
     locationList: {
         gap: 10,
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.black?.[0],
         padding: 10,
         borderRadius: 5,
-        alignItems: 'center',
+        alignItems: "center",
         gap: 2,
     },
     markerTitle: {
@@ -136,7 +142,7 @@ const styles = StyleSheet.create({
         color: colors.gray[1],
     },
     callout: {
-        position: 'absolute',
+        position: "absolute",
         left: -135,
         top: -50,
     },

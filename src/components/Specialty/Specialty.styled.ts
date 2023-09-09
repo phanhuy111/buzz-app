@@ -1,25 +1,27 @@
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
-import { colors } from 'themes';
-import { moderateScale } from 'utils/metrics';
+import { StyleProp, StyleSheet, ViewStyle } from "react-native";
+
+import { colors } from "themes";
+
+import { moderateScale } from "utils/metrics";
 
 export const styles = StyleSheet.create({
     container: {
-        display: 'flex',
-        position: 'relative'
+        display: "flex",
+        position: "relative",
     },
     containerText: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        position: 'absolute',
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        position: "absolute",
         bottom: 10,
-        left: 10
+        left: 10,
     },
     text: {
-        color: colors['white']['1'],
+        color: colors["white"]["1"],
     },
     textTitle: {
-        color: colors['white']['0'],
+        color: colors["white"]["0"],
         // fontFamily: 'Rajdhani',
         // fontSize: moderateScale(14),
         // fontWeight: '700',

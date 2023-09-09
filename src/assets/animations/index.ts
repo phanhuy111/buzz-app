@@ -1,1 +1,1 @@
-export const paperPlane = require('./paperplane.json');
+export const paperPlane = require("./paperplane.json");

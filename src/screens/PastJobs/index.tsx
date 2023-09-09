@@ -1,9 +1,11 @@
-import { StyleProp, StyleSheet, View } from 'react-native';
-import { colors } from 'themes';
-import { horizontalScale } from 'utils';
+import { StyleProp, StyleSheet, View } from "react-native";
+
+import { colors } from "themes";
+
+import { horizontalScale } from "utils";
 
 const PastJobs = () => {
-    return <View style={styles.container}>{'PastJobs'}</View>;
+    return <View style={styles.container}>{"PastJobs"}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -14,33 +16,33 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     bg: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         bottom: 0,
         left: 0,
         right: 0,
     },
     containerRow: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         gap: horizontalScale(5),
     },
     statusRow: {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        width: "100%",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
         gap: horizontalScale(5),
         paddingHorizontal: horizontalScale(20),
         paddingVertical: horizontalScale(20),
     },
     row: {
-        flexDirection: 'row',
+        flexDirection: "row",
         gap: horizontalScale(15),
     },
     text: {
-        color: colors['white']['0'],
+        color: colors["white"]["0"],
     },
     status: {
         paddingHorizontal: 10,
@@ -48,16 +50,16 @@ const styles = StyleSheet.create({
     },
     footer: {
         flex: 1,
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: colors['black'][0],
-        position: 'absolute',
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: colors["black"][0],
+        position: "absolute",
         bottom: 0,
         padding: horizontalScale(20),
     },
     button: {
-        width: '100%',
+        width: "100%",
     },
 }) as Record<string, StyleProp<any>>;
 

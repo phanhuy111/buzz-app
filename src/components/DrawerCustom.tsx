@@ -1,17 +1,21 @@
-import { DrawerContentComponentProps } from '@react-navigation/drawer';
-import { DrawerActions } from '@react-navigation/native';
-import { FlashList } from '@shopify/flash-list';
-import { SafeAreaView } from 'hocs';
-import { useCallback } from 'react';
-import { useIntl } from 'react-intl';
-import { StyleSheet, Text, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-import { colors } from 'themes';
-import { avatar } from 'assets/images';
-import Close from 'assets/icons/close.svg';
-import { moderateScale, horizontalScale, verticalScale } from 'utils';
-import { Button } from './Button';
+import { DrawerContentComponentProps } from "@react-navigation/drawer";
+import { DrawerActions } from "@react-navigation/native";
+import { FlashList } from "@shopify/flash-list";
+import { SafeAreaView } from "hocs";
+
+import { useCallback } from "react";
+import { useIntl } from "react-intl";
+import { StyleSheet, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
+import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
+
+import { colors } from "themes";
+
+import Close from "assets/icons/close.svg";
+import { avatar } from "assets/images";
+
+import { horizontalScale, moderateScale, verticalScale } from "utils";
+
 import {
     HOME,
     NOTIFICATIONS,
@@ -19,34 +23,36 @@ import {
     PAYMENT_OPTIONS,
     SETTING,
     TAX_DOCUMENTS,
-} from 'constants/index';
+} from "constants/index";
+
+import { Button } from "./Button";
 
 export const DrawerCustom = (props: DrawerContentComponentProps) => {
     const { formatMessage } = useIntl();
 
     const data = [
         {
-            title: formatMessage({ defaultMessage: 'HOME' }),
+            title: formatMessage({ defaultMessage: "HOME" }),
             route: HOME,
         },
         {
-            title: formatMessage({ defaultMessage: 'SETTING' }),
+            title: formatMessage({ defaultMessage: "SETTING" }),
             route: SETTING,
         },
         {
-            title: formatMessage({ defaultMessage: 'PAST JOBS' }),
+            title: formatMessage({ defaultMessage: "PAST JOBS" }),
             route: PAST_JOB,
         },
         {
-            title: formatMessage({ defaultMessage: 'PAYMENT OPTIONS' }),
+            title: formatMessage({ defaultMessage: "PAYMENT OPTIONS" }),
             route: PAYMENT_OPTIONS,
         },
         {
-            title: formatMessage({ defaultMessage: 'NOTIFICATIONS' }),
+            title: formatMessage({ defaultMessage: "NOTIFICATIONS" }),
             route: NOTIFICATIONS,
         },
         {
-            title: formatMessage({ defaultMessage: 'TAX DOCUMENTS' }),
+            title: formatMessage({ defaultMessage: "TAX DOCUMENTS" }),
             route: TAX_DOCUMENTS,
         },
     ];
@@ -98,7 +104,7 @@ export const DrawerCustom = (props: DrawerContentComponentProps) => {
                     <View style={styles.footer}>
                         <Button
                             type="dark"
-                            title={formatMessage({ defaultMessage: 'LOG OUT' })}
+                            title={formatMessage({ defaultMessage: "LOG OUT" })}
                             onPress={onClose}
                         />
                     </View>
@@ -118,21 +124,21 @@ const styles = StyleSheet.create({
         gap: verticalScale(20),
     },
     label: {
-        fontFamily: 'Rajdhani',
+        fontFamily: "Rajdhani",
         color: colors.white[0],
-        textTransform: 'uppercase',
+        textTransform: "uppercase",
         fontSize: moderateScale(24),
         paddingBottom: verticalScale(20),
-        fontWeight: '500',
+        fontWeight: "500",
     },
     item: {
         paddingHorizontal: verticalScale(20),
-        justifyContent: 'center',
+        justifyContent: "center",
     },
     divider: {
-        borderStyle: 'dashed',
+        borderStyle: "dashed",
         borderWidth: 0.9,
-        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderColor: "rgba(255, 255, 255, 0.2)",
     },
     avatar: {
         width: horizontalScale(40),
@@ -140,24 +146,24 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     name: {
-        fontFamily: 'Rajdhani',
+        fontFamily: "Rajdhani",
         fontSize: moderateScale(24),
-        fontWeight: '700',
+        fontWeight: "700",
         color: colors.white[0],
-        textTransform: 'uppercase',
+        textTransform: "uppercase",
     },
     header: {
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: "row",
+        alignItems: "center",
         marginHorizontal: verticalScale(20),
         paddingVertical: verticalScale(10),
-        justifyContent: 'space-between',
+        justifyContent: "space-between",
         borderBottomWidth: 1,
         borderBottomColor: colors.white[0],
     },
     headerInner: {
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: "row",
+        alignItems: "center",
         gap: verticalScale(10),
     },
     footer: {

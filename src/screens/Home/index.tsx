@@ -1,16 +1,22 @@
-import Input from 'components/DataEntry/Input';
-import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
-import Search from 'assets/icons/search.svg';
-import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
-import { verticalScale } from 'utils';
-import { LayoutDefault, PilotsItem, Text } from 'components';
-import { colors, paddingHorizontalGlobal } from 'themes';
-import { RankItem } from 'components/RankItem';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { SEARCH } from 'constants/index';
+import { ParamListBase, useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+import { useIntl } from "react-intl";
+import { StyleSheet, View } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
+import { colors, paddingHorizontalGlobal } from "themes";
+
+import Search from "assets/icons/search.svg";
+
+import { LayoutDefault, PilotsItem, Text } from "components";
+import Input from "components/DataEntry/Input";
+import KeyboardAwareScrollView from "components/KeyboardAwareScrollView";
+import { RankItem } from "components/RankItem";
+
+import { verticalScale } from "utils";
+
+import { SEARCH } from "constants/index";
 
 const Home = () => {
     const { formatMessage } = useIntl();
@@ -38,7 +44,7 @@ const Home = () => {
                                     <Input
                                         leftInputComponent={<Search width={25} />}
                                         placeholder={formatMessage({
-                                            defaultMessage: 'SEARCH FOR A DRONE PILOT',
+                                            defaultMessage: "SEARCH FOR A DRONE PILOT",
                                         })}
                                     />
                                 </View>
@@ -48,15 +54,15 @@ const Home = () => {
                             <View style={styles.droneList}>
                                 <Text type="indusMdBold" style={styles.title}>
                                     {formatMessage({
-                                        defaultMessage: 'NEXT',
+                                        defaultMessage: "NEXT",
                                     })}
                                 </Text>
                                 <PilotsItem
                                     data={{
-                                        title: 'WHISKEY',
-                                        subTitle: 'TOMORROW',
-                                        description: '$500',
-                                        image: '',
+                                        title: "WHISKEY",
+                                        subTitle: "TOMORROW",
+                                        description: "$500",
+                                        image: "",
                                         isDetail: true,
                                     }}
                                 />
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
     },
     body: {
         paddingTop: 5,
-        height: '100%',
+        height: "100%",
         backgroundColor: colors.black[0],
         paddingHorizontal: verticalScale(10),
     },
@@ -113,9 +119,9 @@ const styles = StyleSheet.create({
     },
     specialtyList: {
         flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignContent: 'center',
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignContent: "center",
     },
     button: {
         paddingBottom: verticalScale(10),
