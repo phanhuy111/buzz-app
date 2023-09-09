@@ -25,6 +25,8 @@ export const paddingHorizontalGlobal = {
     paddingHorizontal: verticalScale(20),
 };
 
+// xs-sm-md-lg-xl-xxl
+
 export const fontConfig = {
     fontFamily: Platform.select({
         web: 'Rajdhani',

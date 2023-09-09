@@ -1,11 +1,12 @@
 import { FlashList } from '@shopify/flash-list';
 import { Text } from 'components';
 import { HeaderNavigator } from 'components/Header';
-import { SafeAreaView } from 'hocs';
+import { InstagramVideo } from 'components/Video';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet, View, ScrollView, ImageBackground } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from 'themes';
 import { SCREEN_HEIGHT, SCREEN_WIDTH, horizontalScale, verticalScale } from 'utils';
 
@@ -16,26 +17,32 @@ const DATA = [
     {
         title: 'Second Item',
     },
+    {
+        title: 'Second Item',
+    },
+    {
+        title: 'Second Item',
+    },
 ];
 
-const TweetCell = ({ item }: { item: any }) => {
-    // console.log('item.title', item.title);
+const ImageCell = ({ item }: { item: any }) => {
     return (
-        <View>
-            <Text type="titleItems" style={styles.titleInfoSection}>
-                {'About Me'}
-            </Text>
-        </View>
+        <InstagramVideo
+            source={
+                'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
+            }
+        />
     );
 };
 
 const JobDetail = () => {
     const { formatMessage } = useIntl();
+    const { top } = useSafeAreaInsets();
 
     return (
-        <SafeAreaView>
+        <View style={{ flex: 1 }}>
             <ScrollView style={styles.container}>
-                <HeaderNavigator isGoBack={true} customStyle={styles.customHeader} />
+                <HeaderNavigator isGoBack={true} customStyle={[styles.customHeader, { top }]} />
                 <ImageBackground
                     source={{ uri: 'https://picsum.photos/id/237/400/250' }}
                     style={styles.image}
@@ -59,7 +66,10 @@ const JobDetail = () => {
                                         defaultMessage: 'ARRIVAL LOCATION',
                                     })}
                                 </Text>
-                                <Text type="textHypeSmall" style={[styles.white]}>
+                                <Text
+                                    type="textHypeSmall"
+                                    style={[styles.white, { maxWidth: 300 }]}
+                                >
                                     {'Binghamton University, Binghamton, NY 13902'}
                                 </Text>
                             </View>
@@ -89,14 +99,18 @@ const JobDetail = () => {
                             })}
                         </Text>
 
-                        <View style={styles.intructionSection}>
+                        <View style={styles.sampleSection}>
                             <FlashList
                                 horizontal={true}
                                 renderItem={({ item }) => {
-                                    return <TweetCell item={item} />;
+                                    return <ImageCell item={item} />;
                                 }}
-                                estimatedItemSize={50}
+                                estimatedItemSize={100}
                                 data={DATA}
+                                ItemSeparatorComponent={() => (
+                                    <View style={{ width: horizontalScale(10) }}></View>
+                                )}
+                                showsHorizontalScrollIndicator={false}
                             />
                         </View>
                     </View>
@@ -118,7 +132,7 @@ const JobDetail = () => {
                     </View>
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     );
 };
 
@@ -127,10 +141,9 @@ const styles = StyleSheet.create({
         zIndex: 2,
         paddingHorizontal: verticalScale(20),
         position: 'absolute',
-        top: 0,
         flex: 1,
         width: horizontalScale((SCREEN_WIDTH * 90) / 100),
-        display: 'flex',
+
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -162,7 +175,7 @@ const styles = StyleSheet.create({
     content: {
         paddingVertical: horizontalScale(10),
         flex: 1,
-        display: 'flex',
+
         backgroundColor: colors['black'][1],
         gap: horizontalScale(10),
     },
@@ -174,27 +187,26 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
     },
     section: {
-        display: 'flex',
         flexDirection: 'row',
         gap: horizontalScale(20),
     },
     section1: {
-        display: 'flex',
         flexDirection: 'row',
         flex: 1,
         justifyContent: 'center',
     },
     sectionInfo: {
-        display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         paddingVertical: horizontalScale(8),
     },
     intructionSection: {
-        display: 'flex',
         flexDirection: 'column',
         paddingHorizontal: horizontalScale(20),
         gap: horizontalScale(10),
+    },
+    sampleSection: {
+        paddingHorizontal: horizontalScale(20),
     },
     buttonEdit: {
         backgroundColor: colors['gray'][3],

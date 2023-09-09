@@ -7,3 +7,4 @@ export const rankLine = require('./rectangle-line.png');
 export const logoBg = require('./buzz-badge-bg.png');
 export const drone1 = require('./drone-1.png');
 export const markerMap = require('./marker-map.png');
+export const playIcon = require('./play.png');
