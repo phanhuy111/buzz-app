@@ -25,12 +25,22 @@ export const paddingHorizontalGlobal = {
     paddingHorizontal: verticalScale(20),
 };
 
+// xs-sm-md-lg-xl-xxl
+
 export const fontConfig = {
     fontFamily: Platform.select({
         web: 'Rajdhani',
         ios: 'Rajdhani',
         default: 'Rajdhani',
     }),
+    headlineLLarge: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(36),
+        fontWeight: '700',
+        lineHeight: 48,
+        letterSpacing: 0,
+        textTransform: 'uppercase' 
+    },
     headlineLarge: {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(32),
@@ -91,7 +101,12 @@ export const fontConfig = {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(16),
         fontWeight: '700',
-        color: '#27272A',
+        letterSpacing: 0,
+    },
+    bodySLarge: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(16),
+        fontWeight: '400',
         letterSpacing: 0,
     },
     textBoldItems: {
@@ -101,6 +116,12 @@ export const fontConfig = {
         letterSpacing: 0.5,
         lineHeight: 20,
         textTransform: 'uppercase',
+    },
+    labelLarge: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(14),
+        fontWeight: '500',
+        lineHeight: 21,
     },
     industryBold: {
         fontFamily: 'Industry-Bold',
@@ -127,17 +148,10 @@ export const fontConfig = {
         fontWeight: '400',
         letterSpacing: 0,
     },
-    labelLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(14),
-        fontWeight: '500',
-        lineHeight: 21,
-    },
     textItems: {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(10),
         fontWeight: '400',
-        letterSpacing: 0.5,
         lineHeight: 20,
         textTransform: 'uppercase',
     },
@@ -158,13 +172,20 @@ export const colors: Record<string, { [key: number]: string }> = {
         0: 'rgba(0, 0, 0, 1)',
         1: 'rgba(34, 34, 34, 1)',
         2: 'rgba(45, 45, 45, 1)',
+        3: '#111111',
     },
     gray: {
         0: 'rgba(0, 0, 0, 0.3)',
         1: 'rgba(78, 78, 78, 1)',
+        2: '#5E617A',
+        3: '#4E4E4E'
     },
     blue: {
         0: 'rgba(9, 135, 226, 1)',
+        1: '#48BFE3',
+    },
+    purple: {
+        0: '#5E60CE',
     },
 };
 

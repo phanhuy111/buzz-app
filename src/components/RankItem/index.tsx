@@ -7,6 +7,9 @@ import { horizontalScale, verticalScale } from 'utils';
 import { colors } from 'themes';
 import { Button } from 'components/Button';
 import { useIntl } from 'react-intl';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { JOB_DETAIL } from 'constants/routeNames';
 
 interface PropsRankItem {
     data?: IPilots;
@@ -15,6 +18,11 @@ interface PropsRankItem {
 export const RankItem = ({ data }: PropsRankItem) => {
     const rank = 3;
     const { formatMessage } = useIntl();
+    const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+    function navigateDetail() {
+        navigation.navigate(JOB_DETAIL);
+    }
 
     return (
         <View style={styles.wrapper}>
@@ -46,7 +54,7 @@ export const RankItem = ({ data }: PropsRankItem) => {
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'INFO' })}
-                                onPress={() => {}}
+                                onPress={() => navigateDetail()}
                                 font="robotoMono"
                             />
                             <Button

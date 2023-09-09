@@ -7,6 +7,9 @@ import { colors } from 'themes/Styles';
 import { horizontalScale, moderateScale, verticalScale } from 'utils';
 import { Button } from 'components/Button';
 import { useIntl } from 'react-intl';
+import { PILOT_PROFILE } from 'constants/routeNames';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface PropsPilotsItem {
     data?: IPilots;
@@ -14,6 +17,12 @@ interface PropsPilotsItem {
 
 export const PilotsItem = ({ data }: PropsPilotsItem) => {
     const { formatMessage } = useIntl();
+    const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+    function navigatePilotDetail() {
+        navigation.navigate(PILOT_PROFILE);
+    }
+
     return (
         <View style={styles.wrapper}>
             <ImageBackground imageStyle={styles.imageLogoBg} source={buzzItemBg} resizeMode="cover">
@@ -39,7 +48,7 @@ export const PilotsItem = ({ data }: PropsPilotsItem) => {
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'INFO' })}
-                                onPress={() => {}}
+                                onPress={() => navigatePilotDetail()}
                                 font="robotoMono"
                             />
                             <Button

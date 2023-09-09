@@ -1,63 +1,9 @@
-import { SafeAreaView } from 'hocs';
 import { StyleProp, StyleSheet, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { homeBg } from 'assets/images';
-import CalendarListScreen from 'components/Calendar';
-import { HeaderNavigator } from 'components/Header';
-import { Text } from 'components';
-import Arrow from 'assets/icons/arrow.svg';
 import { colors } from 'themes';
-import { horizontalScale, verticalScale } from 'utils';
-
-const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+import { horizontalScale } from 'utils';
 
 const PastJobs = () => {
-    return (
-        <View style={styles.container}>
-            <FastImage style={styles.bg} source={homeBg} resizeMode="stretch" />
-            <SafeAreaView>
-                <View style={styles.inner}>
-                    <HeaderNavigator
-                        isGoBack
-                        customStyle={{
-                            paddingHorizontal: verticalScale(20),
-                        }}
-                    />
-                    <View style={styles.containerRow}>
-                        <Text style={styles.text} type="labelLMedium">
-                            {'Choose a Date'}
-                        </Text>
-                        <Text style={styles.text} type="headlineLarge">
-                            {'July 14th'}
-                        </Text>
-                        <View style={[styles.containerRow, styles.row]}>
-                            <Text style={styles.text} type="labelMedium">
-                                {'10:00am'}
-                            </Text>
-                            <Arrow />
-                            <Text style={styles.text} type="labelMedium">
-                                {'6:00Pm'}
-                            </Text>
-                        </View>
-
-                        <View style={[styles.statusRow, styles.row]}>
-                            {days.map((value, index) => {
-                                return (
-                                    <View style={styles.status} key={index}>
-                                        <Text style={[styles.text]} type="labelMMedium">
-                                            {value}
-                                        </Text>
-                                    </View>
-                                );
-                            })}
-                        </View>
-                    </View>
-
-                    <CalendarListScreen />
-                </View>
-            </SafeAreaView>
-        </View>
-    );
+    return <View style={styles.container}>{'PastJobs'}</View>;
 };
 
 const styles = StyleSheet.create({
@@ -99,6 +45,19 @@ const styles = StyleSheet.create({
     status: {
         paddingHorizontal: 10,
         paddingVertical: 0,
+    },
+    footer: {
+        flex: 1,
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: colors['black'][0],
+        position: 'absolute',
+        bottom: 0,
+        padding: horizontalScale(20),
+    },
+    button: {
+        width: '100%',
     },
 }) as Record<string, StyleProp<any>>;
 
