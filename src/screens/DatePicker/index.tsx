@@ -1,5 +1,5 @@
 import { SafeAreaView } from 'hocs';
-import { StyleProp, StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, TouchableHighlight, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { homeBg } from 'assets/images';
 import CalendarListScreen from 'components/Calendar';
@@ -8,10 +8,30 @@ import { Text } from 'components';
 import Arrow from 'assets/icons/arrow.svg';
 import { colors } from 'themes';
 import { dayShortName, horizontalScale, verticalScale } from 'utils';
-
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import ArrowDown from 'assets/icons/arrow-down.svg';
 import { Button } from 'components/Button';
+import { useIntl } from 'react-intl';
+import { useState } from 'react';
 
 const DatePicker = () => {
+    const { formatMessage } = useIntl();
+
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date: any) => {
+        console.warn('A date has been picked: ', date);
+        hideDatePicker();
+    };
+
     return (
         <View style={styles.container}>
             <FastImage style={styles.bg} source={homeBg} resizeMode="stretch" />
@@ -24,18 +44,18 @@ const DatePicker = () => {
                         }}
                     />
                     <View style={styles.containerRow}>
-                        <Text style={styles.text} type="labelLMedium">
-                            {'Choose a Date'}
+                        <Text style={styles.text} type="rajdhXsLight">
+                            {formatMessage({ defaultMessage: 'Choose a Date' })}
                         </Text>
-                        <Text style={styles.text} type="headlineLarge">
+                        <Text style={styles.text} type="industryXLBold">
                             {'July 14th'}
                         </Text>
                         <View style={[styles.containerRow, styles.row]}>
-                            <Text style={styles.text} type="labelMedium">
+                            <Text style={styles.text} type="rajdhSmMedium">
                                 {'10:00am'}
                             </Text>
                             <Arrow />
-                            <Text style={styles.text} type="labelMedium">
+                            <Text style={styles.text} type="rajdhSmMedium">
                                 {'6:00Pm'}
                             </Text>
                         </View>
@@ -44,7 +64,7 @@ const DatePicker = () => {
                             {dayShortName.map((value, index) => {
                                 return (
                                     <View style={styles.status} key={index}>
-                                        <Text style={[styles.text]} type="labelMMedium">
+                                        <Text style={[styles.text]} type="rajdhXsBold">
                                             {value}
                                         </Text>
                                     </View>
@@ -56,6 +76,42 @@ const DatePicker = () => {
                 </View>
             </SafeAreaView>
             <View style={styles.footer}>
+                <View style={styles.footerTimeSection}>
+                    <TouchableHighlight onPress={() => showDatePicker()} style={styles.footerTime}>
+                        <View>
+                            <Text style={[styles.text]} type="rajdhXsBold">
+                                {formatMessage({ defaultMessage: 'Start Time' })}
+                            </Text>
+                            <View style={styles.pickerSection}>
+                                <Text type="">{'10:00 AM'}</Text>
+                                <ArrowDown />
+                            </View>
+                            <DateTimePickerModal
+                                isVisible={isDatePickerVisible}
+                                mode="time"
+                                onConfirm={handleConfirm}
+                                onCancel={hideDatePicker}
+                            />
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={() => showDatePicker()} style={styles.footerTime}>
+                        <View>
+                            <Text style={[styles.text]} type="rajdhXsBold">
+                                {formatMessage({ defaultMessage: 'End Time' })}
+                            </Text>
+                            <View style={styles.pickerSection}>
+                                <Text type="">{'10:00 AM'}</Text>
+                                <ArrowDown />
+                            </View>
+                            <DateTimePickerModal
+                                isVisible={isDatePickerVisible}
+                                mode="time"
+                                onConfirm={handleConfirm}
+                                onCancel={hideDatePicker}
+                            />
+                        </View>
+                    </TouchableHighlight>
+                </View>
                 <Button style={styles.button} onPress={() => {}} title="Save Date & Time" />
             </View>
         </View>
@@ -111,6 +167,25 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         padding: horizontalScale(20),
+        gap: 10,
+    },
+    footerTimeSection: {
+        flexDirection: 'row',
+        gap: 10,
+    },
+    footerTime: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+    pickerSection: {
+        flex: 1,
+        padding: horizontalScale(10),
+        flexDirection: 'row',
+        gap: 10,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.20)',
+        backgroundColor: colors['black'][4],
     },
     button: {
         width: '100%',

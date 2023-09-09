@@ -60,7 +60,7 @@ const Search = () => {
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        <Text type="industryBold" style={styles.title}>
+                        <Text type="indusMdBold" style={styles.title}>
                             {formatMessage({
                                 defaultMessage: 'CHOOSE A SPECIALIZATION',
                             })}

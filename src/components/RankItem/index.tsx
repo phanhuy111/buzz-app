@@ -42,7 +42,7 @@ export const RankItem = ({ data }: PropsRankItem) => {
                             })}
                     </ImageBackground>
                     <View style={styles.containerText}>
-                        <Text style={styles.textTitle} type="industryBold">
+                        <Text style={styles.textTitle} type="indusMdBold">
                             {data?.title}
                         </Text>
                         <Text style={styles.text} type="robotoMono">
@@ -55,18 +55,18 @@ export const RankItem = ({ data }: PropsRankItem) => {
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'INFO' })}
                                 onPress={() => navigateDetail()}
-                                font="robotoMono"
+                                font="robotoMonoXsLight"
                             />
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'CANCEL' })}
                                 onPress={() => {}}
-                                font="robotoMono"
+                                font="robotoMonoXsLight"
                             />
                         </View>
                     ) : (
                         <View style={styles.containerPrice}>
-                            <Text style={styles.textTitle} type="textHypeSmall">
+                            <Text style={styles.textTitle} type="rajdMdMedium">
                                 {'$' + data?.price}
                             </Text>
                         </View>

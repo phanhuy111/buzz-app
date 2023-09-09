@@ -50,10 +50,10 @@ const Locations = () => {
                 >
                     <View style={styles.callout}>
                         <View style={styles.marker}>
-                            <Text style={styles.markerTitle} type="industryBold">
+                            <Text style={styles.markerTitle} type="indusMdBold">
                                 BINGHAMTON UNIVERSITY
                             </Text>
-                            <Text style={styles.markerTitle} type="robotoMono">
+                            <Text style={styles.markerTitle} type="robotoMonoXsLight">
                                 35 Pilots Available
                             </Text>
                         </View>
@@ -138,6 +138,6 @@ const styles = StyleSheet.create({
     callout: {
         position: 'absolute',
         left: -135,
-        top: -50
+        top: -50,
     },
 });

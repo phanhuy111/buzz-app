@@ -25,7 +25,7 @@ export const paddingHorizontalGlobal = {
     paddingHorizontal: verticalScale(20),
 };
 
-// xs-sm-md-lg-xl-xxl
+// xs(10-13)-sm(14-17)-md(18-22)-lg(23-26)-xl(27-30)-xxl(31-36)
 
 export const fontConfig = {
     fontFamily: Platform.select({
@@ -33,129 +33,71 @@ export const fontConfig = {
         ios: 'Rajdhani',
         default: 'Rajdhani',
     }),
-    headlineLLarge: {
-        fontFamily: 'Rajdhani',
+    industryXXLBold: {
+        fontFamily: 'Industry-Bold',
         fontSize: moderateScale(36),
         fontWeight: '700',
         lineHeight: 48,
         letterSpacing: 0,
         textTransform: 'uppercase' 
     },
-    headlineLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(32),
+    industryXLBold: {
+        fontFamily: 'Industry-Bold',
+        fontSize: moderateScale(30),
         fontWeight: '700',
         lineHeight: 48,
         letterSpacing: 0,
     },
-    headlineMedium: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(28),
-        fontWeight: '700',
-        letterSpacing: 0,
-        lineHeight: 32,
-    },
-    headlineSmall: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(24),
-        fontWeight: '400',
-        letterSpacing: 0,
-        lineHeight: 32,
-    },
-    textSmall: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(22),
-        fontWeight: '400',
-        letterSpacing: 0,
-        lineHeight: 32,
-    },
-    textHypeSmall: {
+    rajdMdMedium: {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(22),
         fontWeight: '500',
         letterSpacing: 0,
         lineHeight: 32,
     },
-    titleLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(20),
-        fontWeight: '700',
-        letterSpacing: 0,
-        lineHeight: 28,
-    },
-    titleItems: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(18),
-        fontWeight: '700',
-        letterSpacing: 0,
-        lineHeight: 20,
-    },
-    titleLItems: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(18),
-        fontWeight: '500',
-        letterSpacing: 0,
-        lineHeight: 20,
-    },
-    bodyLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(16),
-        fontWeight: '700',
-        letterSpacing: 0,
-    },
-    bodySLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(16),
-        fontWeight: '400',
-        letterSpacing: 0,
-    },
-    textBoldItems: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(14),
-        fontWeight: '700',
-        letterSpacing: 0.5,
-        lineHeight: 20,
-        textTransform: 'uppercase',
-    },
-    labelLarge: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(14),
-        fontWeight: '500',
-        lineHeight: 21,
-    },
-    industryBold: {
+    indusMdBold: {
         fontFamily: 'Industry-Bold',
         fontSize: moderateScale(18),
         fontWeight: '700',
-        letterSpacing: 0.5,
-        lineHeight: 21.6,
+        letterSpacing: 0,
+        lineHeight: 20,
     },
-    labelMedium: {
+    indusMdMedium: {
         fontFamily: 'Rajdhani',
-        fontSize: moderateScale(12),
+        fontSize: moderateScale(18),
         fontWeight: '500',
         letterSpacing: 0,
+        lineHeight: 20,
     },
-    labelMMedium: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(12),
-        fontWeight: '700',
-        letterSpacing: 0,
-    },
-    labelLMedium: {
-        fontFamily: 'Rajdhani',
-        fontSize: moderateScale(11),
+    arialMdLight: {
+        fontFamily: 'Arial',
+        fontSize: moderateScale(16),
         fontWeight: '400',
         letterSpacing: 0,
     },
-    textItems: {
+    rajdhSmBold: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(14),
+        fontWeight: '700',
+        lineHeight: 20,
+    },
+    rajdhSmMedium: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(12),
+        fontWeight: '500',
+    },
+    rajdhXsBold: {
+        fontFamily: 'Rajdhani',
+        fontSize: moderateScale(12),
+        fontWeight: '700',
+    },
+    rajdhXsLight: {
         fontFamily: 'Rajdhani',
         fontSize: moderateScale(10),
         fontWeight: '400',
         lineHeight: 20,
-        textTransform: 'uppercase',
     },
-    robotoMono: {
+    robotoMonoXsLight: {
         fontFamily: 'RobotoMono-Medium',
         fontSize: moderateScale(10),
         fontWeight: '400',
@@ -173,6 +115,7 @@ export const colors: Record<string, { [key: number]: string }> = {
         1: 'rgba(34, 34, 34, 1)',
         2: 'rgba(45, 45, 45, 1)',
         3: '#111111',
+        4: '#231F20'
     },
     gray: {
         0: 'rgba(0, 0, 0, 0.3)',

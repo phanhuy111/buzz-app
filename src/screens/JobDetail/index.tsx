@@ -29,39 +29,39 @@ const JobDetail = () => {
                                 source={{ uri: 'https://picsum.photos/id/237/400/250' }}
                                 resizeMode="contain"
                             />
-                            <Text type="textItems" style={[styles.white]}>
+                            <Text type="rajdhXsLight" style={[styles.white]}>
                                 {'JULY 21, 2023'}
                             </Text>
-                            <Text type="headlineLLarge" style={[styles.white]}>
+                            <Text type="industryXXLBold" style={[styles.white]}>
                                 {'Buzz Ensign'}
                             </Text>
                             <View style={styles.section}>
                                 <View style={styles.sectionInfo}>
-                                    <Text type="textItems" style={[styles.white]}>
+                                    <Text type="rajdhXsLight" style={[styles.white]}>
                                         {formatMessage({
                                             defaultMessage: 'ARRIVAL LOCATION',
                                         })}
                                     </Text>
                                     <Text
-                                        type="textHypeSmall"
+                                        type="rajdMdMedium"
                                         style={[styles.white, { maxWidth: 300 }]}
                                     >
                                         {'Binghamton University, Binghamton, NY 13902'}
                                     </Text>
                                 </View>
                                 <View style={styles.sectionInfo}>
-                                    <Text type="textItems" style={[styles.white]}>
+                                    <Text type="rajdhXsLight" style={[styles.white]}>
                                         {formatMessage({
                                             defaultMessage: 'PRICE',
                                         })}
                                     </Text>
-                                    <Text type="textHypeSmall" style={[styles.white]}>
+                                    <Text type="rajdMdMedium" style={[styles.white]}>
                                         {'$500'}
                                     </Text>
                                 </View>
                             </View>
                             <View style={styles.section1}>
-                                <Text type="textItems" style={[styles.white]}>
+                                <Text type="rajdhXsLight" style={[styles.white]}>
                                     {'ACTUAL PILOT SHOWN 48HRS BEFORE JOB'}
                                 </Text>
                             </View>
@@ -69,14 +69,14 @@ const JobDetail = () => {
                     </ImageBackground>
                     <View style={styles.content}>
                         <View>
-                            <Text type="titleItems" style={styles.titleInfoSection}>
+                            <Text type="indusMdBold" style={styles.titleInfoSection}>
                                 {formatMessage({
                                     defaultMessage: 'Arrival Instructions',
                                 })}
                             </Text>
 
                             <View style={styles.intructionSection}>
-                                <Text type="bodySLarge" style={[styles.white]}>
+                                <Text type="arialMdLight" style={[styles.white]}>
                                     {
                                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae orci id ligula varius commodo. Donec ex mauris, fermentum nec leo sollicitudin, finibus pulvinar ligula. '
                                     }
@@ -92,14 +92,14 @@ const JobDetail = () => {
                         </View>
 
                         <View>
-                            <Text type="titleItems" style={styles.titleInfoSection}>
+                            <Text type="indusMdBold" style={styles.titleInfoSection}>
                                 {formatMessage({
                                     defaultMessage: 'Job Details',
                                 })}
                             </Text>
 
                             <View style={styles.intructionSection}>
-                                <Text type="bodySLarge" style={[styles.white]}>
+                                <Text type="arialMdLight" style={[styles.white]}>
                                     {
                                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae orci id ligula varius commodo. Donec ex mauris, fermentum nec leo sollicitudin, finibus pulvinar ligula. Nulla rhoncus, metus non rhoncus hendrerit, nisi felis aliquet augue, nec gravida ligula ligula in lacus. Pellentesque mollis odio ac gravida scelerisque. Curabitur est neque, convallis at faucibus eu, lobortis ut ex. Etiam bibendum urna id tellus suscipit, sit amet pretium magna dictum. Sed quis mauris at risus sagittis sodales at nec ex. In leo ante, maximus vitae finibus vitae, rhoncus a nulla.'
                                     }

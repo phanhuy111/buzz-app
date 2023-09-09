@@ -46,7 +46,7 @@ const Home = () => {
                         </View>
                         <KeyboardAwareScrollView style={styles.body}>
                             <View style={styles.droneList}>
-                                <Text type="industryBold" style={styles.title}>
+                                <Text type="indusMdBold" style={styles.title}>
                                     {formatMessage({
                                         defaultMessage: 'NEXT',
                                     })}
@@ -61,8 +61,8 @@ const Home = () => {
                                     }}
                                 />
                             </View>
-                            <View style={styles.droneList}>
-                                <Text type="industryBold" style={styles.title}>
+                            {/* <View style={styles.droneList}>
+                                <Text type="indusMdBold" style={styles.title}>
                                     {formatMessage({
                                         defaultMessage: 'UPCOMING',
                                     })}
@@ -76,7 +76,7 @@ const Home = () => {
                                         isDetail: true,
                                     }}
                                 />
-                            </View>
+                            </View> */}
                         </KeyboardAwareScrollView>
                     </View>
                 </View>

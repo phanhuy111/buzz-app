@@ -130,8 +130,8 @@ function renderCustomHeader(date: any) {
 
     return (
         <View style={styles.header}>
-            <Text style={[styles.month, textStyle]} type="titleLItems">{`${month}`}</Text>
-            <Text style={[styles.year, textStyle]} type="titleLItems">
+            <Text style={[styles.month, textStyle]} type="indusMdMedium">{`${month}`}</Text>
+            <Text style={[styles.year, textStyle]} type="indusMdMedium">
                 {year}
             </Text>
         </View>

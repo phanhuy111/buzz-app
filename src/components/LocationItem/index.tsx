@@ -34,18 +34,18 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
                             })}
                     </ImageBackground>
                     <View style={styles.containerText}>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.subTitle}
                         </Text>
-                        <Text style={styles.textTitle} type="industryBold">
+                        <Text style={styles.textTitle} type="indusMdBold">
                             {data?.title}
                         </Text>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.description}
                         </Text>
                     </View>
                     <View style={styles.containerPrice}>
-                        <Text style={styles.textTitle} type="textHypeSmall">
+                        <Text style={styles.textTitle} type="rajdMdMedium">
                             {'$' + data?.price}
                         </Text>
                     </View>

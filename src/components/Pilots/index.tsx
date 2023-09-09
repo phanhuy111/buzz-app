@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image';
 import { IPilots } from 'types';
 import { buzzItemBg, drone1 } from 'assets/images';
 import { colors } from 'themes/Styles';
-import { horizontalScale, moderateScale, verticalScale } from 'utils';
+import { horizontalScale, moderateScale, transitionSharedElement, verticalScale } from 'utils';
 import { Button } from 'components/Button';
 import { useIntl } from 'react-intl';
 import { PILOT_PROFILE } from 'constants/routeNames';
@@ -19,8 +19,8 @@ export const PilotsItem = ({ data }: PropsPilotsItem) => {
     const { formatMessage } = useIntl();
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
-    function navigatePilotDetail() {
-        navigation.navigate(PILOT_PROFILE);
+    function navigatePilotDetail(index: string) {
+        navigation.navigate(PILOT_PROFILE, {});
     }
 
     return (
@@ -33,13 +33,13 @@ export const PilotsItem = ({ data }: PropsPilotsItem) => {
                         resizeMode={FastImage.resizeMode.contain}
                     />
                     <View style={styles.containerText}>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.subTitle}
                         </Text>
-                        <Text style={styles.textTitle} type="industryBold">
+                        <Text style={styles.textTitle} type="indusMdBold">
                             {data?.title}
                         </Text>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.description}
                         </Text>
                     </View>
@@ -48,19 +48,19 @@ export const PilotsItem = ({ data }: PropsPilotsItem) => {
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'INFO' })}
-                                onPress={() => navigatePilotDetail()}
-                                font="robotoMono"
+                                onPress={() => navigatePilotDetail(data?.title)}
+                                font="robotoMonoXsLight"
                             />
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'CANCEL' })}
                                 onPress={() => {}}
-                                font="robotoMono"
+                                font="robotoMonoXsLight"
                             />
                         </View>
                     ) : (
                         <View style={styles.containerPrice}>
-                            <Text style={styles.textTitle} type="textHypeSmall">
+                            <Text style={styles.textTitle} type="rajdMdMedium">
                                 {'$' + data?.price}
                             </Text>
                         </View>

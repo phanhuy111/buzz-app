@@ -17,7 +17,7 @@ export const Specialty = ({ data }: PropsSpecialty) => {
                 source={{ uri: 'https://unsplash.it/400/400?image=1' }}
             >
                 <ViewDefault style={styles.containerText}>
-                    <Text style={styles.textTitle} type="textBoldItems">
+                    <Text style={styles.textTitle} type="rajdhSmBold">
                         {data?.title}
                     </Text>
                 </ViewDefault>
