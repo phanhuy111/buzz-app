@@ -1,8 +1,9 @@
+import dayjs from "dayjs";
 import { SafeAreaView } from "hocs";
 
 import { useState } from "react";
 import { useIntl } from "react-intl";
-import { StyleProp, StyleSheet, TouchableHighlight, View } from "react-native";
+import { StyleProp, StyleSheet, TouchableHighlight, TouchableOpacity, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -21,22 +22,42 @@ import { dayShortName, horizontalScale, verticalScale } from "utils";
 
 const DatePicker = () => {
     const { formatMessage } = useIntl();
+    const [isDatePickerVisible, setDatePickerVisibility] = useState({
+        start: false,
+        end: false,
+    });
 
-    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+    const [time, setTime] = useState({
+        start: "10:00",
+        end: "10:00",
+    });
 
-    const showDatePicker = () => {
-        setDatePickerVisibility(true);
+    const showDatePicker = (type: string | undefined) => {
+        if (type === "START") {
+            setDatePickerVisibility({ ...isDatePickerVisible, start: true });
+        }
+        return setDatePickerVisibility({ ...isDatePickerVisible, end: true });
     };
 
-    const hideDatePicker = () => {
-        setDatePickerVisibility(false);
+    const hideDatePicker = (type: string | undefined) => {
+        if (type === "START") {
+            setDatePickerVisibility({ ...isDatePickerVisible, start: false });
+        }
+        return setDatePickerVisibility({ ...isDatePickerVisible, end: false });
     };
 
-    const handleConfirm = (date: any) => {
-        console.warn("A date has been picked: ", date);
-        hideDatePicker();
+    const handleConfirm = (type: string, time: any) => {
+        let convertedTime = dayjs.utc(time).format("HH:mm");
+        if (type === "START") {
+            setTime({ ...time, start: convertedTime });
+            return hideDatePicker(type);
+        } else {
+            setTime({ ...time, start: "10:00", end: convertedTime });
+            return hideDatePicker(type);
+        }
     };
 
+    console.log("time", time);
     return (
         <View style={styles.container}>
             <FastImage style={styles.bg} source={homeBg} resizeMode="stretch" />
@@ -57,11 +78,11 @@ const DatePicker = () => {
                         </Text>
                         <View style={[styles.containerRow, styles.row]}>
                             <Text style={styles.text} type="rajdhSmMedium">
-                                {"10:00am"}
+                                {time.start}
                             </Text>
                             <Arrow />
                             <Text style={styles.text} type="rajdhSmMedium">
-                                {"6:00Pm"}
+                                {time.end}
                             </Text>
                         </View>
 
@@ -82,40 +103,49 @@ const DatePicker = () => {
             </SafeAreaView>
             <View style={styles.footer}>
                 <View style={styles.footerTimeSection}>
-                    <TouchableHighlight onPress={() => showDatePicker()} style={styles.footerTime}>
-                        <View>
-                            <Text style={[styles.text]} type="rajdhXsBold">
-                                {formatMessage({ defaultMessage: "Start Time" })}
+                    <View style={[styles.footerTime, { gap: 4 }]}>
+                        <Text style={[styles.text]} type="robotoMonoXsLight">
+                            {formatMessage({ defaultMessage: "Start Time" })}
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => showDatePicker("START")}
+                            style={styles.pickerSection}
+                        >
+                            <Text type="rajdhMdLight" style={[styles.text, { flex: 1 }]}>
+                                {time.start}
                             </Text>
-                            <View style={styles.pickerSection}>
-                                <Text type="">{"10:00 AM"}</Text>
-                                <ArrowDown />
-                            </View>
-                            <DateTimePickerModal
-                                isVisible={isDatePickerVisible}
-                                mode="time"
-                                onConfirm={handleConfirm}
-                                onCancel={hideDatePicker}
-                            />
-                        </View>
-                    </TouchableHighlight>
-                    <TouchableHighlight onPress={() => showDatePicker()} style={styles.footerTime}>
-                        <View>
-                            <Text style={[styles.text]} type="rajdhXsBold">
-                                {formatMessage({ defaultMessage: "End Time" })}
+                            <ArrowDown />
+                        </TouchableOpacity>
+
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible.start}
+                            mode="time"
+                            is24Hour={true}
+                            onConfirm={time => handleConfirm("START", time)}
+                            onCancel={() => hideDatePicker("START")}
+                        />
+                    </View>
+                    <View style={[styles.footerTime, { gap: 4 }]}>
+                        <Text style={[styles.text]} type="robotoMonoXsLight">
+                            {formatMessage({ defaultMessage: "End Time" })}
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => showDatePicker("END")}
+                            style={styles.pickerSection}
+                        >
+                            <Text type="rajdhMdLight" style={[styles.text, { flex: 1 }]}>
+                                {time.end}
                             </Text>
-                            <View style={styles.pickerSection}>
-                                <Text type="">{"10:00 AM"}</Text>
-                                <ArrowDown />
-                            </View>
-                            <DateTimePickerModal
-                                isVisible={isDatePickerVisible}
-                                mode="time"
-                                onConfirm={handleConfirm}
-                                onCancel={hideDatePicker}
-                            />
-                        </View>
-                    </TouchableHighlight>
+                            <ArrowDown />
+                        </TouchableOpacity>
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible.end}
+                            mode="time"
+                            is24Hour={true}
+                            onConfirm={time => handleConfirm("END", time)}
+                            onCancel={() => hideDatePicker("END")}
+                        />
+                    </View>
                 </View>
                 <Button style={styles.button} onPress={() => {}} title="Save Date & Time" />
             </View>
@@ -183,9 +213,11 @@ const styles = StyleSheet.create({
         flexDirection: "column",
     },
     pickerSection: {
-        flex: 1,
+        // flex: 1,
         padding: horizontalScale(10),
         flexDirection: "row",
+        alignItems: "center",
+        // jus
         gap: 10,
         borderRadius: 5,
         borderWidth: 1,

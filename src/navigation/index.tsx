@@ -64,13 +64,13 @@ function ApplicationStack() {
             <NavigationContainer independent>
                 <GestureHandlerRootView style={{ flex: 1 }}>
                     <StatusBar animated={true} barStyle={"light-content"} />
-                    {/* <Drawer.Navigator
+                    <Drawer.Navigator
                         drawerContent={props => {
                             return <DrawerCustom {...props} />;
                         }}
                         screenOptions={{
-                            drawerType: 'front',
-                            drawerPosition: 'right',
+                            drawerType: "front",
+                            drawerPosition: "right",
                             headerShown: false,
                             drawerStyle: {
                                 width: horizontalScale(310),
@@ -85,20 +85,7 @@ function ApplicationStack() {
                         <Drawer.Screen name={TAX_DOCUMENTS} component={TaxDocuments} />
                         <Drawer.Screen name={JOB_DETAIL} component={JobDetail} />
                         <Drawer.Screen name={PILOT_PROFILE} component={PilotProfile} />
-                    </Drawer.Navigator> */}
-                    <Stack.Navigator screenOptions={{ headerShown: false }}>
-                        <Stack.Screen name={HOME} component={Home} />
-                        {/* <Stack.Screen
-                            options={{
-                                gestureDirection: 'vertical',
-                            }}
-                            name={SEARCH}
-                            component={Search}
-                        /> */}
-                        <Stack.Screen name={LOCATIONS} component={Locations} />
-                        <Stack.Screen name={DATE_PICKER} component={DatePicker} />
-                        <Stack.Screen name={PILOT_PROFILE} component={PilotProfile} />
-                    </Stack.Navigator>
+                    </Drawer.Navigator>
                 </GestureHandlerRootView>
             </NavigationContainer>
         </>

@@ -38,37 +38,35 @@ export const fontConfig = {
         fontFamily: "Industry-Bold",
         fontSize: moderateScale(36),
         fontWeight: "700",
-        lineHeight: 48,
-        letterSpacing: 0,
-        textTransform: "uppercase",
     },
     industryXLBold: {
         fontFamily: "Industry-Bold",
         fontSize: moderateScale(30),
         fontWeight: "700",
-        lineHeight: 48,
-        letterSpacing: 0,
     },
     rajdMdMedium: {
         fontFamily: "Rajdhani",
         fontSize: moderateScale(22),
         fontWeight: "500",
         letterSpacing: 0,
-        lineHeight: 32,
     },
     indusMdBold: {
         fontFamily: "Industry-Bold",
         fontSize: moderateScale(18),
         fontWeight: "700",
         letterSpacing: 0,
-        lineHeight: 20,
     },
     indusMdMedium: {
-        fontFamily: "Rajdhani",
+        fontFamily: "Industry-Bold",
         fontSize: moderateScale(18),
         fontWeight: "500",
         letterSpacing: 0,
-        lineHeight: 20,
+    },
+    rajdhMdLight: {
+        fontFamily: "Rajdhani",
+        fontSize: moderateScale(18),
+        fontWeight: "400",
+        letterSpacing: 0,
     },
     arialMdLight: {
         fontFamily: "Arial",
@@ -80,7 +78,6 @@ export const fontConfig = {
         fontFamily: "Rajdhani",
         fontSize: moderateScale(14),
         fontWeight: "700",
-        lineHeight: 20,
     },
     rajdhSmMedium: {
         fontFamily: "Rajdhani",
@@ -96,13 +93,11 @@ export const fontConfig = {
         fontFamily: "Rajdhani",
         fontSize: moderateScale(10),
         fontWeight: "400",
-        lineHeight: 20,
     },
     robotoMonoXsLight: {
         fontFamily: "RobotoMono-Medium",
         fontSize: moderateScale(10),
         fontWeight: "400",
-        lineHeight: 12,
     },
 } as Record<string, StyleProp<any>>;
 

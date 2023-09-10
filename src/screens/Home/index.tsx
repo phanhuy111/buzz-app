@@ -67,22 +67,22 @@ const Home = () => {
                                     }}
                                 />
                             </View>
-                            {/* <View style={styles.droneList}>
+                            <View style={styles.droneList}>
                                 <Text type="indusMdBold" style={styles.title}>
                                     {formatMessage({
-                                        defaultMessage: 'UPCOMING',
+                                        defaultMessage: "UPCOMING",
                                     })}
                                 </Text>
                                 <RankItem
                                     data={{
-                                        title: 'WHISKEY',
-                                        subTitle: 'Tomorrow',
-                                        description: '$500',
-                                        image: '',
+                                        title: "WHISKEY",
+                                        subTitle: "Tomorrow",
+                                        description: "$500",
+                                        image: "",
                                         isDetail: true,
                                     }}
                                 />
-                            </View> */}
+                            </View>
                         </KeyboardAwareScrollView>
                     </View>
                 </View>
