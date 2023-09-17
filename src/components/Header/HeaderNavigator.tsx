@@ -1,18 +1,18 @@
-import { ParamListBase, useNavigation } from "@react-navigation/native";
-import { DrawerActions } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { DrawerActions } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from "react-native";
-import FastImage from "react-native-fast-image";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { colors } from "themes";
+import { colors } from 'themes';
 
-import ArrowLeft from "assets/icons/arrow-left.svg";
-import BuzzLogo from "assets/icons/buzz-logo.svg";
-import { avatar } from "assets/images";
+import ArrowLeft from 'assets/icons/arrow-left.svg';
+import BuzzLogo from 'assets/icons/buzz-logo.svg';
+import { avatar } from 'assets/images';
 
-import { horizontalScale, verticalScale } from "utils";
+import { horizontalScale, verticalScale } from 'utils';
 
 interface IHeaderNavigatorProps {
     customStyle?: StyleProp<ViewStyle>;
@@ -53,16 +53,16 @@ export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         paddingVertical: verticalScale(10),
     },
     left: {
         width: horizontalScale(30),
         height: horizontalScale(30),
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     right: {},
     avatar: {

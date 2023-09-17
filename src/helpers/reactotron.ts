@@ -4,7 +4,7 @@
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-import { queryClient } from "./queryClient";
+import { queryClient } from './queryClient';
 
 // @ts-ignore
 let Reactotron = null;
@@ -14,12 +14,12 @@ let QueryClientManager = null;
 let reactotronReactQuery = null;
 
 if (__DEV__) {
-    require("reactotron-react-native");
-    Reactotron = require("reactotron-react-native").default;
-    reactotronRedux = require("reactotron-redux").reactotronRedux;
-    sagaPlugin = require("reactotron-redux-saga");
-    QueryClientManager = require("reactotron-react-query").QueryClientManager;
-    reactotronReactQuery = require("reactotron-react-query").reactotronReactQuery;
+    require('reactotron-react-native');
+    Reactotron = require('reactotron-react-native').default;
+    reactotronRedux = require('reactotron-redux').reactotronRedux;
+    sagaPlugin = require('reactotron-redux-saga');
+    QueryClientManager = require('reactotron-react-query').QueryClientManager;
+    reactotronReactQuery = require('reactotron-react-query').reactotronReactQuery;
 }
 
 let sagaMonitor;
@@ -36,7 +36,7 @@ if (__DEV__) {
                 queryClientManager.unsubscribe();
             },
         })
-        .use(sagaPlugin({ except: [""] }))
+        .use(sagaPlugin({ except: [''] }))
         .use(reactotronRedux())
         .useReactNative()
         .connect();
@@ -47,7 +47,7 @@ if (__DEV__) {
     console.log = (...args) => {
         // @ts-ignore
         Reactotron?.display({
-            name: "LOG",
+            name: 'LOG',
             important: true,
             value: args,
             preview: args.length ? JSON.stringify(args) : args[0],

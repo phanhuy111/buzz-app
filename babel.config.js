@@ -1,37 +1,37 @@
 module.exports = {
-    presets: ["module:metro-react-native-babel-preset"],
+    presets: ['module:metro-react-native-babel-preset'],
     plugins: [
-        "react-native-reanimated/plugin",
+        'react-native-reanimated/plugin',
         [
-            "module-resolver",
+            'module-resolver',
             {
-                root: ["./src"],
+                root: ['./src'],
                 alias: {},
                 extensions: [
-                    ".ios.ts",
-                    ".android.ts",
-                    ".ts",
-                    ".ios.tsx",
-                    ".android.tsx",
-                    ".tsx",
-                    ".jsx",
-                    ".js",
-                    ".json",
-                    ".png",
+                    '.ios.ts',
+                    '.android.ts',
+                    '.ts',
+                    '.ios.tsx',
+                    '.android.tsx',
+                    '.tsx',
+                    '.jsx',
+                    '.js',
+                    '.json',
+                    '.png',
                 ],
             },
         ],
         [
-            "formatjs",
+            'formatjs',
             {
-                idInterpolationPattern: "[sha512:contenthash:base64:6]",
+                idInterpolationPattern: '[sha512:contenthash:base64:6]',
                 ast: true,
             },
         ],
     ],
     env: {
         production: {
-            plugins: [["transform-remove-console", { exclude: ["error", "warn"] }]],
+            plugins: [['transform-remove-console', { exclude: ['error', 'warn'] }]],
         },
     },
 };

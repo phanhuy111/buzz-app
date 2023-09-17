@@ -1,1 +1,1 @@
-declare module "react-native/Libraries/Text/TextNativeComponent";
+declare module 'react-native/Libraries/Text/TextNativeComponent';

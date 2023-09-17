@@ -1,12 +1,12 @@
-import { ImageBackground, View as ViewDefault } from "react-native";
+import { ImageBackground, View as ViewDefault } from 'react-native';
 
-import { Text } from "components/Text";
+import { Text } from 'components/Text';
 
-import { verticalScale } from "utils";
+import { verticalScale } from 'utils';
 
-import { IProduct } from "types";
+import { IProduct } from 'types';
 
-import { styles } from "./Specialty.styled";
+import { styles } from './Specialty.styled';
 
 interface PropsSpecialty {
     data?: IProduct;
@@ -18,7 +18,7 @@ export const Specialty = ({ data }: PropsSpecialty) => {
             <ImageBackground
                 imageStyle={{ borderRadius: 5 }}
                 style={{ width: verticalScale(170), height: verticalScale(100) }}
-                source={{ uri: "https://unsplash.it/400/400?image=1" }}
+                source={{ uri: 'https://unsplash.it/400/400?image=1' }}
             >
                 <ViewDefault style={styles.containerText}>
                     <Text style={styles.textTitle} type="rajdhSmBold">

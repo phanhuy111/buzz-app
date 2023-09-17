@@ -1,1 +1,1 @@
-declare module "react-native/Libraries/Components/View/ViewNativeComponent";
+declare module 'react-native/Libraries/Components/View/ViewNativeComponent';

@@ -1,9 +1,9 @@
-import React, { ReactNode, forwardRef, useImperativeHandle, useRef } from "react";
-import { StyleSheet, TextInput, TextInputProps, View, ViewStyle } from "react-native";
+import React, { ReactNode, forwardRef, useImperativeHandle, useRef } from 'react';
+import { StyleSheet, TextInput, TextInputProps, View, ViewStyle } from 'react-native';
 
-import { INPUT_THEME, colors } from "themes";
+import { INPUT_THEME, colors } from 'themes';
 
-import { horizontalScale, moderateScale, verticalScale } from "utils";
+import { horizontalScale, moderateScale, verticalScale } from 'utils';
 
 interface InputProps extends TextInputProps {
     leftInputComponent?: ReactNode;
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({
         height: horizontalScale(50),
         borderRadius: 24,
         backgroundColor: colors.white[0],
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: 'row',
+        alignItems: 'center',
         paddingHorizontal: verticalScale(15),
         gap: verticalScale(15),
     },

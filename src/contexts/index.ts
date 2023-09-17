@@ -1,1 +1,1 @@
-export * from "./IntlConnectProvider";
+export * from './IntlConnectProvider';

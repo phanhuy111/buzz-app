@@ -1,13 +1,13 @@
-import { SafeAreaView } from "hocs";
+import { SafeAreaView } from 'hocs';
 
-import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
-import FastImage from "react-native-fast-image";
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
-import { paddingHorizontalGlobal } from "themes";
+import { paddingHorizontalGlobal } from 'themes';
 
-import { homeBg } from "assets/images";
+import { homeBg } from 'assets/images';
 
-import { HeaderNavigator } from "../Header";
+import { HeaderNavigator } from '../Header';
 
 export const LayoutDefault = ({
     children,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         ...paddingHorizontalGlobal,
     },
     bg: {
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         bottom: 0,
         left: 0,

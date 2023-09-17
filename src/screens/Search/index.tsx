@@ -1,29 +1,29 @@
-import { ParamListBase, useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-import { useIntl } from "react-intl";
-import { StyleSheet, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { useIntl } from 'react-intl';
+import { StyleSheet, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import { colors } from "themes";
+import { colors } from 'themes';
 
-import Calendar from "assets/icons/calendar.svg";
-import Pin from "assets/icons/pin.svg";
+import Calendar from 'assets/icons/calendar.svg';
+import Pin from 'assets/icons/pin.svg';
 
-import { LayoutDefault, Text } from "components";
-import { Button } from "components/Button";
-import Input from "components/DataEntry/Input";
-import KeyboardAwareScrollView from "components/KeyboardAwareScrollView";
-import { Specialty } from "components/Specialty";
+import { LayoutDefault, Text } from 'components';
+import { Button } from 'components/Button';
+import Input from 'components/DataEntry/Input';
+import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
+import { Specialty } from 'components/Specialty';
 
-import { verticalScale } from "utils";
+import { verticalScale } from 'utils';
 
-import { DATE_PICKER, LOCATIONS } from "constants/index";
+import { DATE_PICKER, LOCATIONS } from 'constants/index';
 
 const dataSample = {
-    subTitle: "Sargeant (PIlot)",
-    title: "Whiskey Norman",
-    description: "Lumenier QAV-PRO Lifter 9",
+    subTitle: 'Sargeant (PIlot)',
+    title: 'Whiskey Norman',
+    description: 'Lumenier QAV-PRO Lifter 9',
     price: 900,
 };
 
@@ -46,7 +46,7 @@ const Search = () => {
                                     <Input
                                         leftInputComponent={<Pin width={25} />}
                                         placeholder={formatMessage({
-                                            defaultMessage: "CHOOSE LOCATION",
+                                            defaultMessage: 'CHOOSE LOCATION',
                                         })}
                                     />
                                 </View>
@@ -60,7 +60,7 @@ const Search = () => {
                                     <Input
                                         leftInputComponent={<Calendar width={25} />}
                                         placeholder={formatMessage({
-                                            defaultMessage: "SELECT DATE",
+                                            defaultMessage: 'SELECT DATE',
                                         })}
                                     />
                                 </View>
@@ -68,7 +68,7 @@ const Search = () => {
                         </View>
                         <Text type="indusMdBold" style={styles.title}>
                             {formatMessage({
-                                defaultMessage: "CHOOSE A SPECIALIZATION",
+                                defaultMessage: 'CHOOSE A SPECIALIZATION',
                             })}
                         </Text>
                         <View style={styles.specialtyList}>
@@ -79,7 +79,7 @@ const Search = () => {
                 </KeyboardAwareScrollView>
                 <View style={styles.button}>
                     <Button
-                        title={formatMessage({ defaultMessage: "FIND DRONE PILOT" })}
+                        title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
                         onPress={() => {}}
                         type="accent"
                     />
@@ -103,14 +103,14 @@ const styles = StyleSheet.create({
     },
     title: {
         marginTop: verticalScale(10),
-        textAlign: "center",
+        textAlign: 'center',
         color: colors.white[0],
     },
     specialtyList: {
         flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignContent: "center",
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignContent: 'center',
     },
     button: {
         paddingBottom: verticalScale(10),

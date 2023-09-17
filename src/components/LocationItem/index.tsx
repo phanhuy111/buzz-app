@@ -1,17 +1,17 @@
-import { useIntl } from "react-intl";
-import { ImageBackground, StyleSheet, View } from "react-native";
-import FastImage from "react-native-fast-image";
+import { useIntl } from 'react-intl';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
 
-import { colors } from "themes";
+import { colors } from 'themes';
 
-import { buzzItemBg, logoBg, rankLine } from "assets/images";
+import { buzzItemBg, logoBg, rankLine } from 'assets/images';
 
-import { Button } from "components/Button";
-import { Text } from "components/Text";
+import { Button } from 'components/Button';
+import { Text } from 'components/Text';
 
-import { horizontalScale, verticalScale } from "utils";
+import { horizontalScale, verticalScale } from 'utils';
 
-import { IPilots } from "types";
+import { IPilots } from 'types';
 
 interface PropsLocationItem {
     data?: IPilots;
@@ -27,7 +27,7 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
                 <View style={styles.container}>
                     <ImageBackground style={styles.imageLogo} source={logoBg}>
                         {Array(rank)
-                            .fill("")
+                            .fill('')
                             .map(value => {
                                 return (
                                     <FastImage
@@ -51,7 +51,7 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
                     </View>
                     <View style={styles.containerPrice}>
                         <Text style={styles.textTitle} type="rajdMdMedium">
-                            {"$" + data?.price}
+                            {'$' + data?.price}
                         </Text>
                     </View>
                 </View>
@@ -67,33 +67,33 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
     },
     container: {
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: 'row',
+        alignItems: 'center',
         padding: verticalScale(10),
         gap: horizontalScale(10),
     },
     imageLogo: {
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: verticalScale(70),
         height: verticalScale(70),
     },
     containerText: {
         flex: 1,
-        flexDirection: "column",
+        flexDirection: 'column',
         gap: 5,
     },
     containerPrice: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     text: {
-        color: colors["white"]["1"],
+        color: colors['white']['1'],
     },
     textTitle: {
-        color: colors["white"]["0"],
+        color: colors['white']['0'],
     },
     rankImg: {
         width: verticalScale(50),

@@ -1,21 +1,21 @@
-import { StyleProp, StyleSheet, ViewStyle } from "react-native";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
-import { buttonTypes } from "themes";
+import { buttonTypes } from 'themes';
 
-import { Text } from "components";
+import { Text } from 'components';
 
-import { moderateScale, verticalScale } from "utils";
+import { moderateScale, verticalScale } from 'utils';
 
 interface IButton {
     onPress: () => void;
     title: string;
-    type?: "accent" | "dark";
+    type?: 'accent' | 'dark';
     style?: StyleProp<ViewStyle>;
     font?: string;
 }
 
-export const Button = ({ onPress, title, type = "accent", style, ...props }: IButton) => {
+export const Button = ({ onPress, title, type = 'accent', style, ...props }: IButton) => {
     return (
         <TouchableHighlight
             style={[
@@ -28,7 +28,7 @@ export const Button = ({ onPress, title, type = "accent", style, ...props }: IBu
         >
             <Text
                 style={[styles.buttonText, { color: buttonTypes?.[type]?.color }]}
-                type={props.font || ""}
+                type={props.font || ''}
             >
                 {title}
             </Text>
@@ -39,13 +39,13 @@ export const Button = ({ onPress, title, type = "accent", style, ...props }: IBu
 const styles = StyleSheet.create({
     button: {
         padding: verticalScale(14),
-        justifyContent: "center",
-        alignContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
         borderRadius: 10,
     },
     buttonText: {
-        fontFamily: "Industry-Bold",
+        fontFamily: 'Industry-Bold',
         fontSize: moderateScale(16),
     },
 });

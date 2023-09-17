@@ -1,12 +1,12 @@
-import * as Sentry from "@sentry/react-native";
-import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { redistributionToken } from "services";
+import * as Sentry from '@sentry/react-native';
+import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { redistributionToken } from 'services';
 
-import Config from "react-native-config";
-import * as Keychain from "react-native-keychain";
+import Config from 'react-native-config';
+import * as Keychain from 'react-native-keychain';
 
-import { resetAllCache } from "utils";
-import { removeKeychain } from "utils/keychain";
+import { resetAllCache } from 'utils';
+import { removeKeychain } from 'utils/keychain';
 
 export const BASE_URL = `${Config.DOMAIN}/index.php/rest/V1`;
 export const BASE_GO_URL = `${Config.DOMAIN}/go/v1`;
@@ -20,13 +20,13 @@ type ErrorResponse = {
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
     },
 });
 
 export const handleError = (error: ErrorResponse) => {
     if (error.status !== 403) {
-        Sentry.setExtra("error", error);
+        Sentry.setExtra('error', error);
         Sentry.captureException(error);
     }
 
@@ -36,7 +36,7 @@ export const handleError = (error: ErrorResponse) => {
 axiosInstance.interceptors.request.use(
     async config => {
         // Do something before request is sent
-        const accessToken = await Keychain.getInternetCredentials("access_token");
+        const accessToken = await Keychain.getInternetCredentials('access_token');
 
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken.password}`;
@@ -67,7 +67,7 @@ axiosInstance.interceptors.response.use(
             if (error.response.status === 403 && !originalRequest.retry) {
                 originalRequest.retry = true;
 
-                const refreshToken = (await Keychain.getInternetCredentials("refresh_token")) as {
+                const refreshToken = (await Keychain.getInternetCredentials('refresh_token')) as {
                     password: string;
                 };
 
@@ -76,13 +76,13 @@ axiosInstance.interceptors.response.use(
                         .then(data => {
                             originalRequest.retry = false;
                             Keychain.setInternetCredentials(
-                                "access_token",
-                                "access_token",
+                                'access_token',
+                                'access_token',
                                 data?.access_token,
                             );
                             Keychain.setInternetCredentials(
-                                "refresh_token",
-                                "refresh_token",
+                                'refresh_token',
+                                'refresh_token',
                                 data?.refresh_token,
                             );
 

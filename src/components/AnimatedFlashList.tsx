@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { FlashList, FlashListProps } from "@shopify/flash-list";
+import { FlashList, FlashListProps } from '@shopify/flash-list';
 
-import { Ref, forwardRef } from "react";
-import Animated from "react-native-reanimated";
+import { Ref, forwardRef } from 'react';
+import Animated from 'react-native-reanimated';
 
 const FlashListWithEventThrottle = forwardRef<Ref<FlashList<any>>, FlashListProps<any>>(
     (props, ref) => (

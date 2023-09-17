@@ -1,21 +1,21 @@
 /* eslint-disable import/order */
 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 // @ts-ignore
-import { enhancers, sagaMonitor } from "helpers/reactotron";
-import { AnyAction, CombinedState, combineReducers } from "redux";
-import { persistReducer, persistStore } from "redux-persist";
-import { PersistConfig } from "redux-persist/es/types";
-import createSagaMiddleware from "redux-saga";
+import { enhancers, sagaMonitor } from 'helpers/reactotron';
+import { AnyAction, CombinedState, combineReducers } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import { PersistConfig } from 'redux-persist/es/types';
+import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from "./sagas";
-import { RESET_ALL } from "./sagas/resetAll";
-import localeSlice, { LocaleState } from "./slices/localeSlice";
+import rootSaga from './sagas';
+import { RESET_ALL } from './sagas/resetAll';
+import localeSlice, { LocaleState } from './slices/localeSlice';
 
 const persistConfig: PersistConfig<any> = {
-    key: "root",
+    key: 'root',
     storage: AsyncStorage,
     blacklist: [],
     version: 1,
@@ -35,7 +35,7 @@ const reducers = (
 ) => {
     if (action.type === RESET_ALL) {
         // for all keys defined in your persistConfig(s)
-        AsyncStorage.removeItem("persist:root");
+        AsyncStorage.removeItem('persist:root');
         // storage.removeItem('persist:otherKey')
 
         return combinedReducer(undefined, action);

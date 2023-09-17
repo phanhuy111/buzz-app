@@ -1,6 +1,6 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
     DatePicker,
     Home,
@@ -13,15 +13,15 @@ import {
     Search,
     Setting,
     TaxDocuments,
-} from "screens";
+} from 'screens';
 
-import React from "react";
-import { StatusBar } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { DrawerCustom } from "components";
+import { DrawerCustom } from 'components';
 
-import { horizontalScale } from "utils";
+import { horizontalScale } from 'utils';
 
 import {
     DATE_PICKER,
@@ -35,7 +35,7 @@ import {
     SEARCH,
     SETTING,
     TAX_DOCUMENTS,
-} from "constants/routeNames";
+} from 'constants/routeNames';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -46,7 +46,7 @@ export const HomeStack = () => {
             <Stack.Screen name={HOME} component={Home} />
             <Stack.Screen
                 options={{
-                    gestureDirection: "vertical",
+                    gestureDirection: 'vertical',
                 }}
                 name={SEARCH}
                 component={Search}
@@ -63,14 +63,14 @@ function ApplicationStack() {
         <>
             <NavigationContainer independent>
                 <GestureHandlerRootView style={{ flex: 1 }}>
-                    <StatusBar animated={true} barStyle={"light-content"} />
+                    <StatusBar animated={true} barStyle={'light-content'} />
                     <Drawer.Navigator
                         drawerContent={props => {
                             return <DrawerCustom {...props} />;
                         }}
                         screenOptions={{
-                            drawerType: "front",
-                            drawerPosition: "right",
+                            drawerType: 'front',
+                            drawerPosition: 'right',
                             headerShown: false,
                             drawerStyle: {
                                 width: horizontalScale(310),

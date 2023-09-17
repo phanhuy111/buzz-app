@@ -1,9 +1,9 @@
-import { SharedTransition, withSpring } from "react-native-reanimated";
+import { SharedTransition, withSpring } from 'react-native-reanimated';
 
-export const dayShortName = ["S", "M", "T", "W", "T", "F", "S"];
+export const dayShortName = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
 export const transitionSharedElement = SharedTransition.custom(values => {
-    "worklet";
+    'worklet';
     return {
         height: withSpring(values.targetHeight),
         width: withSpring(values.targetWidth),

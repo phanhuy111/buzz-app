@@ -1,6 +1,6 @@
-import React, { FC, useCallback } from "react";
-import { GestureResponderEvent, ScrollViewProps, useWindowDimensions } from "react-native";
-import { useResizeMode } from "react-native-keyboard-controller";
+import React, { FC, useCallback } from 'react';
+import { GestureResponderEvent, ScrollViewProps, useWindowDimensions } from 'react-native';
+import { useResizeMode } from 'react-native-keyboard-controller';
 import Reanimated, {
     interpolate,
     scrollTo,
@@ -9,9 +9,9 @@ import Reanimated, {
     useAnimatedStyle,
     useSharedValue,
     useWorkletCallback,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
-import { useSmoothKeyboardHandler } from "./useSmoothKeyboardHandler";
+import { useSmoothKeyboardHandler } from './useSmoothKeyboardHandler';
 
 const BOTTOM_OFFSET = 50;
 
@@ -48,7 +48,7 @@ const KeyboardAwareScrollView: FC<ScrollViewProps> = ({ children, ...rest }) => 
      * Function that will scroll a ScrollView as keyboard gets moving
      */
     const maybeScroll = useWorkletCallback((e: number) => {
-        "worklet";
+        'worklet';
 
         fakeViewHeight.value = e;
 
@@ -69,7 +69,7 @@ const KeyboardAwareScrollView: FC<ScrollViewProps> = ({ children, ...rest }) => 
     useSmoothKeyboardHandler(
         {
             onStart: e => {
-                "worklet";
+                'worklet';
 
                 if (e.height > 0) {
                     // just persist height - later will be used in interpolation
@@ -77,12 +77,12 @@ const KeyboardAwareScrollView: FC<ScrollViewProps> = ({ children, ...rest }) => 
                 }
             },
             onMove: e => {
-                "worklet";
+                'worklet';
 
                 maybeScroll(e.height);
             },
             onEnd: e => {
-                "worklet";
+                'worklet';
 
                 keyboardHeight.value = e.height;
             },
