@@ -6,11 +6,9 @@ import { moderateScale } from "utils/metrics";
 
 export const styles = StyleSheet.create({
     container: {
-        display: "flex",
         position: "relative",
     },
     containerText: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         position: "absolute",

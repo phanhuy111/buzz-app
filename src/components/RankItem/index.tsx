@@ -85,16 +85,13 @@ export const RankItem = ({ data }: PropsRankItem) => {
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {
-        display: "flex",
-    },
+    wrapper: {},
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,
         borderColor: "#0987E2",
     },
     container: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         padding: verticalScale(10),
@@ -108,12 +105,10 @@ export const styles = StyleSheet.create({
         height: verticalScale(70),
     },
     containerText: {
-        display: "flex",
         flex: 1,
         flexDirection: "column",
     },
     containerPrice: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",

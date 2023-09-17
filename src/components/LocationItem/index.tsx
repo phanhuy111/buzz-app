@@ -61,15 +61,12 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {
-        display: "flex",
-    },
+    wrapper: {},
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,
     },
     container: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         padding: verticalScale(10),
@@ -83,13 +80,11 @@ export const styles = StyleSheet.create({
         height: verticalScale(70),
     },
     containerText: {
-        display: "flex",
         flex: 1,
         flexDirection: "column",
         gap: 5,
     },
     containerPrice: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",

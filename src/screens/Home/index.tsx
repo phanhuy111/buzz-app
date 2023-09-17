@@ -2,7 +2,7 @@ import { ParamListBase, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 import { useIntl } from "react-intl";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { colors, paddingHorizontalGlobal } from "themes";
@@ -13,6 +13,7 @@ import { LayoutDefault, PilotsItem, Text } from "components";
 import Input from "components/DataEntry/Input";
 import KeyboardAwareScrollView from "components/KeyboardAwareScrollView";
 import { RankItem } from "components/RankItem";
+import { View } from "components/View";
 
 import { verticalScale } from "utils";
 

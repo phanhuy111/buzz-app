@@ -144,7 +144,6 @@ export default forwardRef(CalendarListScreen);
 
 const styles = StyleSheet.create({
     header: {
-        display: "flex",
         justifyContent: "center",
         flexDirection: "row",
         width: "100%",

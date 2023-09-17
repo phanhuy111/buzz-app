@@ -3,7 +3,7 @@ import { SafeAreaView } from "hocs";
 
 import { useState } from "react";
 import { useIntl } from "react-intl";
-import { StyleProp, StyleSheet, TouchableHighlight, TouchableOpacity, View } from "react-native";
+import { StyleProp, StyleSheet, TouchableOpacity, View } from "react-native";
 import FastImage from "react-native-fast-image";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -34,20 +34,20 @@ const DatePicker = () => {
 
     const showDatePicker = (type: string | undefined) => {
         if (type === "START") {
-            setDatePickerVisibility({ ...isDatePickerVisible, start: true });
+            return setDatePickerVisibility({ ...isDatePickerVisible, start: true });
         }
         return setDatePickerVisibility({ ...isDatePickerVisible, end: true });
     };
 
     const hideDatePicker = (type: string | undefined) => {
         if (type === "START") {
-            setDatePickerVisibility({ ...isDatePickerVisible, start: false });
+            return setDatePickerVisibility({ ...isDatePickerVisible, start: false });
         }
         return setDatePickerVisibility({ ...isDatePickerVisible, end: false });
     };
 
-    const handleConfirm = (type: string, time: any) => {
-        let convertedTime = dayjs.utc(time).format("HH:mm");
+    const handleConfirm = (type: string, timeParams: any) => {
+        let convertedTime = dayjs(timeParams).format("HH:mm");
         if (type === "START") {
             setTime({ ...time, start: convertedTime });
             return hideDatePicker(type);
@@ -57,7 +57,6 @@ const DatePicker = () => {
         }
     };
 
-    console.log("time", time);
     return (
         <View style={styles.container}>
             <FastImage style={styles.bg} source={homeBg} resizeMode="stretch" />
@@ -168,14 +167,13 @@ const styles = StyleSheet.create({
         right: 0,
     },
     containerRow: {
-        display: "flex",
         justifyContent: "center",
         alignItems: "center",
         gap: horizontalScale(5),
     },
     statusRow: {
         width: "100%",
-        display: "flex",
+
         justifyContent: "space-between",
         alignItems: "center",
         gap: horizontalScale(5),
@@ -196,7 +194,7 @@ const styles = StyleSheet.create({
     footer: {
         flex: 1,
         width: "100%",
-        display: "flex",
+
         justifyContent: "center",
         backgroundColor: colors["black"][0],
         position: "absolute",

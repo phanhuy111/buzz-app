@@ -79,21 +79,17 @@ export const PilotsItem = ({ data }: PropsPilotsItem) => {
 };
 
 const styles = StyleSheet.create({
-    wrapper: {
-        display: "flex",
-    },
+    wrapper: {},
     imageLogoBg: {
         borderRadius: 5,
     },
     container: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         padding: verticalScale(10),
         gap: horizontalScale(10),
     },
     imageLogo: {
-        display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
@@ -107,7 +103,6 @@ const styles = StyleSheet.create({
         gap: 5,
     },
     containerPrice: {
-        display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
