@@ -1,37 +1,41 @@
-import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import {
-    DATE_PICKER,
-    HOME,
-    LOCATIONS,
-    JOB_DETAIL,
-    NOTIFICATIONS,
-    PAST_JOB,
-    PAYMENT_OPTIONS,
-    SEARCH,
-    SETTING,
-    TAX_DOCUMENTS,
-    PILOT_PROFILE,
-} from 'constants/routeNames';
 import {
     DatePicker,
     Home,
+    JobDetail,
     Locations,
     Notifications,
     PastJobs,
     PaymentOptions,
+    PilotProfile,
     Search,
     Setting,
     TaxDocuments,
-    JobDetail,
-    PilotProfile,
 } from 'screens';
+
+import React from 'react';
 import { StatusBar } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 import { DrawerCustom } from 'components';
+
 import { horizontalScale } from 'utils';
+
+import {
+    DATE_PICKER,
+    HOME,
+    JOB_DETAIL,
+    LOCATIONS,
+    NOTIFICATIONS,
+    PAST_JOB,
+    PAYMENT_OPTIONS,
+    PILOT_PROFILE,
+    SEARCH,
+    SETTING,
+    TAX_DOCUMENTS,
+} from 'constants/routeNames';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -49,6 +53,7 @@ export const HomeStack = () => {
             />
             <Stack.Screen name={LOCATIONS} component={Locations} />
             <Stack.Screen name={DATE_PICKER} component={DatePicker} />
+            <Stack.Screen name={PILOT_PROFILE} component={PilotProfile} />
         </Stack.Navigator>
     );
 };

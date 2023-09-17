@@ -1,46 +1,47 @@
 /* eslint-disable import/order */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { AnyAction, CombinedState, combineReducers } from "redux";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import createSagaMiddleware from "redux-saga";
-import { persistReducer, persistStore } from "redux-persist";
-import { PersistConfig } from "redux-persist/es/types";
-import rootSaga from "./sagas";
-import localeSlice, { LocaleState } from "./slices/localeSlice";
-import { RESET_ALL } from "./sagas/resetAll";
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 // @ts-ignore
-import { sagaMonitor, enhancers } from "helpers/reactotron";
+import { enhancers, sagaMonitor } from 'helpers/reactotron';
+import { AnyAction, CombinedState, combineReducers } from 'redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import { PersistConfig } from 'redux-persist/es/types';
+import createSagaMiddleware from 'redux-saga';
+
+import rootSaga from './sagas';
+import { RESET_ALL } from './sagas/resetAll';
+import localeSlice, { LocaleState } from './slices/localeSlice';
 
 const persistConfig: PersistConfig<any> = {
-  key: "root",
-  storage: AsyncStorage,
-  blacklist: [],
-  version: 1,
+    key: 'root',
+    storage: AsyncStorage,
+    blacklist: [],
+    version: 1,
 };
 
 const combinedReducer = combineReducers({
-  locale: localeSlice,
+    locale: localeSlice,
 });
 
 const reducers = (
-  state:
-    | CombinedState<{
-        locale: LocaleState;
-      }>
-    | undefined,
-  action: AnyAction
+    state:
+        | CombinedState<{
+              locale: LocaleState;
+          }>
+        | undefined,
+    action: AnyAction,
 ) => {
-  if (action.type === RESET_ALL) {
-    // for all keys defined in your persistConfig(s)
-    AsyncStorage.removeItem("persist:root");
-    // storage.removeItem('persist:otherKey')
+    if (action.type === RESET_ALL) {
+        // for all keys defined in your persistConfig(s)
+        AsyncStorage.removeItem('persist:root');
+        // storage.removeItem('persist:otherKey')
 
-    return combinedReducer(undefined, action);
-  }
+        return combinedReducer(undefined, action);
+    }
 
-  return combinedReducer(state, action);
+    return combinedReducer(state, action);
 };
 
 const persistReducers = persistReducer(persistConfig, reducers);
@@ -50,15 +51,15 @@ const persistReducers = persistReducer(persistConfig, reducers);
 const sagaMiddleware = createSagaMiddleware(sagaMonitor ? { sagaMonitor } : {});
 
 const middleware = [
-  ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
-  sagaMiddleware,
+    ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
+    sagaMiddleware,
 ];
 
 export const store = configureStore({
-  reducer: persistReducers,
-  middleware,
-  // @ts-ignore
-  enhancers: enhancers ? [enhancers] : [],
+    reducer: persistReducers,
+    middleware,
+    // @ts-ignore
+    enhancers: enhancers ? [enhancers] : [],
 });
 
 sagaMiddleware.run(rootSaga);

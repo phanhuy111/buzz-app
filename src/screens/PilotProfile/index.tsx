@@ -1,13 +1,29 @@
+import { RouteProp, useRoute } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
+
+import React from 'react';
+import { useIntl } from 'react-intl';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import Animated, {
+    Extrapolate,
+    interpolate,
+    useAnimatedScrollHandler,
+    useAnimatedStyle,
+    useSharedValue,
+    withSpring,
+    withTiming,
+} from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { colors } from 'themes';
+
+import { drone1 } from 'assets/images';
+
 import { Text } from 'components';
 import { HeaderNavigator } from 'components/Header';
 import { InstagramVideo } from 'components/Video';
-import React from 'react';
-import { useIntl } from 'react-intl';
-import { StyleSheet, View, ScrollView, ImageBackground } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors } from 'themes';
+
 import { SCREEN_HEIGHT, SCREEN_WIDTH, horizontalScale, verticalScale } from 'utils';
 
 const DATA = [
@@ -35,104 +51,157 @@ const ImageCell = ({ item }: { item: any }) => {
     );
 };
 
-const JobDetail = () => {
+const heightImage = horizontalScale((SCREEN_HEIGHT * 68) / 100);
+
+const PilotProfile = () => {
     const { formatMessage } = useIntl();
     const { top } = useSafeAreaInsets();
+    const translationY = useSharedValue(0);
+
+    const scrollHandler = useAnimatedScrollHandler({
+        onScroll: event => {
+            translationY.value = event.contentOffset.y;
+        },
+    });
+
+    const styleBg = useAnimatedStyle(() => {
+        return {
+            transform: [
+                {
+                    scale: interpolate(
+                        translationY.value,
+                        [-heightImage, 0, heightImage],
+                        [2.5, 1, 2],
+                        Extrapolate.EXTEND,
+                    ),
+                },
+                {
+                    translateY: withSpring(
+                        interpolate(
+                            translationY.value,
+                            [-heightImage, 0, heightImage],
+                            [-heightImage * 0.6, 0, heightImage * 0.5],
+                            Extrapolate.EXTEND,
+                        ),
+                        {
+                            duration: 10,
+                            velocity: 10000,
+                        },
+                    ),
+                },
+                {
+                    translateY: withSpring(
+                        interpolate(
+                            translationY.value,
+                            [-heightImage, 0, heightImage],
+                            [heightImage * 0.3, 0, 0],
+                            Extrapolate.EXTEND,
+                        ),
+                        {
+                            duration: 10,
+                            velocity: 10000,
+                        },
+                    ),
+                },
+            ],
+        };
+    });
 
     return (
-        <View style={{ flex: 1 }}>
-            <ScrollView style={styles.container}>
-                <HeaderNavigator isGoBack={true} customStyle={[styles.customHeader, { top }]} />
-                <ImageBackground
-                    source={{ uri: 'https://picsum.photos/id/237/400/250' }}
-                    style={styles.image}
-                >
+        <Animated.ScrollView
+            scrollEventThrottle={16}
+            onScroll={scrollHandler}
+            showsVerticalScrollIndicator={false}
+            style={styles.container}
+        >
+            <HeaderNavigator isGoBack={true} customStyle={[styles.customHeader, { top }]} />
+            <View style={styles.image}>
+                <Animated.View style={[styles.containerBg]}>
+                    <Animated.Image
+                        style={[styles.bg, styleBg]}
+                        source={{ uri: 'https://picsum.photos/id/237/400/250' }}
+                        resizeMode={FastImage.resizeMode.cover}
+                    />
                     <View style={styles.imageContent}>
-                        <FastImage
-                            style={styles.avatar}
-                            source={{ uri: 'https://picsum.photos/id/237/400/250' }}
-                            resizeMode="contain"
-                        />
-                        <Text type="textItems" style={[styles.white]}>
+                        <FastImage style={styles.avatar} source={drone1} resizeMode="contain" />
+                        <Text type="rajdhXsLight" style={[styles.white]}>
                             {'JULY 21, 2023'}
                         </Text>
-                        <Text type="headlineLLarge" style={[styles.white]}>
+                        <Text type="industryXXLBold" style={[styles.white]}>
                             {'Buzz Ensign'}
                         </Text>
                         <View style={styles.section}>
                             <View style={styles.sectionInfo}>
-                                <Text type="textItems" style={[styles.white]}>
+                                <Text type="rajdhXsLight" style={[styles.white]}>
                                     {formatMessage({
                                         defaultMessage: 'ARRIVAL LOCATION',
                                     })}
                                 </Text>
-                                <Text
-                                    type="textHypeSmall"
-                                    style={[styles.white, { maxWidth: 300 }]}
-                                >
+                                <Text type="rajdMdMedium" style={[styles.white, { maxWidth: 300 }]}>
                                     {'Binghamton University, Binghamton, NY 13902'}
                                 </Text>
                             </View>
                             <View style={styles.sectionInfo}>
-                                <Text type="textItems" style={[styles.white]}>
+                                <Text type="rajdhXsLight" style={[styles.white]}>
                                     {formatMessage({
                                         defaultMessage: 'PRICE',
                                     })}
                                 </Text>
-                                <Text type="textHypeSmall" style={[styles.white]}>
+                                <Text type="rajdMdMedium" style={[styles.white]}>
                                     {'$500'}
                                 </Text>
                             </View>
                         </View>
                         <View style={styles.section1}>
-                            <Text type="textItems" style={[styles.white]}>
+                            <Text type="rajdhXsLight" style={[styles.white]}>
                                 {'ACTUAL PILOT SHOWN 48HRS BEFORE JOB'}
                             </Text>
                         </View>
                     </View>
-                </ImageBackground>
-                <View style={styles.content}>
-                    <View>
-                        <Text type="titleItems" style={styles.titleInfoSection}>
-                            {formatMessage({
-                                defaultMessage: 'Sample Work',
-                            })}
-                        </Text>
+                </Animated.View>
+            </View>
 
-                        <View style={styles.sampleSection}>
-                            <FlashList
-                                horizontal={true}
-                                renderItem={({ item }) => {
-                                    return <ImageCell item={item} />;
-                                }}
-                                estimatedItemSize={100}
-                                data={DATA}
-                                ItemSeparatorComponent={() => (
-                                    <View style={{ width: horizontalScale(10) }}></View>
-                                )}
-                                showsHorizontalScrollIndicator={false}
-                            />
-                        </View>
-                    </View>
+            <View style={styles.content}>
+                <View>
+                    <Text type="indusMdBold" style={styles.titleInfoSection}>
+                        {formatMessage({
+                            defaultMessage: 'Sample Work',
+                        })}
+                    </Text>
 
-                    <View>
-                        <Text type="titleItems" style={styles.titleInfoSection}>
-                            {formatMessage({
-                                defaultMessage: 'About Me',
-                            })}
-                        </Text>
-
-                        <View style={styles.intructionSection}>
-                            <Text type="bodySLarge" style={[styles.white]}>
-                                {
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae orci id ligula varius commodo. Donec ex mauris, fermentum nec leo sollicitudin, finibus pulvinar ligula. Nulla rhoncus, metus non rhoncus hendrerit, nisi felis aliquet augue, nec gravida ligula ligula in lacus. Pellentesque mollis odio ac gravida scelerisque. Curabitur est neque, convallis at faucibus eu, lobortis ut ex. Etiam bibendum urna id tellus suscipit, sit amet pretium magna dictum. Sed quis mauris at risus sagittis sodales at nec ex. In leo ante, maximus vitae finibus vitae, rhoncus a nulla.'
-                                }
-                            </Text>
-                        </View>
+                    <View style={styles.sampleSection}>
+                        <FlashList
+                            horizontal={true}
+                            renderItem={({ item }) => {
+                                return <ImageCell item={item} />;
+                            }}
+                            estimatedItemSize={100}
+                            data={DATA}
+                            ItemSeparatorComponent={() => (
+                                <View style={{ width: horizontalScale(10) }}></View>
+                            )}
+                            showsHorizontalScrollIndicator={false}
+                        />
                     </View>
                 </View>
-            </ScrollView>
-        </View>
+
+                <View>
+                    <Text type="indusMdBold" style={styles.titleInfoSection}>
+                        {formatMessage({
+                            defaultMessage: 'About Me',
+                        })}
+                    </Text>
+
+                    <View style={styles.intructionSection}>
+                        <Text type="arialMdLight" style={[styles.white]}>
+                            {
+                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae orci id ligula varius commodo. Donec ex mauris, fermentum nec leo sollicitudin, finibus pulvinar ligula. Nulla rhoncus, metus non rhoncus hendrerit, nisi felis aliquet augue, nec gravida ligula ligula in lacus. Pellentesque mollis odio ac gravida scelerisque. Curabitur est neque, convallis at faucibus eu, lobortis ut ex. Etiam bibendum urna id tellus suscipit, sit amet pretium magna dictum. Sed quis mauris at risus sagittis sodales at nec ex. In leo ante, maximus vitae finibus vitae, rhoncus a nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae orci id ligula varius commodo. Donec ex mauris, fermentum nec leo sollicitudin, finibus pulvinar ligula. Nulla rhoncus, metus non rhoncus hendrerit, nisi felis aliquet augue, nec gravida ligula ligula in lacus. Pellentesque mollis odio ac gravida scelerisque. Curabitur est neque, convallis at faucibus eu, lobortis ut ex. Etiam bibendum urna id tellus suscipit, sit amet pretium magna dictum. Sed quis mauris at risus sagittis sodales at nec ex. In leo ante, maximus vitae finibus vitae, rhoncus a nulla.'
+                            }
+                        </Text>
+                    </View>
+                </View>
+            </View>
+        </Animated.ScrollView>
     );
 };
 
@@ -149,6 +218,16 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingVertical: verticalScale(10),
     },
+    containerBg: {
+        flex: 1,
+    },
+    bg: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+    },
     container: {
         flex: 1,
         backgroundColor: colors['white'][0],
@@ -164,7 +243,7 @@ const styles = StyleSheet.create({
     image: {
         position: 'relative',
         width: '100%',
-        height: horizontalScale((SCREEN_HEIGHT * 68) / 100),
+        height: heightImage,
         resizeMode: 'cover',
     },
     imageContent: {
@@ -175,7 +254,6 @@ const styles = StyleSheet.create({
     content: {
         paddingVertical: horizontalScale(10),
         flex: 1,
-
         backgroundColor: colors['black'][1],
         gap: horizontalScale(10),
     },
@@ -213,4 +291,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default JobDetail;
+export default PilotProfile;

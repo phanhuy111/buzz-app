@@ -1,15 +1,22 @@
-import { Text } from 'components/Text';
-import { View, ImageBackground, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { IPilots } from 'types';
-import { buzzItemBg, logoBg, rankLine } from 'assets/images';
-import { horizontalScale, verticalScale } from 'utils';
-import { colors } from 'themes';
-import { Button } from 'components/Button';
-import { useIntl } from 'react-intl';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+
+import { useIntl } from 'react-intl';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+
+import { colors } from 'themes';
+
+import { buzzItemBg, logoBg, rankLine } from 'assets/images';
+
+import { Button } from 'components/Button';
+import { Text } from 'components/Text';
+
+import { horizontalScale, verticalScale } from 'utils';
+
 import { JOB_DETAIL } from 'constants/routeNames';
+
+import { IPilots } from 'types';
 
 interface PropsRankItem {
     data?: IPilots;
@@ -42,7 +49,7 @@ export const RankItem = ({ data }: PropsRankItem) => {
                             })}
                     </ImageBackground>
                     <View style={styles.containerText}>
-                        <Text style={styles.textTitle} type="industryBold">
+                        <Text style={styles.textTitle} type="indusMdBold">
                             {data?.title}
                         </Text>
                         <Text style={styles.text} type="robotoMono">
@@ -55,18 +62,18 @@ export const RankItem = ({ data }: PropsRankItem) => {
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'INFO' })}
                                 onPress={() => navigateDetail()}
-                                font="robotoMono"
+                                font="robotoMonoXsLight"
                             />
                             <Button
                                 type="dark"
                                 title={formatMessage({ defaultMessage: 'CANCEL' })}
                                 onPress={() => {}}
-                                font="robotoMono"
+                                font="robotoMonoXsLight"
                             />
                         </View>
                     ) : (
                         <View style={styles.containerPrice}>
-                            <Text style={styles.textTitle} type="textHypeSmall">
+                            <Text style={styles.textTitle} type="rajdMdMedium">
                                 {'$' + data?.price}
                             </Text>
                         </View>
@@ -78,16 +85,13 @@ export const RankItem = ({ data }: PropsRankItem) => {
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {
-        display: 'flex',
-    },
+    wrapper: {},
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,
         borderColor: '#0987E2',
     },
     container: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         padding: verticalScale(10),
@@ -101,12 +105,10 @@ export const styles = StyleSheet.create({
         height: verticalScale(70),
     },
     containerText: {
-        display: 'flex',
         flex: 1,
         flexDirection: 'column',
     },
     containerPrice: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

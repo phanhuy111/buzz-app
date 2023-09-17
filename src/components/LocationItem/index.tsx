@@ -1,12 +1,17 @@
-import { Text } from 'components/Text';
-import { View, ImageBackground, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { IPilots } from 'types';
-import { buzzItemBg, logoBg, rankLine } from 'assets/images';
-import { horizontalScale, verticalScale } from 'utils';
-import { colors } from 'themes';
-import { Button } from 'components/Button';
 import { useIntl } from 'react-intl';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import FastImage from 'react-native-fast-image';
+
+import { colors } from 'themes';
+
+import { buzzItemBg, logoBg, rankLine } from 'assets/images';
+
+import { Button } from 'components/Button';
+import { Text } from 'components/Text';
+
+import { horizontalScale, verticalScale } from 'utils';
+
+import { IPilots } from 'types';
 
 interface PropsLocationItem {
     data?: IPilots;
@@ -34,18 +39,18 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
                             })}
                     </ImageBackground>
                     <View style={styles.containerText}>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.subTitle}
                         </Text>
-                        <Text style={styles.textTitle} type="industryBold">
+                        <Text style={styles.textTitle} type="indusMdBold">
                             {data?.title}
                         </Text>
-                        <Text style={styles.text} type="robotoMono">
+                        <Text style={styles.text} type="robotoMonoXsLight">
                             {data?.description}
                         </Text>
                     </View>
                     <View style={styles.containerPrice}>
-                        <Text style={styles.textTitle} type="textHypeSmall">
+                        <Text style={styles.textTitle} type="rajdMdMedium">
                             {'$' + data?.price}
                         </Text>
                     </View>
@@ -56,15 +61,12 @@ export const LocationItem = ({ data }: PropsLocationItem) => {
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {
-        display: 'flex',
-    },
+    wrapper: {},
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,
     },
     container: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         padding: verticalScale(10),
@@ -78,13 +80,11 @@ export const styles = StyleSheet.create({
         height: verticalScale(70),
     },
     containerText: {
-        display: 'flex',
         flex: 1,
         flexDirection: 'column',
         gap: 5,
     },
     containerPrice: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

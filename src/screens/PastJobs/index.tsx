@@ -1,5 +1,7 @@
 import { StyleProp, StyleSheet, View } from 'react-native';
+
 import { colors } from 'themes';
+
 import { horizontalScale } from 'utils';
 
 const PastJobs = () => {
@@ -21,14 +23,13 @@ const styles = StyleSheet.create({
         right: 0,
     },
     containerRow: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         gap: horizontalScale(5),
     },
     statusRow: {
         width: '100%',
-        display: 'flex',
+
         justifyContent: 'space-between',
         alignItems: 'center',
         gap: horizontalScale(5),
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     footer: {
         flex: 1,
         width: '100%',
-        display: 'flex',
+
         justifyContent: 'center',
         backgroundColor: colors['black'][0],
         position: 'absolute',

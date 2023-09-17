@@ -1,17 +1,23 @@
-import Input from 'components/DataEntry/Input';
-import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
-import Pin from 'assets/icons/pin.svg';
-import Calendar from 'assets/icons/calendar.svg';
-import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
-import { verticalScale } from 'utils';
-import { Specialty } from 'components/Specialty';
-import { LayoutDefault, Text } from 'components';
-import { colors } from 'themes';
-import { Button } from 'components/Button';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+
+import { useIntl } from 'react-intl';
+import { StyleSheet, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import { colors } from 'themes';
+
+import Calendar from 'assets/icons/calendar.svg';
+import Pin from 'assets/icons/pin.svg';
+
+import { LayoutDefault, Text } from 'components';
+import { Button } from 'components/Button';
+import Input from 'components/DataEntry/Input';
+import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
+import { Specialty } from 'components/Specialty';
+
+import { verticalScale } from 'utils';
+
 import { DATE_PICKER, LOCATIONS } from 'constants/index';
 
 const dataSample = {
@@ -60,7 +66,7 @@ const Search = () => {
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        <Text type="industryBold" style={styles.title}>
+                        <Text type="indusMdBold" style={styles.title}>
                             {formatMessage({
                                 defaultMessage: 'CHOOSE A SPECIALIZATION',
                             })}

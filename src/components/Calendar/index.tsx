@@ -1,8 +1,10 @@
-import { Text } from 'components/Text';
-import React, { useState, useMemo, useCallback, forwardRef } from 'react';
-import { StyleSheet, View, TextStyle } from 'react-native';
+import React, { forwardRef, useCallback, useMemo, useState } from 'react';
+import { StyleSheet, TextStyle, View } from 'react-native';
 import { CalendarList, DateData } from 'react-native-calendars';
+
 import { colors } from 'themes';
+
+import { Text } from 'components/Text';
 
 const RANGE_PAST = 12;
 const RANGE_FUTURE = 24;
@@ -130,8 +132,8 @@ function renderCustomHeader(date: any) {
 
     return (
         <View style={styles.header}>
-            <Text style={[styles.month, textStyle]} type="titleLItems">{`${month}`}</Text>
-            <Text style={[styles.year, textStyle]} type="titleLItems">
+            <Text style={[styles.month, textStyle]} type="indusMdMedium">{`${month}`}</Text>
+            <Text style={[styles.year, textStyle]} type="indusMdMedium">
                 {year}
             </Text>
         </View>
@@ -142,7 +144,6 @@ export default forwardRef(CalendarListScreen);
 
 const styles = StyleSheet.create({
     header: {
-        display: 'flex',
         justifyContent: 'center',
         flexDirection: 'row',
         width: '100%',

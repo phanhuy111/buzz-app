@@ -6,5 +6,19 @@
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "avoid",
-    "importOrderSeparation": true
+    "importOrder": [
+        "^react",
+        "^react-native",
+
+        "^themes",
+        "^assets",
+        "^components",
+        "^utils",
+
+        "^constants",
+        "^types",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true
 }

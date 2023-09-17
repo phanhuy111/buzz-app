@@ -1,9 +1,13 @@
 import { SafeAreaView } from 'hocs';
+
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { HeaderNavigator } from '../Header';
+
 import { paddingHorizontalGlobal } from 'themes';
+
 import { homeBg } from 'assets/images';
+
+import { HeaderNavigator } from '../Header';
 
 export const LayoutDefault = ({
     children,

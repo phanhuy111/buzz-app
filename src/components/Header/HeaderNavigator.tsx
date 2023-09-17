@@ -1,14 +1,18 @@
 import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { horizontalScale, verticalScale } from 'utils';
-import BuzzLogo from 'assets/icons/buzz-logo.svg';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import FastImage from 'react-native-fast-image';
-import { avatar } from 'assets/images';
-import ArrowLeft from 'assets/icons/arrow-left.svg';
 import { DrawerActions } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import FastImage from 'react-native-fast-image';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import { colors } from 'themes';
+
+import ArrowLeft from 'assets/icons/arrow-left.svg';
+import BuzzLogo from 'assets/icons/buzz-logo.svg';
+import { avatar } from 'assets/images';
+
+import { horizontalScale, verticalScale } from 'utils';
 
 interface IHeaderNavigatorProps {
     customStyle?: StyleProp<ViewStyle>;

@@ -1,7 +1,10 @@
-import { Text } from 'components';
 import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+
 import { buttonTypes } from 'themes';
+
+import { Text } from 'components';
+
 import { moderateScale, verticalScale } from 'utils';
 
 interface IButton {

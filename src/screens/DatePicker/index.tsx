@@ -1,17 +1,62 @@
+import dayjs from 'dayjs';
 import { SafeAreaView } from 'hocs';
-import { StyleProp, StyleSheet, View } from 'react-native';
+
+import { useState } from 'react';
+import { useIntl } from 'react-intl';
+import { StyleProp, StyleSheet, TouchableOpacity, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+
+import { colors } from 'themes';
+
+import ArrowDown from 'assets/icons/arrow-down.svg';
+import Arrow from 'assets/icons/arrow.svg';
 import { homeBg } from 'assets/images';
+
+import { Text } from 'components';
+import { Button } from 'components/Button';
 import CalendarListScreen from 'components/Calendar';
 import { HeaderNavigator } from 'components/Header';
-import { Text } from 'components';
-import Arrow from 'assets/icons/arrow.svg';
-import { colors } from 'themes';
+
 import { dayShortName, horizontalScale, verticalScale } from 'utils';
 
-import { Button } from 'components/Button';
-
 const DatePicker = () => {
+    const { formatMessage } = useIntl();
+    const [isDatePickerVisible, setDatePickerVisibility] = useState({
+        start: false,
+        end: false,
+    });
+
+    const [time, setTime] = useState({
+        start: '10:00',
+        end: '10:00',
+    });
+
+    const showDatePicker = (type: string | undefined) => {
+        if (type === 'START') {
+            return setDatePickerVisibility({ ...isDatePickerVisible, start: true });
+        }
+        return setDatePickerVisibility({ ...isDatePickerVisible, end: true });
+    };
+
+    const hideDatePicker = (type: string | undefined) => {
+        if (type === 'START') {
+            return setDatePickerVisibility({ ...isDatePickerVisible, start: false });
+        }
+        return setDatePickerVisibility({ ...isDatePickerVisible, end: false });
+    };
+
+    const handleConfirm = (type: string, timeParams: any) => {
+        let convertedTime = dayjs(timeParams).format('HH:mm');
+        if (type === 'START') {
+            setTime({ ...time, start: convertedTime });
+            return hideDatePicker(type);
+        } else {
+            setTime({ ...time, start: '10:00', end: convertedTime });
+            return hideDatePicker(type);
+        }
+    };
+
     return (
         <View style={styles.container}>
             <FastImage style={styles.bg} source={homeBg} resizeMode="stretch" />
@@ -24,19 +69,19 @@ const DatePicker = () => {
                         }}
                     />
                     <View style={styles.containerRow}>
-                        <Text style={styles.text} type="labelLMedium">
-                            {'Choose a Date'}
+                        <Text style={styles.text} type="rajdhXsLight">
+                            {formatMessage({ defaultMessage: 'Choose a Date' })}
                         </Text>
-                        <Text style={styles.text} type="headlineLarge">
+                        <Text style={styles.text} type="industryXLBold">
                             {'July 14th'}
                         </Text>
                         <View style={[styles.containerRow, styles.row]}>
-                            <Text style={styles.text} type="labelMedium">
-                                {'10:00am'}
+                            <Text style={styles.text} type="rajdhSmMedium">
+                                {time.start}
                             </Text>
                             <Arrow />
-                            <Text style={styles.text} type="labelMedium">
-                                {'6:00Pm'}
+                            <Text style={styles.text} type="rajdhSmMedium">
+                                {time.end}
                             </Text>
                         </View>
 
@@ -44,7 +89,7 @@ const DatePicker = () => {
                             {dayShortName.map((value, index) => {
                                 return (
                                     <View style={styles.status} key={index}>
-                                        <Text style={[styles.text]} type="labelMMedium">
+                                        <Text style={[styles.text]} type="rajdhXsBold">
                                             {value}
                                         </Text>
                                     </View>
@@ -56,6 +101,51 @@ const DatePicker = () => {
                 </View>
             </SafeAreaView>
             <View style={styles.footer}>
+                <View style={styles.footerTimeSection}>
+                    <View style={[styles.footerTime, { gap: 4 }]}>
+                        <Text style={[styles.text]} type="robotoMonoXsLight">
+                            {formatMessage({ defaultMessage: 'Start Time' })}
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => showDatePicker('START')}
+                            style={styles.pickerSection}
+                        >
+                            <Text type="rajdhMdLight" style={[styles.text, { flex: 1 }]}>
+                                {time.start}
+                            </Text>
+                            <ArrowDown />
+                        </TouchableOpacity>
+
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible.start}
+                            mode="time"
+                            is24Hour={true}
+                            onConfirm={time => handleConfirm('START', time)}
+                            onCancel={() => hideDatePicker('START')}
+                        />
+                    </View>
+                    <View style={[styles.footerTime, { gap: 4 }]}>
+                        <Text style={[styles.text]} type="robotoMonoXsLight">
+                            {formatMessage({ defaultMessage: 'End Time' })}
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => showDatePicker('END')}
+                            style={styles.pickerSection}
+                        >
+                            <Text type="rajdhMdLight" style={[styles.text, { flex: 1 }]}>
+                                {time.end}
+                            </Text>
+                            <ArrowDown />
+                        </TouchableOpacity>
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible.end}
+                            mode="time"
+                            is24Hour={true}
+                            onConfirm={time => handleConfirm('END', time)}
+                            onCancel={() => hideDatePicker('END')}
+                        />
+                    </View>
+                </View>
                 <Button style={styles.button} onPress={() => {}} title="Save Date & Time" />
             </View>
         </View>
@@ -77,14 +167,13 @@ const styles = StyleSheet.create({
         right: 0,
     },
     containerRow: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         gap: horizontalScale(5),
     },
     statusRow: {
         width: '100%',
-        display: 'flex',
+
         justifyContent: 'space-between',
         alignItems: 'center',
         gap: horizontalScale(5),
@@ -105,12 +194,33 @@ const styles = StyleSheet.create({
     footer: {
         flex: 1,
         width: '100%',
-        display: 'flex',
+
         justifyContent: 'center',
         backgroundColor: colors['black'][0],
         position: 'absolute',
         bottom: 0,
         padding: horizontalScale(20),
+        gap: 10,
+    },
+    footerTimeSection: {
+        flexDirection: 'row',
+        gap: 10,
+    },
+    footerTime: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+    pickerSection: {
+        // flex: 1,
+        padding: horizontalScale(10),
+        flexDirection: 'row',
+        alignItems: 'center',
+        // jus
+        gap: 10,
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'rgba(255, 255, 255, 0.20)',
+        backgroundColor: colors['black'][4],
     },
     button: {
         width: '100%',

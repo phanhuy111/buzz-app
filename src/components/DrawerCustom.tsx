@@ -2,16 +2,20 @@ import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import { DrawerActions } from '@react-navigation/native';
 import { FlashList } from '@shopify/flash-list';
 import { SafeAreaView } from 'hocs';
+
 import { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet, Text, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
+
 import { colors } from 'themes';
-import { avatar } from 'assets/images';
+
 import Close from 'assets/icons/close.svg';
-import { moderateScale, horizontalScale, verticalScale } from 'utils';
-import { Button } from './Button';
+import { avatar } from 'assets/images';
+
+import { horizontalScale, moderateScale, verticalScale } from 'utils';
+
 import {
     HOME,
     NOTIFICATIONS,
@@ -20,6 +24,8 @@ import {
     SETTING,
     TAX_DOCUMENTS,
 } from 'constants/index';
+
+import { Button } from './Button';
 
 export const DrawerCustom = (props: DrawerContentComponentProps) => {
     const { formatMessage } = useIntl();

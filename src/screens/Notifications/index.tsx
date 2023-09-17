@@ -1,12 +1,13 @@
-import { LayoutDefault } from "components";
-import { Text } from "react-native";
+import { Text } from 'react-native';
+
+import { LayoutDefault } from 'components';
 
 const Notifications = () => {
-  return (
-    <LayoutDefault>
-      <Text>Notifications</Text>
-    </LayoutDefault>
-  );
+    return (
+        <LayoutDefault>
+            <Text>Notifications</Text>
+        </LayoutDefault>
+    );
 };
 
 export default Notifications;

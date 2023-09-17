@@ -1,19 +1,25 @@
-import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
-import MapView, { Callout, Marker } from 'react-native-maps';
-import { verticalScale } from 'utils';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { HeaderNavigator } from 'components/Header';
-import { customMapStyle } from './Locations.map';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors, paddingHorizontalGlobal } from 'themes';
-import { ScrollView } from 'react-native-gesture-handler';
-import { LocationItem } from 'components/LocationItem';
-import { Button } from 'components/Button';
-import { Text } from 'components';
-import { markerMap } from 'assets/images';
+
 import { useRef } from 'react';
+import { useIntl } from 'react-intl';
+import { StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import MapView, { Callout, Marker } from 'react-native-maps';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { colors, paddingHorizontalGlobal } from 'themes';
+
+import { markerMap } from 'assets/images';
+
+import { Text } from 'components';
+import { Button } from 'components/Button';
+import { HeaderNavigator } from 'components/Header';
+import { LocationItem } from 'components/LocationItem';
+
+import { verticalScale } from 'utils';
+
+import { customMapStyle } from './Locations.map';
 
 const Locations = () => {
     const markerRef = useRef<any>(null);
@@ -50,10 +56,10 @@ const Locations = () => {
                 >
                     <View style={styles.callout}>
                         <View style={styles.marker}>
-                            <Text style={styles.markerTitle} type="industryBold">
+                            <Text style={styles.markerTitle} type="indusMdBold">
                                 BINGHAMTON UNIVERSITY
                             </Text>
-                            <Text style={styles.markerTitle} type="robotoMono">
+                            <Text style={styles.markerTitle} type="robotoMonoXsLight">
                                 35 Pilots Available
                             </Text>
                         </View>
@@ -138,6 +144,6 @@ const styles = StyleSheet.create({
     callout: {
         position: 'absolute',
         left: -135,
-        top: -50
+        top: -50,
     },
 });
