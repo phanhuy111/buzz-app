@@ -59,7 +59,6 @@ const PilotProfile = () => {
                 customStyle={[styles.customHeader, { paddingTop: top }]}
             />
             <Animated.ScrollView
-                bounces={false}
                 scrollEventThrottle={16}
                 onScroll={scrollHandler}
                 showsVerticalScrollIndicator={false}
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: colors['white'][0],
+        backgroundColor: colors['black'][1],
     },
     white: {
         color: colors['white'][0],

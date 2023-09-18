@@ -19,14 +19,13 @@ export default function useImageScroll(heightImage: number) {
     });
 
     const styleBg = useAnimatedStyle(() => {
-        if (translationY.value < 0) return {};
         return {
             transform: [
                 {
                     scale: interpolate(
                         translationY.value,
                         [-heightImage, 0, heightImage],
-                        [1.5, 1, 1.5],
+                        [3.2, 1, 1],
                         Extrapolate.EXTEND,
                     ),
                 },
@@ -35,7 +34,7 @@ export default function useImageScroll(heightImage: number) {
                         interpolate(
                             translationY.value,
                             [-heightImage, 0, heightImage],
-                            [-heightImage * 0.6, 0, heightImage * 0.5],
+                            [-heightImage * 0.5, 0, heightImage * 0.5],
                             Extrapolate.EXTEND,
                         ),
                         {
@@ -67,7 +66,7 @@ export default function useImageScroll(heightImage: number) {
             backgroundColor: interpolateColor(
                 translationY.value,
                 [0, 200],
-                ['rgba(255,0,0,0.1)', colors?.black[1]],
+                ['rgba(0,0,0,0.0)', colors?.black[1]],
             ),
         };
     });
