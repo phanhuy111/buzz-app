@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { StyleProp, View, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import { View } from 'components/View';
 
 type SafeAreaViewProps = {
     disableBottomSafeArea?: boolean;

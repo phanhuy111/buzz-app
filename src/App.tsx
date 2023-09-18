@@ -12,9 +12,12 @@ import React, { useRef } from 'react';
 import Config from 'react-native-config';
 import 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { enableFreeze } from 'react-native-screens';
 import { Provider } from 'react-redux';
 
 import { queryClient } from './helpers/queryClient';
+
+enableFreeze(true);
 
 Sentry.init({
     dsn: 'https://c7d37f8f106fb89f75ec661055265f78@o4505667027861504.ingest.sentry.io/4505667028779008',

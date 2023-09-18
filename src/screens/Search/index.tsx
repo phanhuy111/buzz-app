@@ -2,7 +2,7 @@ import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { colors } from 'themes';
@@ -15,6 +15,7 @@ import { Button } from 'components/Button';
 import Input from 'components/DataEntry/Input';
 import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
 import { Specialty } from 'components/Specialty';
+import { View } from 'components/View';
 
 import { verticalScale } from 'utils';
 

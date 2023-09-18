@@ -2,9 +2,10 @@ import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { DrawerActions } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { Platform, StatusBar, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Animated, { SharedValue } from 'react-native-reanimated';
 
 import { colors } from 'themes';
 
@@ -12,15 +13,18 @@ import ArrowLeft from 'assets/icons/arrow-left.svg';
 import BuzzLogo from 'assets/icons/buzz-logo.svg';
 import { avatar } from 'assets/images';
 
+import { View } from 'components/View';
+
 import { horizontalScale, verticalScale } from 'utils';
 
 interface IHeaderNavigatorProps {
     customStyle?: StyleProp<ViewStyle>;
     isGoBack?: boolean;
+    animatedHeaderStyle?: StyleProp<ViewStyle>;
 }
 
 export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
-    const { customStyle: customStyle = {}, isGoBack = false } = props;
+    const { animatedHeaderStyle = {}, customStyle: customStyle = {}, isGoBack = false } = props;
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
 
     const openDrawer = () => {
@@ -28,7 +32,7 @@ export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
     };
 
     return (
-        <View style={[styles.container, customStyle]}>
+        <Animated.View style={[styles.container, animatedHeaderStyle, customStyle]}>
             <View style={[styles.left]}>
                 {isGoBack && (
                     <TouchableOpacity
@@ -47,7 +51,7 @@ export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
                     <FastImage source={avatar} resizeMode="contain" style={styles.avatar} />
                 </TouchableOpacity>
             </View>
-        </View>
+        </Animated.View>
     );
 };
 
