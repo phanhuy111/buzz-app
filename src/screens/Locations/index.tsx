@@ -3,7 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 import { useRef } from 'react';
 import { useIntl } from 'react-intl';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -16,6 +16,7 @@ import { Text } from 'components';
 import { Button } from 'components/Button';
 import { HeaderNavigator } from 'components/Header';
 import { LocationItem } from 'components/LocationItem';
+import { View } from 'components/View';
 
 import { verticalScale } from 'utils';
 

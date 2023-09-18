@@ -12,7 +12,7 @@ import { buzzItemBg, drone1 } from 'assets/images';
 import { Text } from 'components';
 import { Button } from 'components/Button';
 
-import { horizontalScale, moderateScale, transitionSharedElement, verticalScale } from 'utils';
+import { horizontalScale, moderateScale, verticalScale } from 'utils';
 
 import { PILOT_PROFILE } from 'constants/routeNames';
 

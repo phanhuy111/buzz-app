@@ -3,7 +3,7 @@ import { SafeAreaView } from 'hocs';
 
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { StyleProp, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleProp, StyleSheet, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
@@ -17,6 +17,7 @@ import { Text } from 'components';
 import { Button } from 'components/Button';
 import CalendarListScreen from 'components/Calendar';
 import { HeaderNavigator } from 'components/Header';
+import { View } from 'components/View';
 
 import { dayShortName, horizontalScale, verticalScale } from 'utils';
 
