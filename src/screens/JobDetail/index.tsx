@@ -34,7 +34,6 @@ const JobDetail = () => {
             />
             <Animated.ScrollView
                 scrollEventThrottle={16}
-                bounces={false}
                 onScroll={scrollHandler}
                 showsVerticalScrollIndicator={false}
                 style={styles.container}
@@ -146,7 +145,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: colors['white'][0],
+        backgroundColor: colors['black'][1],
     },
     white: {
         color: colors['white'][0],
