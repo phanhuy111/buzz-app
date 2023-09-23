@@ -23,7 +23,11 @@
         "build:ios:production": "xcodebuild archive -allowProvisioningUpdates -quiet -workspace ./ios/buzz.xcworkspace -scheme buzz -configuration Distribution -archivePath ./ios/build/buzz.xcarchive -destination 'generic/platform=iOS'",
         "export:ios": "xcodebuild -allowProvisioningUpdates -exportArchive -archivePath \"./ios/build/buzz.xcarchive\" -exportPath \"./ios/build\" -exportOptionsPlist \"./ios/buzz/ExportOptions.plist\" -destination 'generic/platform=iOS'",
         "unlock-ci": "security unlock-keychain -p \"blackwing\"",
-        "extract:locales": "formatjs extract \"src/**/*.{js,jsx,ts,tsx}\" --ignore \"src/**/*.d.ts\" --out-file ./src/lang/temp.json --flatten && formatjs compile ./src/lang/temp.json --out-file ./src/lang/en.json && rm ./src/lang/temp.json"
+        "extract:locales": "formatjs extract \"src/**/*.{js,jsx,ts,tsx}\" --ignore \"src/**/*.d.ts\" --out-file ./src/lang/temp.json --flatten && formatjs compile ./src/lang/temp.json --out-file ./src/lang/en.json && rm ./src/lang/temp.json",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{js,ts,md}": "prettier --write"
     },
     "dependencies": {
         "@gorhom/bottom-sheet": "^4.4.6",
@@ -85,6 +89,8 @@
         "@babel/core": "^7.20.0",
         "@babel/preset-env": "^7.20.0",
         "@babel/runtime": "^7.20.0",
+        "@commitlint/cli": "^17.7.1",
+        "@commitlint/config-conventional": "^17.7.0",
         "@formatjs/cli": "^6.1.1",
         "@react-native-community/eslint-config": "^3.2.0",
         "@trivago/prettier-plugin-sort-imports": "^4.2.0",
@@ -113,7 +119,9 @@
         "eslint-plugin-react": "^7.28.0",
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "husky": "^8.0.3",
         "jest": "^29.2.1",
+        "lint-staged": "^14.0.1",
         "metro-react-native-babel-preset": "0.73.9",
         "patch-package": "^6.5.0",
         "prettier": "^2.4.1",

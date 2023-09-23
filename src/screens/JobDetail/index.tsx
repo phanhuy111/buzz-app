@@ -25,12 +25,14 @@ const JobDetail = () => {
     const { top } = useSafeAreaInsets();
     const { scrollHandler, styleBg, styleHeader } = useImageScroll(heightImage);
 
+    const paddingTop = top === 0 ? verticalScale(10) : 0;
+
     return (
         <>
             <HeaderNavigator
                 animatedHeaderStyle={styleHeader}
                 isGoBack={true}
-                customStyle={[styles.customHeader, { paddingTop: top }]}
+                customStyle={[styles.customHeader, { paddingTop }]}
             />
             <Animated.ScrollView
                 scrollEventThrottle={16}
