@@ -114,7 +114,7 @@ android {
 
     namespace "com.buzz"
     defaultConfig {
-        applicationId "com.store.buzz.app"
+        applicationId "com.buzz.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode generateVersionCode()

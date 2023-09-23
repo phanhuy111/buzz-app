@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:902814614173:android:2b86984981024e8d034a74",
+        "mobilesdk_app_id": "1:902814614173:android:2b267b32a0a36aef034a74",
         "android_client_info": {
-          "package_name": "com.store.buzz.app.dev"
+          "package_name": "com.buzz.app.dev"
         }
       },
       "oauth_client": [
         {
-          "client_id": "902814614173-52t8safb7n0ji3i0jkf8hba1mrqptqpc.apps.googleusercontent.com",
+          "client_id": "902814614173-cupndvrbfjv9ji1i5u9aumojglq1ldh0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.store.buzz.app.dev",
+            "package_name": "com.buzz.app.dev",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
@@ -39,10 +39,11 @@
               "client_type": 3
             },
             {
-              "client_id": "902814614173-d3q85bn64iuhjmodbsl6kre1n3f153g9.apps.googleusercontent.com",
+              "client_id": "902814614173-59qn663jbe00v1dhc3mh8er3vijkep7i.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.store.buzz.app.dev"
+                "bundle_id": "com.buzz.app.dev",
+                "app_store_id": "6467469998"
               }
             }
           ]

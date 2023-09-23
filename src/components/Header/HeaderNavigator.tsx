@@ -6,6 +6,7 @@ import { Platform, StatusBar, StyleProp, StyleSheet, ViewStyle } from 'react-nat
 import FastImage from 'react-native-fast-image';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated, { SharedValue } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors } from 'themes';
 
@@ -26,13 +27,17 @@ interface IHeaderNavigatorProps {
 export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
     const { animatedHeaderStyle = {}, customStyle: customStyle = {}, isGoBack = false } = props;
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+    const { top } = useSafeAreaInsets();
+    const paddingTop = top === 0 ? verticalScale(10) : 0;
 
     const openDrawer = () => {
         navigation.dispatch(DrawerActions.openDrawer());
     };
 
     return (
-        <Animated.View style={[styles.container, animatedHeaderStyle, customStyle]}>
+        <Animated.View
+            style={[styles.container, animatedHeaderStyle, customStyle, { paddingTop: paddingTop }]}
+        >
             <View style={[styles.left]}>
                 {isGoBack && (
                     <TouchableOpacity
