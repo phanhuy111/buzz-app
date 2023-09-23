@@ -19,7 +19,7 @@ ios_issuer_id = 'bd37b787-a5ff-47e0-a77a-f8d1545554bb'
 ios_key_id = '29PYNUC2UG'
 ios_key_path = './fastlane/AuthKey_29PYNUC2UG.p8'
 
-firebase_app_distribution_android_dev='1:902814614173:android:2b86984981024e8d034a74'
+firebase_app_distribution_android_dev='1:902814614173:android:2b267b32a0a36aef034a74'
 firebase_app_distribution_android_production='1:971919237075:android:8887d33499685d6e8cd926'
 firebase_token = '1//0eWi1Wx6XVa-MCgYIARAAGA4SNwF-L9IrHwwzc3snI-ZfsTJrWRI8xX51jUW0_PGjjW9llaLCDTPITXksnQ2ZUlLVRsUEt-8KofI'
 
