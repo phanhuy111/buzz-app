@@ -2,6 +2,7 @@
 #import <Firebase.h>
 #import <CodePush/CodePush.h>
 #import <React/RCTBundleURLProvider.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
@@ -12,6 +13,14 @@
     // They will be passed down to the ViewController used by React Native.
     self.initialProps = @{};
     [FIRApp configure];
+    // Retrieve the Google Maps API key from Info.plist
+    NSString *googleMapsAPIKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"GMSApiKey"];
+
+    if (googleMapsAPIKey.length > 0) {
+        [GMSServices provideAPIKey:googleMapsAPIKey];
+    } else {
+        NSLog(@"Google Maps API key not found in Info.plist.");
+    }
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 

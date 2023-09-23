@@ -36,7 +36,7 @@ export const HeaderNavigator = (props: IHeaderNavigatorProps) => {
 
     return (
         <Animated.View
-            style={[styles.container, animatedHeaderStyle, customStyle, { paddingTop: paddingTop }]}
+            style={[styles.container, animatedHeaderStyle, { paddingTop: paddingTop }, customStyle]}
         >
             <View style={[styles.left]}>
                 {isGoBack && (

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* buzzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* buzzTests.m */; };
 		020F2675DDAA4F14ABDDD742 /* Rajdhani-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B1D15A0D8014BDB87CABABC /* Rajdhani-Regular.ttf */; };
-		045E5BCA2A9E45B400A22FA2 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		045E5BCA2A9E45B400A22FA2 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		0497FA492AA84D9D005D1E12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0497FA482AA84D9D005D1E12 /* GoogleService-Info.plist */; };
 		120F75DFCD7649418599B902 /* Rajdhani-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB0CFD63B3194E899F7CC4CA /* Rajdhani-SemiBold.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -319,7 +319,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				0497FA492AA84D9D005D1E12 /* GoogleService-Info.plist in Resources */,
-				045E5BCA2A9E45B400A22FA2 /* (null) in Resources */,
+				045E5BCA2A9E45B400A22FA2 /* BuildFile in Resources */,
 				DE8E8F546ACA4290BE2BAC6F /* Industry-Black.ttf in Resources */,
 				52C05490C96A4FE79C7CC4ED /* Industry-Bold.ttf in Resources */,
 				BF1125E56AA845CCAFCE3159 /* Industry-Book.ttf in Resources */,

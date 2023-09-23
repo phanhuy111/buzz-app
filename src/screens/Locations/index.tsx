@@ -4,8 +4,9 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { useRef } from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
+import FastImage from 'react-native-fast-image';
 import { ScrollView } from 'react-native-gesture-handler';
-import MapView, { Callout, Marker } from 'react-native-maps';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors, paddingHorizontalGlobal } from 'themes';
@@ -46,13 +47,13 @@ const Locations = () => {
                 }}
                 customMapStyle={customMapStyle}
                 userInterfaceStyle="dark"
+                provider={PROVIDER_GOOGLE}
             >
                 <Marker
                     coordinate={{
                         latitude: 37.78825,
                         longitude: -122.4324,
                     }}
-                    image={markerMap}
                     key={'active'}
                 >
                     <View style={styles.callout}>
@@ -64,6 +65,7 @@ const Locations = () => {
                                 35 Pilots Available
                             </Text>
                         </View>
+                        <FastImage source={markerMap} resizeMode="contain" style={styles.flag} />
                     </View>
                 </Marker>
             </MapView>
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     map: {
-        height: 390,
+        height: verticalScale(390),
     },
     header: {
         width: '100%',
@@ -131,7 +133,7 @@ const styles = StyleSheet.create({
     },
     marker: {
         backgroundColor: colors.black?.[0],
-        padding: 10,
+        padding: verticalScale(10),
         borderRadius: 5,
         alignItems: 'center',
         gap: 2,
@@ -143,8 +145,13 @@ const styles = StyleSheet.create({
         color: colors.gray[1],
     },
     callout: {
-        position: 'absolute',
-        left: -135,
-        top: -50,
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    flag: {
+        flex: 1,
+        width: verticalScale(20),
+        height: verticalScale(30),
     },
 });

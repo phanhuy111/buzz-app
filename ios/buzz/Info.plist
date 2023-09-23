@@ -35,6 +35,8 @@
 	<string>$(CODE_PUSH_KEY_IOS)</string>
 	<key>GIDClientID</key>
 	<string>$(GOOGLE_CLIENT_ID)</string>
+	<key>GMSApiKey</key>
+	<string>$(GOOGLE_MAP_ID)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationQueriesSchemes</key>
