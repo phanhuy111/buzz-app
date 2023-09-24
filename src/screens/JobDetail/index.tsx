@@ -25,7 +25,7 @@ const JobDetail = () => {
     const { top } = useSafeAreaInsets();
     const { scrollHandler, styleBg, styleHeader } = useImageScroll(heightImage);
 
-    const paddingTop = top === 0 ? verticalScale(10) : 0;
+    const paddingTop = top === 0 ? verticalScale(10) : top;
 
     return (
         <>
