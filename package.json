@@ -22,7 +22,7 @@
         "build:ios:dev": "xcodebuild archive -allowProvisioningUpdates -quiet -workspace ./ios/buzz.xcworkspace -scheme buzz-dev -configuration Distribution -archivePath ./ios/build/buzz.xcarchive -destination 'generic/platform=iOS'",
         "build:ios:production": "xcodebuild archive -allowProvisioningUpdates -quiet -workspace ./ios/buzz.xcworkspace -scheme buzz -configuration Distribution -archivePath ./ios/build/buzz.xcarchive -destination 'generic/platform=iOS'",
         "export:ios": "xcodebuild -allowProvisioningUpdates -exportArchive -archivePath \"./ios/build/buzz.xcarchive\" -exportPath \"./ios/build\" -exportOptionsPlist \"./ios/buzz/ExportOptions.plist\" -destination 'generic/platform=iOS'",
-        "unlock-ci": "security unlock-keychain -p \"blackwing\"",
+        "unlock-ci": "security unlock-keychain -p \"828813\"",
         "extract:locales": "formatjs extract \"src/**/*.{js,jsx,ts,tsx}\" --ignore \"src/**/*.d.ts\" --out-file ./src/lang/temp.json --flatten && formatjs compile ./src/lang/temp.json --out-file ./src/lang/en.json && rm ./src/lang/temp.json",
         "prepare": "husky install"
     },
