@@ -37,38 +37,44 @@ const Locations = () => {
 
     return (
         <View style={styles.container}>
-            <MapView
-                style={[styles.map, { height: verticalScale(390) }]}
-                region={{
-                    latitude: 37.78825,
-                    longitude: -122.4324,
-                    latitudeDelta: 0.015,
-                    longitudeDelta: 0.0121,
-                }}
-                customMapStyle={customMapStyle}
-                userInterfaceStyle="dark"
-                provider={PROVIDER_GOOGLE}
-            >
-                <Marker
-                    coordinate={{
+            <View style={styles.mapWrapper}>
+                <MapView
+                    style={[styles.map]}
+                    region={{
                         latitude: 37.78825,
                         longitude: -122.4324,
+                        latitudeDelta: 0.015,
+                        longitudeDelta: 0.0121,
                     }}
-                    key={'active'}
+                    customMapStyle={customMapStyle}
+                    userInterfaceStyle="dark"
+                    provider={PROVIDER_GOOGLE}
                 >
-                    <View style={styles.callout}>
-                        <View style={styles.marker}>
-                            <Text style={styles.markerTitle} type="indusMdBold">
-                                BINGHAMTON UNIVERSITY
-                            </Text>
-                            <Text style={styles.markerTitle} type="robotoMonoXsLight">
-                                35 Pilots Available
-                            </Text>
+                    <Marker
+                        coordinate={{
+                            latitude: 37.78825,
+                            longitude: -122.4324,
+                        }}
+                        key={'active'}
+                    >
+                        <View style={styles.callout}>
+                            <View style={styles.marker}>
+                                <Text style={styles.markerTitle} type="indusMdBold">
+                                    BINGHAMTON UNIVERSITY
+                                </Text>
+                                <Text style={styles.markerTitle} type="robotoMonoXsLight">
+                                    35 Pilots Available
+                                </Text>
+                            </View>
+                            <FastImage
+                                source={markerMap}
+                                resizeMode="contain"
+                                style={styles.flag}
+                            />
                         </View>
-                        <FastImage source={markerMap} resizeMode="contain" style={styles.flag} />
-                    </View>
-                </Marker>
-            </MapView>
+                    </Marker>
+                </MapView>
+            </View>
             <HeaderNavigator
                 isGoBack
                 customStyle={[
@@ -80,7 +86,7 @@ const Locations = () => {
             />
             <ScrollView style={styles.inner}>
                 <View style={styles.locationList}>
-                    {[...Array(3)].map(() => (
+                    {[...Array(5)].map(() => (
                         <LocationItem
                             data={{
                                 title: 'BUZZ AIRMAN',
@@ -109,15 +115,16 @@ export default Locations;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position: 'relative',
         backgroundColor: colors.black[0],
     },
     inner: {
         height: '100%',
         padding: 20,
+        zIndex: 1,
+        backgroundColor: '#000',
     },
     map: {
-        height: verticalScale(390),
+        height: '110%',
     },
     header: {
         width: '100%',
@@ -126,8 +133,10 @@ const styles = StyleSheet.create({
     },
     locationList: {
         gap: 10,
+        paddingBottom: verticalScale(65),
     },
     button: {
+        zIndex: 1,
         paddingBottom: verticalScale(10),
         ...paddingHorizontalGlobal,
     },
@@ -153,5 +162,8 @@ const styles = StyleSheet.create({
         flex: 1,
         width: verticalScale(20),
         height: verticalScale(30),
+    },
+    mapWrapper: {
+        height: verticalScale(345),
     },
 });
