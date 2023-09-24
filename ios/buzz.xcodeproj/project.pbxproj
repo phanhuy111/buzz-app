@@ -554,7 +554,7 @@
 			baseConfigurationReference = B33B3FB4370DC750E2C0D848 /* Pods-buzz-buzzTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = RR9B854834;
+				DEVELOPMENT_TEAM = 8Z3F4XB85L;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -583,7 +583,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = RR9B854834;
+				DEVELOPMENT_TEAM = 8Z3F4XB85L;
 				INFOPLIST_FILE = buzzTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
