@@ -1,10 +1,5 @@
-/* eslint-disable import/order */
-
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-// @ts-ignore
-import { enhancers, sagaMonitor } from 'helpers/reactotron';
 import { AnyAction, CombinedState, combineReducers } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import { PersistConfig } from 'redux-persist/es/types';
@@ -47,8 +42,7 @@ const reducers = (
 const persistReducers = persistReducer(persistConfig, reducers);
 
 // create our new saga monitor
-// @ts-ignore
-const sagaMiddleware = createSagaMiddleware(sagaMonitor ? { sagaMonitor } : {});
+const sagaMiddleware = createSagaMiddleware({});
 
 const middleware = [
     ...getDefaultMiddleware({ thunk: false, serializableCheck: false }),
@@ -58,8 +52,7 @@ const middleware = [
 export const store = configureStore({
     reducer: persistReducers,
     middleware,
-    // @ts-ignore
-    enhancers: enhancers ? [enhancers] : [],
+    enhancers: [],
 });
 
 sagaMiddleware.run(rootSaga);

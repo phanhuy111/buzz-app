@@ -1,7 +1,7 @@
 import analytics from '@react-native-firebase/analytics';
 import { NavigationContainer } from '@react-navigation/native';
 import * as Sentry from '@sentry/react-native';
-import { QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { IntlConnectProvider } from 'contexts';
 import ApplicationStack from 'navigation';
 import { navigationRef } from 'navigation/RootNavigation';
@@ -15,9 +15,15 @@ import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { enableFreeze } from 'react-native-screens';
 import { Provider } from 'react-redux';
 
-import { queryClient } from './helpers/queryClient';
-
 enableFreeze(true);
+
+const queryClient = new QueryClient();
+
+if (__DEV__) {
+    import('react-query-native-devtools').then(({ addPlugin }) => {
+        addPlugin({ queryClient });
+    });
+}
 
 Sentry.init({
     dsn: 'https://c7d37f8f106fb89f75ec661055265f78@o4505667027861504.ingest.sentry.io/4505667028779008',
