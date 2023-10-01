@@ -23,7 +23,7 @@ jobs:
       - name: Yarn
         run: yarn install
       - name: Pod
-        run: cd ios && pod install --repo-update && cd ..
+        run: cd ios && NO_FLIPPER=1 pod install --repo-update && cd ..
       - name: Unlock CI
         run: yarn unlock-ci
       - name: Set Dev Info
