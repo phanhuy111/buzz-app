@@ -1,15 +1,18 @@
 import useImageScroll from 'hooks/useImageScroll';
+import { customMapStyle } from 'screens/Locations/Locations.map';
 
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { colors } from 'themes';
+import { colors, paddingHorizontalGlobal } from 'themes';
 
 import { drone1 } from 'assets/images';
+import { markerMap } from 'assets/images';
 
 import { Text } from 'components';
 import { Button } from 'components/Button';
@@ -19,6 +22,8 @@ import { View } from 'components/View';
 import { SCREEN_HEIGHT, horizontalScale, verticalScale } from 'utils';
 
 const heightImage = horizontalScale((SCREEN_HEIGHT * 68) / 100);
+const gapLongitude = 0.002;
+const gapLatitude = 0.0003;
 
 const JobDetail = () => {
     const { formatMessage } = useIntl();
@@ -41,12 +46,47 @@ const JobDetail = () => {
                 style={styles.container}
             >
                 <View style={styles.image}>
-                    <Animated.View style={[styles.containerBg]}>
-                        <Animated.Image
-                            style={[styles.bg, styleBg]}
-                            source={{ uri: 'https://picsum.photos/id/237/400/250' }}
-                            resizeMode={FastImage.resizeMode.cover}
-                        />
+                    <Animated.View style={[styles.containerBg, { height: heightImage }]}>
+                        <MapView
+                            style={[styles.map]}
+                            region={{
+                                latitude: 37.78825 - gapLongitude,
+                                longitude: -122.4324 - gapLatitude,
+                                latitudeDelta: 0.015,
+                                longitudeDelta: 0.0121,
+                            }}
+                            customMapStyle={customMapStyle}
+                            userInterfaceStyle="dark"
+                            provider={PROVIDER_GOOGLE}
+                            pitchEnabled={false}
+                            rotateEnabled={false}
+                            zoomEnabled={false}
+                            scrollEnabled={false}
+                        >
+                            <Marker
+                                coordinate={{
+                                    latitude: 37.78825,
+                                    longitude: -122.4324,
+                                }}
+                                key={'active'}
+                            >
+                                <View style={styles.callout}>
+                                    <View style={styles.marker}>
+                                        <Text style={styles.markerTitle} type="indusMdBold">
+                                            BINGHAMTON UNIVERSITY
+                                        </Text>
+                                        <Text style={styles.markerTitle} type="robotoMonoXsLight">
+                                            35 Pilots Available
+                                        </Text>
+                                    </View>
+                                    <FastImage
+                                        source={markerMap}
+                                        resizeMode="contain"
+                                        style={styles.flag}
+                                    />
+                                </View>
+                            </Marker>
+                        </MapView>
                         <View style={styles.imageContent}>
                             <FastImage style={styles.avatar} source={drone1} resizeMode="contain" />
                             <Text type="rajdhXsLight" style={[styles.white]}>
@@ -212,6 +252,58 @@ const styles = StyleSheet.create({
     },
     buttonEdit: {
         backgroundColor: colors['gray'][3],
+    },
+
+    /////////
+
+    inner: {
+        height: '100%',
+        padding: 20,
+        zIndex: 1,
+        backgroundColor: '#000',
+    },
+    map: {
+        height: '110%',
+    },
+    header: {
+        width: '100%',
+        paddingHorizontal: verticalScale(20),
+        position: 'absolute',
+    },
+    locationList: {
+        gap: 10,
+        paddingBottom: verticalScale(65),
+    },
+    button: {
+        zIndex: 1,
+        paddingBottom: verticalScale(10),
+        ...paddingHorizontalGlobal,
+    },
+    marker: {
+        backgroundColor: colors.black?.[0],
+        padding: verticalScale(10),
+        borderRadius: 5,
+        alignItems: 'center',
+        gap: 2,
+    },
+    markerTitle: {
+        color: colors.white[0],
+    },
+    markerDesc: {
+        color: colors.gray[1],
+    },
+    callout: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    flag: {
+        flex: 1,
+        width: verticalScale(20),
+        height: verticalScale(30),
+    },
+    mapWrapper: {
+        height: verticalScale(345),
     },
 });
 

@@ -5,7 +5,7 @@ import Video from 'react-native-video';
 
 import { playIcon } from 'assets/images';
 
-import { horizontalScale } from 'utils';
+import { SCREEN_WIDTH, horizontalScale } from 'utils';
 
 interface PropsType {
     source: string;
@@ -23,9 +23,6 @@ export const InstagramVideo = (props: PropsType) => {
                     source={{ uri: source }}
                     style={{
                         flex: 1,
-                        width: horizontalScale(160),
-                        height: horizontalScale(90),
-                        borderRadius: 5,
                     }}
                     paused={isPaused}
                     resizeMode={'contain'}

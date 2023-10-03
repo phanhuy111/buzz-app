@@ -14,10 +14,12 @@ import { drone1 } from 'assets/images';
 
 import { Text } from 'components';
 import { HeaderNavigator } from 'components/Header';
+import { LightBox } from 'components/LightBox/LightBox';
+import { LightBoxProvider } from 'components/LightBox/ProviderBox';
 import { InstagramVideo } from 'components/Video';
 import { View } from 'components/View';
 
-import { SCREEN_HEIGHT, horizontalScale, verticalScale } from 'utils';
+import { SCREEN_HEIGHT, SCREEN_WIDTH, horizontalScale, verticalScale } from 'utils';
 
 const DATA = [
     {
@@ -36,11 +38,18 @@ const DATA = [
 
 const ImageCell = ({ item }: { item: any }) => {
     return (
-        <InstagramVideo
-            source={
-                'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
-            }
-        />
+        <LightBox
+            width={horizontalScale(SCREEN_WIDTH - 210)}
+            height={horizontalScale(90)}
+            imgLayout={{ width: SCREEN_WIDTH - 20, height: SCREEN_WIDTH }}
+            tapToClose
+        >
+            <InstagramVideo
+                source={
+                    'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
+                }
+            />
+        </LightBox>
     );
 };
 
@@ -54,7 +63,7 @@ const PilotProfile = () => {
     const paddingTop = top === 0 ? verticalScale(10) : top;
 
     return (
-        <>
+        <LightBoxProvider>
             <HeaderNavigator
                 animatedHeaderStyle={styleHeader}
                 isGoBack={true}
@@ -156,7 +165,7 @@ const PilotProfile = () => {
                     </View>
                 </View>
             </Animated.ScrollView>
-        </>
+        </LightBoxProvider>
     );
 };
 

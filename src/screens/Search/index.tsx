@@ -1,6 +1,10 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useFormSchema } from 'hooks/useFormSchema';
+import { z } from 'zod';
 
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -31,6 +35,8 @@ const dataSample = {
 const Search = () => {
     const { formatMessage } = useIntl();
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+    function findDronePilot() {}
 
     return (
         <LayoutDefault isGoBack>
@@ -81,7 +87,7 @@ const Search = () => {
                 <View style={styles.button}>
                     <Button
                         title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
-                        onPress={() => {}}
+                        onPress={findDronePilot}
                         type="accent"
                     />
                 </View>

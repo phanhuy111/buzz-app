@@ -2,6 +2,7 @@ import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import { useRef } from 'react';
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -26,7 +27,6 @@ import { customMapStyle } from './Locations.map';
 const Locations = () => {
     const markerRef = useRef<any>(null);
     const { formatMessage } = useIntl();
-    const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
     const { top, bottom } = useSafeAreaInsets();
 
     const onRegionChangeComplete = () => {
