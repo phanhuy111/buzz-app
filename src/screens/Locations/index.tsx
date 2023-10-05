@@ -1,5 +1,6 @@
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { setLocation } from 'store/slices/locationDroneSlice';
 
 import { useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
@@ -9,6 +10,7 @@ import FastImage from 'react-native-fast-image';
 import { ScrollView } from 'react-native-gesture-handler';
 import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useDispatch } from 'react-redux';
 
 import { colors, paddingHorizontalGlobal } from 'themes';
 
@@ -25,6 +27,8 @@ import { verticalScale } from 'utils';
 import { customMapStyle } from './Locations.map';
 
 const Locations = () => {
+    const dispatch = useDispatch();
+
     const markerRef = useRef<any>(null);
     const { formatMessage } = useIntl();
     const { top, bottom } = useSafeAreaInsets();
@@ -34,6 +38,10 @@ const Locations = () => {
             markerRef.current.showCallout();
         }
     };
+
+    function handleSelectItem(id: string) {
+        dispatch(setLocation({ location: id }));
+    }
 
     return (
         <View style={styles.container}>
@@ -88,7 +96,9 @@ const Locations = () => {
                 <View style={styles.locationList}>
                     {[...Array(5)].map(() => (
                         <LocationItem
+                            onCb={handleSelectItem}
                             data={{
+                                id: '123',
                                 title: 'BUZZ AIRMAN',
                                 subTitle: 'Cinematography',
                                 description: 'BASIC EXPERIENCE',

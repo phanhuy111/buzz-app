@@ -1,18 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface LocationState {
-    location: string;
+    location: string | null;
 }
 
 const initialState: LocationState = {
-    location: '',
+    location: null,
 };
 
 export const locationDroneSlice = createSlice({
     name: 'locationDroneSlice',
     initialState,
     reducers: {
-        setLocation: (state, action: PayloadAction<LocationState>) => {
+        setLocation: (state, action: PayloadAction<{ location: string }>) => {
             state.location = action.payload.location;
         },
     },

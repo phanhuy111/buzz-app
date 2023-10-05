@@ -1,6 +1,10 @@
+import { RootState } from 'store';
+import { setDate } from 'store/slices/selectDateSlice';
+
 import React, { forwardRef, useCallback, useMemo, useState } from 'react';
 import { StyleSheet, TextStyle, View } from 'react-native';
 import { CalendarList, DateData } from 'react-native-calendars';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { colors } from 'themes';
 
@@ -9,7 +13,6 @@ import { Text } from 'components/Text';
 const RANGE_PAST = 12;
 const RANGE_FUTURE = 24;
 const minDate = '2022-06-05';
-const initialDate = '2022-07-05';
 const nextWeekDate = '2022-07-14';
 const nextMonthDate = '2022-08-05';
 
@@ -19,8 +22,12 @@ interface Props {
 }
 
 const CalendarListScreen = (props: Props) => {
+    const { date } = useSelector((state: RootState) => state.selectDate);
+    const dispatch = useDispatch();
+
     const { horizontalView, onCallback } = props;
-    const [selected, setSelected] = useState(initialDate);
+    const [selected, setSelected] = useState(date);
+
     const marked = useMemo(() => {
         return {
             [nextWeekDate]: {
@@ -33,7 +40,7 @@ const CalendarListScreen = (props: Props) => {
                 selectedTextColor: colors['purple'][0],
                 marked: true,
             },
-            [selected]: {
+            [selected as string]: {
                 selected: true,
                 disableTouchEvent: true,
                 selectedColor: colors['purple'][0],
@@ -44,6 +51,7 @@ const CalendarListScreen = (props: Props) => {
     }, [selected]);
 
     const onDayPress = useCallback((day: DateData) => {
+        dispatch(setDate({ date: day.dateString }));
         setSelected(day.dateString);
         onCallback?.(day.dateString);
     }, []);
@@ -52,7 +60,7 @@ const CalendarListScreen = (props: Props) => {
         <>
             <CalendarList
                 testID={'calendarList'}
-                current={initialDate}
+                current={date!}
                 minDate={minDate}
                 pastScrollRange={RANGE_PAST}
                 futureScrollRange={RANGE_FUTURE}
@@ -73,6 +81,30 @@ const CalendarListScreen = (props: Props) => {
         </>
     );
 };
+
+function renderCustomHeader(date: any) {
+    const header = date.toString('MMMM yyyy');
+    const [month, year] = header.split(' ');
+    const textStyle: TextStyle = {
+        fontSize: 18,
+        fontWeight: 'bold',
+        paddingTop: 10,
+        paddingBottom: 10,
+        color: colors['white'][0],
+        paddingRight: 5,
+    };
+
+    return (
+        <View style={styles.header}>
+            <Text style={[styles.month, textStyle]} type="indusMdMedium">{`${month}`}</Text>
+            <Text style={[styles.year, textStyle]} type="indusMdMedium">
+                {year}
+            </Text>
+        </View>
+    );
+}
+
+export default forwardRef(CalendarListScreen);
 
 const theme = {
     stylesheet: {
@@ -117,30 +149,6 @@ const theme = {
     calendarBackground: colors['black'][2],
     marking: {},
 };
-
-function renderCustomHeader(date: any) {
-    const header = date.toString('MMMM yyyy');
-    const [month, year] = header.split(' ');
-    const textStyle: TextStyle = {
-        fontSize: 18,
-        fontWeight: 'bold',
-        paddingTop: 10,
-        paddingBottom: 10,
-        color: colors['white'][0],
-        paddingRight: 5,
-    };
-
-    return (
-        <View style={styles.header}>
-            <Text style={[styles.month, textStyle]} type="indusMdMedium">{`${month}`}</Text>
-            <Text style={[styles.year, textStyle]} type="indusMdMedium">
-                {year}
-            </Text>
-        </View>
-    );
-}
-
-export default forwardRef(CalendarListScreen);
 
 const styles = StyleSheet.create({
     header: {

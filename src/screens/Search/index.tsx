@@ -26,8 +26,10 @@ import { verticalScale } from 'utils';
 import { DATE_PICKER, LOCATIONS } from 'constants/index';
 
 const dataSample = {
+    id: '1',
     subTitle: 'Sargeant (PIlot)',
     title: 'Whiskey Norman',
+    image: '',
     description: 'Lumenier QAV-PRO Lifter 9',
     price: 900,
 };
