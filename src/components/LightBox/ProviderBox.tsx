@@ -16,6 +16,8 @@ export type AnimationParams = Pick<
 
 type LightBoxContextType = {
     show: (params: AnimationParams) => void;
+    isPause: boolean;
+    handlePlayVideo: () => void;
 };
 
 export const LightBoxContext = createContext<LightBoxContextType | null>(null);
@@ -23,7 +25,18 @@ export const LightBoxContext = createContext<LightBoxContextType | null>(null);
 export const LightBoxProvider: React.FC<{
     children: JSX.Element | JSX.Element[];
 }> = ({ children }) => {
+    const [isPause, setIsPause] = useState(true);
     const [activeImage, setActiveImage] = useState<ActiveImageType | null>(null);
+
+    const handlePlayVideo = () => {
+        setIsPause(e => !e);
+    };
+
+    const onClose = () => {
+        setActiveImage(null);
+        setIsPause(false);
+    };
+
     const value = useMemo(
         () => ({
             show: ({ layout, position, imageElement, ...rest }: AnimationParams) => {
@@ -34,13 +47,12 @@ export const LightBoxProvider: React.FC<{
                     ...rest,
                 });
             },
+            isPause,
+            handlePlayVideo,
         }),
         [],
     );
 
-    const onClose = () => {
-        setActiveImage(null);
-    };
     return (
         <LightBoxContext.Provider value={value}>
             {children}

@@ -533,7 +533,7 @@ PODS:
     - Google-Maps-iOS-Utils (= 4.1.0)
     - GoogleMaps (= 7.4.0)
     - React-Core
-  - react-native-keyboard-controller (1.7.0):
+  - react-native-keyboard-controller (1.8.0):
     - React-Core
   - react-native-maps (1.7.1):
     - React-Core
@@ -704,7 +704,7 @@ PODS:
   - RNScreens (3.25.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (5.9.2):
+  - RNSentry (5.10.0):
     - React-Core
     - Sentry/HybridSDK (= 8.11.0)
   - RNSVG (13.14.0):
@@ -1077,7 +1077,7 @@ SPEC CHECKSUMS:
   react-native-config: 86038147314e2e6d10ea9972022aa171e6b1d4d8
   react-native-flipper: 9c1957af24b76493ba74f46d000a5c1d485e7731
   react-native-google-maps: dd12cdd86b8e3fedbbb671676aedaa2f656e2ccd
-  react-native-keyboard-controller: 3a9328bd05ce52bb1c2680160b51b1a24dd50d59
+  react-native-keyboard-controller: 755721cc0f3fb08e10a882d0f92995bb7892bf48
   react-native-maps: 667f9b975549c6fa9b1631bf859440f68ebd3b8f
   react-native-safe-area-context: 7aa8e6d9d0f3100a820efb1a98af68aa747f9284
   react-native-video: 86950ad481cec184d7c9420ec3bca0c27904bbcd
@@ -1111,7 +1111,7 @@ SPEC CHECKSUMS:
   RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
   RNReanimated: be07c7ae209074d0e8a84cf38b7909457ac59a32
   RNScreens: 85d3880b52d34db7b8eeebe2f1a0e807c05e69fa
-  RNSentry: da8111ddd855157a9e21294153156b85ae5d6be4
+  RNSentry: 11917f7bf3e28806aca4c2791c6ba7522d8f09fe
   RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
   RNVectorIcons: 8b5bb0fa61d54cd2020af4f24a51841ce365c7e9
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d

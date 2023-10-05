@@ -219,6 +219,7 @@ export const LightImageModal = ({ activeImage, onClose }: LightImageModalProps) 
         translation.x.value = animated ? withTiming(0) : 0;
         translation.y.value = animated ? withTiming(0) : 0;
     };
+
     const onStart = () => {
         'worklet';
         offset.x.value = offset.x.value + translation.x.value;
@@ -226,6 +227,7 @@ export const LightImageModal = ({ activeImage, onClose }: LightImageModalProps) 
         translation.x.value = 0;
         translation.y.value = 0;
     };
+
     const pinchGesture = Gesture.Pinch()
         .onStart(({ focalX, focalY }) => {
             'worklet';
@@ -324,19 +326,20 @@ export const LightImageModal = ({ activeImage, onClose }: LightImageModalProps) 
         });
 
     // Todo: add double tab
-    const doubleTapGesture = Gesture.Tap().numberOfTaps(2).enabled(false);
-    const tapGesture = Gesture.Tap()
-        .enabled(tapToClose || !!onTap)
-        .numberOfTaps(1)
-        .maxDistance(10)
-        .onEnd(() => {
-            if (tapToClose) {
-                closeModal();
-            }
-            if (onTap) {
-                runOnJS(onTap)();
-            }
-        });
+    // const doubleTapGesture = Gesture.Tap().numberOfTaps(2).enabled(false);
+    // const tapGesture = Gesture.Tap()
+    //     .enabled(tapToClose || !!onTap)
+    //     .numberOfTaps(1)
+    //     .maxDistance(10)
+    //     .onEnd(() => {
+    //         if (tapToClose) {
+    //             closeModal();
+    //         }
+    //         if (onTap) {
+    //             runOnJS(onTap)();
+    //         }
+    //     });
+
     return (
         <Animated.View style={StyleSheet.absoluteFillObject}>
             <Animated.View style={[styles.backdrop, backdropStyles]} />

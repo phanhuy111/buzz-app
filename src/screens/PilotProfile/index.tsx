@@ -1,7 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import useImageScroll from 'hooks/useImageScroll';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -15,8 +15,8 @@ import { drone1 } from 'assets/images';
 import { Text } from 'components';
 import { HeaderNavigator } from 'components/Header';
 import { LightBox } from 'components/LightBox/LightBox';
-import { LightBoxProvider } from 'components/LightBox/ProviderBox';
-import { InstagramVideo } from 'components/Video';
+import { LightBoxProvider, useLightBox } from 'components/LightBox/ProviderBox';
+import { CustomVideo } from 'components/Video';
 import { View } from 'components/View';
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH, horizontalScale, verticalScale } from 'utils';
@@ -37,6 +37,12 @@ const DATA = [
 ];
 
 const ImageCell = ({ item }: { item: any }) => {
+    const lightBox = useLightBox();
+
+    function handlePlayVideo() {
+        return lightBox?.handlePlayVideo();
+    }
+
     return (
         <LightBox
             width={horizontalScale(SCREEN_WIDTH - 210)}
@@ -44,7 +50,9 @@ const ImageCell = ({ item }: { item: any }) => {
             imgLayout={{ width: SCREEN_WIDTH - 20, height: SCREEN_WIDTH }}
             tapToClose
         >
-            <InstagramVideo
+            <CustomVideo
+                handlePlayVideo={handlePlayVideo}
+                isPause={lightBox?.isPause}
                 source={
                     'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
                 }

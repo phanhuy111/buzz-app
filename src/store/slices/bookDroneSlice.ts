@@ -5,7 +5,7 @@ export interface BookingState {
 }
 
 const initialState: BookingState = {
-    specialiation: 'en',
+    specialiation: '',
 };
 
 export const bookDroneSlice = createSlice({

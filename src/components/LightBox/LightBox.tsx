@@ -81,7 +81,7 @@ export const LightBox: React.FC<LightBoxProps> = ({
                     width: Dimensions.get('window').width,
                     height: Dimensions.get('window').width,
                 },
-            imageElement: children,
+            imageElement: { ...children, props: { ...children.props, isPause: false } },
             tapToClose,
             onTap,
         });
@@ -109,7 +109,7 @@ export const LightBox: React.FC<LightBoxProps> = ({
 
     return (
         <GestureDetector gesture={Gesture.Race(longPressGesture, tapGesture)}>
-            <Animated.View style={{ borderRadius: 10 }}>
+            <Animated.View>
                 <Animated.View ref={animatedRef} style={styles}>
                     {children}
                 </Animated.View>
