@@ -109,10 +109,8 @@ export const LightBox: React.FC<LightBoxProps> = ({
 
     return (
         <GestureDetector gesture={Gesture.Race(longPressGesture, tapGesture)}>
-            <Animated.View>
-                <Animated.View ref={animatedRef} style={styles}>
-                    {children}
-                </Animated.View>
+            <Animated.View ref={animatedRef} style={styles}>
+                {children}
             </Animated.View>
         </GestureDetector>
     );

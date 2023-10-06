@@ -43,9 +43,11 @@ const ImageCell = ({ item }: { item: any }) => {
         return lightBox?.handlePlayVideo();
     }
 
+    console.log({ SCREEN_WIDTH });
+
     return (
         <LightBox
-            width={horizontalScale(SCREEN_WIDTH - 210)}
+            width={horizontalScale(160)}
             height={horizontalScale(90)}
             imgLayout={{ width: SCREEN_WIDTH - 20, height: SCREEN_WIDTH }}
             tapToClose

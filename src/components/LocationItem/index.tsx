@@ -73,7 +73,9 @@ export const LocationItem = ({ data, onCb }: PropsLocationItem) => {
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {},
+    wrapper: {
+        flex: 1,
+    },
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,
