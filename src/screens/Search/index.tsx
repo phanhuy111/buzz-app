@@ -1,9 +1,13 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { useFormSchema } from 'hooks/useFormSchema';
+import { z } from 'zod';
 
+import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
 import { colors } from 'themes';
 
@@ -17,13 +21,15 @@ import KeyboardAwareScrollView from 'components/KeyboardAwareScrollView';
 import { Specialty } from 'components/Specialty';
 import { View } from 'components/View';
 
-import { verticalScale } from 'utils';
+import { horizontalScale, verticalScale } from 'utils';
 
 import { DATE_PICKER, LOCATIONS } from 'constants/index';
 
 const dataSample = {
+    id: '1',
     subTitle: 'Sargeant (PIlot)',
     title: 'Whiskey Norman',
+    image: '',
     description: 'Lumenier QAV-PRO Lifter 9',
     price: 900,
 };
@@ -31,6 +37,8 @@ const dataSample = {
 const Search = () => {
     const { formatMessage } = useIntl();
     const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+
+    function findDronePilot() {}
 
     return (
         <LayoutDefault isGoBack>
@@ -81,7 +89,7 @@ const Search = () => {
                 <View style={styles.button}>
                     <Button
                         title={formatMessage({ defaultMessage: 'FIND DRONE PILOT' })}
-                        onPress={() => {}}
+                        onPress={findDronePilot}
                         type="accent"
                     />
                 </View>
@@ -110,8 +118,8 @@ const styles = StyleSheet.create({
     specialtyList: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignContent: 'center',
+        gap: horizontalScale(10),
     },
     button: {
         paddingBottom: verticalScale(10),

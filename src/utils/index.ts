@@ -3,3 +3,4 @@ export * from './regex';
 export * from './keyboard';
 export * from './resetAllCache';
 export * from './constants';
+export * from './lightbox';

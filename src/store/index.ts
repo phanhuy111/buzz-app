@@ -7,23 +7,32 @@ import createSagaMiddleware from 'redux-saga';
 
 import rootSaga from './sagas';
 import { RESET_ALL } from './sagas/resetAll';
+import bookDroneSlice, { BookingState } from './slices/bookDroneSlice';
 import localeSlice, { LocaleState } from './slices/localeSlice';
+import locationDroneSlice, { LocationState } from './slices/locationDroneSlice';
+import selectDateSlice, { DateState } from './slices/selectDateSlice';
 
 const persistConfig: PersistConfig<any> = {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: [],
+    blacklist: ['selectDate', 'locationDrone', 'bookDrone'],
     version: 1,
 };
 
 const combinedReducer = combineReducers({
     locale: localeSlice,
+    bookDrone: bookDroneSlice,
+    locationDrone: locationDroneSlice,
+    selectDate: selectDateSlice,
 });
 
 const reducers = (
     state:
         | CombinedState<{
               locale: LocaleState;
+              bookDrone: BookingState;
+              locationDrone: LocationState;
+              selectDate: DateState;
           }>
         | undefined,
     action: AnyAction,

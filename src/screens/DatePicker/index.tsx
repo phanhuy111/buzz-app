@@ -1,11 +1,14 @@
 import dayjs from 'dayjs';
 import { SafeAreaView } from 'hocs';
+import { RootState } from 'store';
+import { resetAll } from 'store/sagas/resetAll';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { StyleProp, StyleSheet, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { colors } from 'themes';
 
@@ -22,6 +25,9 @@ import { View } from 'components/View';
 import { dayShortName, horizontalScale, verticalScale } from 'utils';
 
 const DatePicker = () => {
+    const { date, startTime, endTime } = useSelector((state: RootState) => state.selectDate);
+    const dispatch = useDispatch();
+
     const { formatMessage } = useIntl();
     const [isDatePickerVisible, setDatePickerVisibility] = useState({
         start: false,
@@ -29,8 +35,8 @@ const DatePicker = () => {
     });
 
     const [time, setTime] = useState({
-        start: '10:00',
-        end: '10:00',
+        start: startTime,
+        end: endTime,
     });
 
     const showDatePicker = (type: string | undefined) => {
@@ -53,7 +59,7 @@ const DatePicker = () => {
             setTime({ ...time, start: convertedTime });
             return hideDatePicker(type);
         } else {
-            setTime({ ...time, start: '10:00', end: convertedTime });
+            setTime({ ...time, start: startTime, end: convertedTime });
             return hideDatePicker(type);
         }
     };
@@ -74,7 +80,7 @@ const DatePicker = () => {
                             {formatMessage({ defaultMessage: 'Choose a Date' })}
                         </Text>
                         <Text style={styles.text} type="industryXLBold">
-                            {'July 14th'}
+                            {dayjs(date).format('MMM D')}
                         </Text>
                         <View style={[styles.containerRow, styles.row]}>
                             <Text style={styles.text} type="rajdhSmMedium">

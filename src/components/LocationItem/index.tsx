@@ -1,13 +1,15 @@
+import { random } from 'lodash';
+
 import { useIntl } from 'react-intl';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, TouchableOpacity } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 import { colors } from 'themes';
 
 import { buzzItemBg, logoBg, rankLine } from 'assets/images';
 
-import { Button } from 'components/Button';
 import { Text } from 'components/Text';
+import { View } from 'components/View';
 
 import { horizontalScale, verticalScale } from 'utils';
 
@@ -15,53 +17,65 @@ import { IPilots } from 'types';
 
 interface PropsLocationItem {
     data?: IPilots;
+    onCb?: (item: string) => void;
 }
 
-export const LocationItem = ({ data }: PropsLocationItem) => {
-    const rank = 3;
-    const { formatMessage } = useIntl();
+const rank = random(1, 5);
+
+export const LocationItem = ({ data, onCb }: PropsLocationItem) => {
+    function handleSelectItem(id: string) {
+        onCb?.(id);
+    }
 
     return (
-        <View style={styles.wrapper}>
-            <ImageBackground imageStyle={styles.imageLogoBg} source={buzzItemBg} resizeMode="cover">
-                <View style={styles.container}>
-                    <ImageBackground style={styles.imageLogo} source={logoBg}>
-                        {Array(rank)
-                            .fill('')
-                            .map(value => {
-                                return (
-                                    <FastImage
-                                        style={styles.rankImg}
-                                        source={rankLine}
-                                        resizeMode={FastImage.resizeMode.contain}
-                                    />
-                                );
-                            })}
-                    </ImageBackground>
-                    <View style={styles.containerText}>
-                        <Text style={styles.text} type="robotoMonoXsLight">
-                            {data?.subTitle}
-                        </Text>
-                        <Text style={styles.textTitle} type="indusMdBold">
-                            {data?.title}
-                        </Text>
-                        <Text style={styles.text} type="robotoMonoXsLight">
-                            {data?.description}
-                        </Text>
+        <TouchableOpacity onPress={() => handleSelectItem(data?.id || '')}>
+            <View style={styles.wrapper}>
+                <ImageBackground
+                    imageStyle={styles.imageLogoBg}
+                    source={buzzItemBg}
+                    resizeMode="cover"
+                >
+                    <View style={styles.container}>
+                        <ImageBackground style={styles.imageLogo} source={logoBg}>
+                            {Array(rank)
+                                .fill('')
+                                .map(value => {
+                                    return (
+                                        <FastImage
+                                            style={styles.rankImg}
+                                            source={rankLine}
+                                            resizeMode={FastImage.resizeMode.contain}
+                                        />
+                                    );
+                                })}
+                        </ImageBackground>
+                        <View style={styles.containerText}>
+                            <Text style={styles.text} type="robotoMonoXsLight">
+                                {data?.subTitle}
+                            </Text>
+                            <Text style={styles.textTitle} type="indusMdBold">
+                                {data?.title}
+                            </Text>
+                            <Text style={styles.text} type="robotoMonoXsLight">
+                                {data?.description}
+                            </Text>
+                        </View>
+                        <View style={styles.containerPrice}>
+                            <Text style={styles.textTitle} type="rajdMdMedium">
+                                {'$' + data?.price}
+                            </Text>
+                        </View>
                     </View>
-                    <View style={styles.containerPrice}>
-                        <Text style={styles.textTitle} type="rajdMdMedium">
-                            {'$' + data?.price}
-                        </Text>
-                    </View>
-                </View>
-            </ImageBackground>
-        </View>
+                </ImageBackground>
+            </View>
+        </TouchableOpacity>
     );
 };
 
 export const styles = StyleSheet.create({
-    wrapper: {},
+    wrapper: {
+        flex: 1,
+    },
     imageLogoBg: {
         borderRadius: 5,
         borderWidth: 2,

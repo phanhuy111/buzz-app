@@ -1,33 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
 import Video from 'react-native-video';
 
 import { playIcon } from 'assets/images';
 
-import { horizontalScale } from 'utils';
+import { SCREEN_WIDTH, horizontalScale } from 'utils';
 
 interface PropsType {
+    handlePlayVideo: () => void;
+    isPause?: boolean;
     source: string;
 }
 
-export const InstagramVideo = (props: PropsType) => {
-    const { source } = props;
-    const [pauseNumber, setPauseNumber] = React.useState(0);
-    const isPaused = pauseNumber % 2 === 0;
+export const CustomVideo = (props: PropsType) => {
+    const { isPause = false, source, handlePlayVideo } = props;
 
     return (
-        <TouchableWithoutFeedback onPress={() => setPauseNumber(pauseNumber + 1)}>
+        <TouchableWithoutFeedback onPress={() => handlePlayVideo()}>
             <View style={{ flex: 1 }}>
                 <Video
                     source={{ uri: source }}
                     style={{
                         flex: 1,
-                        width: horizontalScale(160),
-                        height: horizontalScale(90),
-                        borderRadius: 5,
+                        borderRadius: 10,
                     }}
-                    paused={isPaused}
+                    paused={isPause}
                     resizeMode={'contain'}
                     repeat
                 />
@@ -35,7 +32,7 @@ export const InstagramVideo = (props: PropsType) => {
                 <View style={styles.playContainer}>
                     <Image
                         style={{
-                            opacity: isPaused ? 1 : 0,
+                            opacity: isPause ? 1 : 0,
                             width: horizontalScale(40),
                             height: horizontalScale(40),
                         }}

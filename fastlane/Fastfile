@@ -103,7 +103,6 @@ platform :ios do
 end
 
 platform :android do
-
   changelog = changelog_from_git_commits(
     merge_commit_filtering: "exclude_merges",
     commits_count: 1

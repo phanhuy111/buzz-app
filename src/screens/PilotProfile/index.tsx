@@ -1,7 +1,7 @@
 import { FlashList } from '@shopify/flash-list';
 import useImageScroll from 'hooks/useImageScroll';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
@@ -14,10 +14,12 @@ import { drone1 } from 'assets/images';
 
 import { Text } from 'components';
 import { HeaderNavigator } from 'components/Header';
-import { InstagramVideo } from 'components/Video';
+import { LightBox } from 'components/LightBox/LightBox';
+import { LightBoxProvider, useLightBox } from 'components/LightBox/ProviderBox';
+import { CustomVideo } from 'components/Video';
 import { View } from 'components/View';
 
-import { SCREEN_HEIGHT, horizontalScale, verticalScale } from 'utils';
+import { SCREEN_HEIGHT, SCREEN_WIDTH, horizontalScale, verticalScale } from 'utils';
 
 const DATA = [
     {
@@ -35,12 +37,29 @@ const DATA = [
 ];
 
 const ImageCell = ({ item }: { item: any }) => {
+    const lightBox = useLightBox();
+
+    function handlePlayVideo() {
+        return lightBox?.handlePlayVideo();
+    }
+
+    console.log({ SCREEN_WIDTH });
+
     return (
-        <InstagramVideo
-            source={
-                'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
-            }
-        />
+        <LightBox
+            width={horizontalScale(160)}
+            height={horizontalScale(90)}
+            imgLayout={{ width: SCREEN_WIDTH - 20, height: SCREEN_WIDTH }}
+            tapToClose
+        >
+            <CustomVideo
+                handlePlayVideo={handlePlayVideo}
+                isPause={lightBox?.isPause}
+                source={
+                    'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_5MB.mp4?a=234234'
+                }
+            />
+        </LightBox>
     );
 };
 
@@ -54,7 +73,7 @@ const PilotProfile = () => {
     const paddingTop = top === 0 ? verticalScale(10) : top;
 
     return (
-        <>
+        <LightBoxProvider>
             <HeaderNavigator
                 animatedHeaderStyle={styleHeader}
                 isGoBack={true}
@@ -156,7 +175,7 @@ const PilotProfile = () => {
                     </View>
                 </View>
             </Animated.ScrollView>
-        </>
+        </LightBoxProvider>
     );
 };
 

@@ -1,31 +1,57 @@
-import { ImageBackground, View as ViewDefault } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
+
+import { colors } from 'themes';
 
 import { Text } from 'components/Text';
+import { View } from 'components/View';
 
-import { verticalScale } from 'utils';
+import { horizontalScale, verticalScale } from 'utils';
 
-import { IProduct } from 'types';
-
-import { styles } from './Specialty.styled';
+import { IPilots } from 'types';
 
 interface PropsSpecialty {
-    data?: IProduct;
+    data?: IPilots;
 }
 
 export const Specialty = ({ data }: PropsSpecialty) => {
     return (
-        <ViewDefault style={styles.container}>
-            <ImageBackground
-                imageStyle={{ borderRadius: 5 }}
-                style={{ width: verticalScale(170), height: verticalScale(100) }}
-                source={{ uri: 'https://unsplash.it/400/400?image=1' }}
-            >
-                <ViewDefault style={styles.containerText}>
-                    <Text style={styles.textTitle} type="rajdhSmBold">
-                        {data?.title}
-                    </Text>
-                </ViewDefault>
-            </ImageBackground>
-        </ViewDefault>
+        <ImageBackground
+            style={styles.container}
+            imageStyle={styles.images}
+            source={{ uri: 'https://unsplash.it/400/400?image=1' }}
+        >
+            <View style={styles.containerText}>
+                <Text style={styles.textTitle} type="rajdhSmBold">
+                    {data?.title}
+                </Text>
+            </View>
+        </ImageBackground>
     );
 };
+
+export const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        position: 'relative',
+    },
+    images: {
+        position: 'relative',
+        flex: 1,
+        width: '100%',
+        height: horizontalScale(120),
+        borderRadius: 5,
+    },
+    containerText: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
+    },
+    text: {
+        color: colors['white']['1'],
+    },
+    textTitle: {
+        color: colors['white']['0'],
+    },
+});
