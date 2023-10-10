@@ -58,6 +58,11 @@ const middleware = [
     sagaMiddleware,
 ];
 
+if (__DEV__) {
+    const createDebugger = require('redux-flipper').default;
+    middleware.push(createDebugger());
+}
+
 export const store = configureStore({
     reducer: persistReducers,
     middleware,

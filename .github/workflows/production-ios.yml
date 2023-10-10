@@ -23,7 +23,7 @@ jobs:
       - name: Yarn
         run: yarn install
       - name: Pod
-        run: cd ios && pod install && cd ..
+        run: cd ios && NO_FLIPPER=1 pod install && cd ..
       - name: Unlock CI
         run: yarn unlock-ci
       - name: Set Production Info
